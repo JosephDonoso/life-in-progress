@@ -1,11 +1,6 @@
 import type { Achievement } from "./data";
 export const catalogSortCriteria = [
   { key: "rarity", label: "Rareza", values: ["rare", "rarity_asc"] },
-  {
-    key: "percentage",
-    label: "% de jugadores",
-    values: ["popular", "percentage_asc"],
-  },
   { key: "name", label: "Nombre", values: ["name", "name_desc"] },
   { key: "date", label: "Fecha", values: ["new", "catalog"] },
 ];
@@ -21,18 +16,6 @@ export const catalogSortOptions = [
     label: "Rareza",
     triangle: "▲",
     description: "De menor a mayor rareza",
-  },
-  {
-    value: "popular",
-    label: "% de jugadores",
-    triangle: "▼",
-    description: "De mayor a menor porcentaje",
-  },
-  {
-    value: "percentage_asc",
-    label: "% de jugadores",
-    triangle: "▲",
-    description: "De menor a mayor porcentaje",
   },
   { value: "name", label: "Nombre", triangle: "▲", description: "Nombre: A–Z" },
   {

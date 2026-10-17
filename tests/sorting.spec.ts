@@ -6,7 +6,7 @@ test("one sort entry per criterion; selecting the active criterion reverses it",
   const trigger = page.getByRole("button", { name: "Orden", exact: true });
   async function choose(criterion: string) {
     await trigger.click();
-    await expect(page.getByRole("menuitem")).toHaveCount(4);
+    await expect(page.getByRole("menuitem")).toHaveCount(3);
     const option = page.getByRole("menuitem", {
       name: new RegExp("^" + criterion.replace("%", "%")),
     });
@@ -24,12 +24,6 @@ test("one sort entry per criterion; selecting the active criterion reverses it",
   await choose("Rareza");
   await expect(trigger).toHaveText("Rareza ▲");
   await expect(first).toHaveText("Pantalla azul");
-  await choose("% de jugadores");
-  await expect(trigger).toHaveText("% de jugadores ▼");
-  await expect(first).toHaveText("Pantalla azul");
-  await choose("% de jugadores");
-  await expect(trigger).toHaveText("% de jugadores ▲");
-  await expect(first).toHaveText("Vuelta al mundo");
   await choose("Nombre");
   await expect(trigger).toHaveText("Nombre ▲");
   await choose("Nombre");
@@ -44,8 +38,8 @@ test("one sort entry per criterion; selecting the active criterion reverses it",
   await page.getByLabel("Idioma / Language").selectOption("en");
   const english = page.getByRole("button", { name: "Sort", exact: true });
   await english.click();
-  await expect(page.getByRole("menuitem")).toHaveCount(4);
-  for (const name of ["Rarity", "% of players", "Name", "Date"])
+  await expect(page.getByRole("menuitem")).toHaveCount(3);
+  for (const name of ["Rarity", "Name", "Date"])
     await expect(
       page.getByRole("menuitem", { name: new RegExp("^" + name) }),
     ).toHaveCount(1);

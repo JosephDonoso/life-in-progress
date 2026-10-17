@@ -10,7 +10,7 @@ El proyecto está en su primer MVP. Las funciones, el diseño y el alcance puede
 
 ## Funciones disponibles
 
-- Catálogo inicial de 24 logros, con búsqueda, categorías y filtros por rareza y estado. El orden por rareza, porcentaje de jugadores, nombre o fecha se invierte al seleccionar de nuevo el mismo criterio.
+- Catálogo inicial de 24 logros, con búsqueda, categorías y filtros por rareza y estado. El orden por rareza, nombre o fecha se invierte al seleccionar de nuevo el mismo criterio.
 - Logros pendientes atenuados y logros obtenidos a color, con marcos y brillo según su rareza.
 - «Mi aventura»: listado personal y global, proporciones de obtención, orden del más al menos conseguido y carga progresiva mediante «Ver más».
 - Registro, acceso y recuperación de contraseña por correo; integración de Google preparada para configurar su proveedor.
