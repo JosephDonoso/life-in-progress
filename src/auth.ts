@@ -1,6 +1,60 @@
 export function authReturnUrl() {
   return new URL(".", window.location.href).href;
 }
+
+// Read only intent/error flags, before Supabase consumes and clears URL tokens.
+export function captureAuthCallback() {
+  const hash = new URLSearchParams(window.location.hash.slice(1));
+  const query = new URLSearchParams(window.location.search);
+  return {
+    recovery: (hash.get("type") || query.get("type")) === "recovery",
+    errorCode:
+      hash.get("error_code") ||
+      query.get("error_code") ||
+      (hash.has("error") || query.has("error") ? "invalid_callback" : null),
+  };
+}
+
+const recoveryKey = "lip-password-recovery";
+type Recovery = { userId: string; expires: number };
+let recovery: Recovery | null = null;
+export function rememberPasswordRecovery(userId: string) {
+  recovery = { userId, expires: Date.now() + 15 * 60_000 };
+  try {
+    sessionStorage.setItem(recoveryKey, JSON.stringify(recovery));
+  } catch {
+    /* Memory fallback for restricted storage. */
+  }
+}
+export function clearPasswordRecovery() {
+  recovery = null;
+  try {
+    sessionStorage.removeItem(recoveryKey);
+  } catch {
+    /* Storage may be restricted. */
+  }
+}
+export function hasPasswordRecovery(userId: string) {
+  try {
+    const saved: unknown = JSON.parse(
+      sessionStorage.getItem(recoveryKey) || "null",
+    );
+    if (
+      saved &&
+      typeof saved === "object" &&
+      "userId" in saved &&
+      "expires" in saved &&
+      typeof saved.userId === "string" &&
+      typeof saved.expires === "number"
+    )
+      recovery = saved as Recovery;
+  } catch {
+    /* Use the in-memory intent if storage is unavailable. */
+  }
+  if (recovery?.userId === userId && recovery.expires > Date.now()) return true;
+  clearPasswordRecovery();
+  return false;
+}
 export function authErrorMessage(error: { code?: string; message?: string }) {
   switch (error.code) {
     case "invalid_credentials":
@@ -27,6 +81,7 @@ export function authErrorMessage(error: { code?: string; message?: string }) {
       return "El acceso por correo debe habilitarse en Supabase.";
     case "otp_expired":
     case "flow_state_expired":
+    case "invalid_callback":
       return "El enlace venció. Solicita uno nuevo.";
     default:
       return "No se pudo completar la operación. Inténtalo nuevamente.";

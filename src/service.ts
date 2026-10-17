@@ -1,5 +1,7 @@
 import { createClient } from "@supabase/supabase-js";
 import type { Achievement } from "./data";
+import { captureAuthCallback } from "./auth";
+export const authCallback = captureAuthCallback();
 const url = import.meta.env.VITE_SUPABASE_URL,
   key = import.meta.env.VITE_SUPABASE_PUBLISHABLE_KEY;
 export const db = url && key ? createClient(url, key) : null;

@@ -11,6 +11,8 @@ import { ProfileEditor } from "../components/ProfileEditor";
 import { FollowLinks } from "../components/FollowLinks";
 import { Avatar } from "../components/Avatar";
 import { AdventureSection } from "./AdventureSection";
+import { useCallback } from "react";
+import { clearPasswordRecovery } from "../auth";
 export function AccountDialogs({ model }: { model: LifeProgress }) {
   const { t: tr, language } = useLanguage();
 
@@ -25,11 +27,19 @@ export function AccountDialogs({ model }: { model: LifeProgress }) {
     setError,
     setDemoUser,
   } = model;
-  useDialogFocus(modal, setModal);
+  const changeModal = useCallback(
+    (next: string) => {
+      if (modal === "reset-password" && next !== "reset-password")
+        clearPasswordRecovery();
+      setModal(next);
+    },
+    [modal, setModal],
+  );
+  useDialogFocus(modal, changeModal);
   return (
     <>
       {modal && (
-        <div className="backdrop" onClick={() => setModal("")}>
+        <div className="backdrop" onClick={() => changeModal("")}>
           <section
             className={`modal ${modal === "adventure" ? "adventure-modal" : ""}`}
             role="dialog"
@@ -52,7 +62,7 @@ export function AccountDialogs({ model }: { model: LifeProgress }) {
             <button
               className="close"
               aria-label={tr("Cerrar")}
-              onClick={() => setModal("")}
+              onClick={() => changeModal("")}
             >
               <X />
             </button>

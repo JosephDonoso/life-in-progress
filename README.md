@@ -94,6 +94,8 @@ Pulsa «Iniciar sesión» y luego «Crear cuenta». Introduce nombre visible, co
 
 «Olvidé mi contraseña» solicita un correo de recuperación. Su enlace vuelve a la aplicación y abre el formulario para elegir una nueva contraseña. El cliente de Supabase conserva la sesión entre recargas; la aplicación no guarda la contraseña. La confirmación y recuperación requieren que la URL de retorno esté autorizada en Supabase.
 
+La aplicación detecta la recuperación antes de que Supabase consuma el enlace, por lo que el formulario también se abre si la sesión se procesa antes de cargar React. Una intención temporal vinculada al usuario se conserva en esta pestaña durante 15 minutos para permitir recargar sin perder el formulario; no contiene contraseñas ni tokens. Se elimina al guardar la nueva contraseña, cerrar el formulario, cerrar sesión o recibir un enlace vencido. Si el correo lleva a `localhost:3000`, corrige Site URL y Redirect URLs con la dirección publicada, incluida la ruta y la barra final, y solicita un correo nuevo.
+
 Sin SMTP personalizado, el servicio de correo de Supabase solo entrega a direcciones del equipo del proyecto y tiene un límite reducido (actualmente dos mensajes por hora). Para probar usa el correo con el que administras Supabase. Para otros destinatarios configura SMTP. Consulta las guías oficiales de [contraseñas](https://supabase.com/docs/guides/auth/passwords) y [envío de correos](https://supabase.com/docs/guides/auth/auth-smtp).
 
 Para comprobar el guardado real: entra, marca un logro, modifica tu perfil, recarga la página y vuelve a entrar después de cerrar sesión. En Supabase puedes verificar la cuenta en Authentication / Users, el perfil en `profiles` y los desbloqueos en `user_achievements`.

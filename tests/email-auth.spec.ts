@@ -339,6 +339,11 @@ test("a recovery callback opens password update and validates matching passwords
         r.body.password === "new-example-password",
     ),
   ).toBe(true);
+  await page.reload();
+  await expect(page.locator(".header-inner .account")).toBeVisible();
+  await expect(
+    page.getByRole("dialog", { name: "Nueva contraseña", exact: true }),
+  ).toHaveCount(0);
 });
 
 test("searches debounce typing and reuse metadata across filtering, pagination and views", async ({
@@ -517,4 +522,74 @@ test("saving an achievement refreshes progress once and shares metadata with My 
   expect(count("rpc/catalog_page")).toBe(initial);
   await page.clock.runFor(1);
   await expect.poll(() => count("rpc/catalog_page")).toBe(initial + 1);
+});
+
+test("recovery still opens if Supabase finishes before React mounts", async ({
+  page,
+}) => {
+  const mock = await mockSupabase(page);
+  await page.route("**/src/main.tsx", async (route) => {
+    const response = await route.fetch();
+    await route.fulfill({
+      response,
+      body:
+        "await new Promise(resolve => setTimeout(resolve, 250));\n" +
+        (await response.text()),
+    });
+  });
+  await page.goto(
+    `/#access_token=${mock.session.access_token}&refresh_token=${mock.session.refresh_token}&token_type=bearer&expires_in=3600&type=recovery`,
+  );
+  await expect(
+    page.getByRole("dialog", { name: "Nueva contraseña", exact: true }),
+  ).toBeVisible({ timeout: 3000 });
+  await page.reload();
+  const dialog = page.getByRole("dialog", {
+    name: "Nueva contraseña",
+    exact: true,
+  });
+  await expect(dialog).toBeVisible();
+  await dialog.getByRole("button", { name: "Cerrar", exact: true }).click();
+  await page.reload();
+  await expect(page.locator(".header-inner .account")).toBeVisible();
+  await expect(dialog).toHaveCount(0);
+});
+
+test("expired recovery links report the error instead of reopening a stored recovery form", async ({
+  page,
+}) => {
+  const mock = await mockSupabase(page);
+  await page.goto(
+    `/#access_token=${mock.session.access_token}&refresh_token=${mock.session.refresh_token}&token_type=bearer&expires_in=3600&type=recovery`,
+  );
+  await expect(
+    page.getByRole("dialog", { name: "Nueva contraseña", exact: true }),
+  ).toBeVisible();
+  // An external email link loads a new document, not an in-page hash change.
+  await page.goto("about:blank");
+  await page.goto(
+    "/#error=access_denied&error_code=otp_expired&error_description=Expired",
+  );
+  await expect(page.getByRole("alert")).toContainText(
+    "El enlace venció. Solicita uno nuevo.",
+  );
+  await expect(
+    page.getByRole("dialog", { name: "Nueva contraseña", exact: true }),
+  ).toHaveCount(0);
+  await page.goto("/");
+  await expect(page.locator(".header-inner .account")).toBeVisible();
+  await expect(
+    page.getByRole("dialog", { name: "Nueva contraseña", exact: true }),
+  ).toHaveCount(0);
+});
+
+test("signup confirmations do not open password recovery", async ({ page }) => {
+  const mock = await mockSupabase(page);
+  await page.goto(
+    `/#access_token=${mock.session.access_token}&refresh_token=${mock.session.refresh_token}&token_type=bearer&expires_in=3600&type=signup`,
+  );
+  await expect(page.locator(".header-inner .account")).toBeVisible();
+  await expect(
+    page.getByRole("dialog", { name: "Nueva contraseña", exact: true }),
+  ).toHaveCount(0);
 });

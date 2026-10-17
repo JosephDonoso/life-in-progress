@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { db } from "../service";
-import { authErrorMessage } from "../auth";
+import { authErrorMessage, clearPasswordRecovery } from "../auth";
 import { useLanguage } from "../i18n/useLanguage";
 export function PasswordResetForm() {
   const { t } = useLanguage(),
@@ -32,6 +32,7 @@ export function PasswordResetForm() {
               const { error } = await db.auth.updateUser({ password });
               if (error) setError(authErrorMessage(error));
               else {
+                clearPasswordRecovery();
                 setPassword("");
                 setRepeat("");
                 setSaved(true);

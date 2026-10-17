@@ -2,11 +2,17 @@ import { useEffect, useRef, useState } from "react";
 import type { User } from "@supabase/supabase-js";
 import { demo } from "../data";
 import { useCatalog } from "./useCatalog";
-import { db, empty, localProgress } from "../service";
+import { db, empty, localProgress, authCallback } from "../service";
 import type { Progress, PlayerState } from "../service";
 import { persistProfile, readLocalProfile } from "../profile";
 import type { EditableProfile } from "../profile";
 import { invalidateCatalogStats } from "../catalogMetadata";
+import {
+  authErrorMessage,
+  clearPasswordRecovery,
+  hasPasswordRecovery,
+  rememberPasswordRecovery,
+} from "../auth";
 export function useLifeProgress() {
   const [profile, setProfile] = useState<EditableProfile | null>(
     db ? null : readLocalProfile,
@@ -60,6 +66,7 @@ export function useLifeProgress() {
       if (!active) return;
       const id = next?.id || null;
       if (id !== sessionUserId.current) {
+        if (!id || sessionUserId.current) clearPasswordRecovery();
         sessionUserId.current = id;
         invalidateCatalogStats();
         setProfile(null);
@@ -71,12 +78,24 @@ export function useLifeProgress() {
     }
     client.auth.getSession().then(({ data, error }) => {
       if (!active) return;
-      if (error) setError(error.message);
+      if (authCallback.errorCode) {
+        clearPasswordRecovery();
+        setError(authErrorMessage({ code: authCallback.errorCode }));
+      } else if (error) setError(authErrorMessage(error));
       applyUser(data.session?.user || null);
+      if (!error && !authCallback.errorCode && data.session) {
+        const id = data.session.user.id;
+        if (authCallback.recovery) rememberPasswordRecovery(id);
+        if (hasPasswordRecovery(id)) setModal("reset-password");
+      }
     });
     const { data } = client.auth.onAuthStateChange((event, session) => {
       applyUser(session?.user || null);
-      if (event === "PASSWORD_RECOVERY") setModal("reset-password");
+      if (event === "PASSWORD_RECOVERY" && session) {
+        rememberPasswordRecovery(session.user.id);
+        setModal("reset-password");
+      }
+      if (event === "SIGNED_OUT") clearPasswordRecovery();
     });
     return () => {
       active = false;
