@@ -1,0 +1,18 @@
+:root {
+  --rarity-common: #a7b0bc;
+  --rarity-rare: #399dff;
+  --rarity-epic: #ba8bec;
+  --rarity-legendary: #e0b65e;
+}
+[data-rarity="Común"] {
+  --rarity: var(--rarity-common);
+}
+[data-rarity="Raro"] {
+  --rarity: var(--rarity-rare);
+}
+[data-rarity="Épico"] {
+  --rarity: var(--rarity-epic);
+}
+[data-rarity="Legendario"] {
+  --rarity: var(--rarity-legendary);
+}

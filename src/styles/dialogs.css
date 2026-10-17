@@ -1,0 +1,129 @@
+.backdrop {
+  position: fixed;
+  inset: 0;
+  background: #030c16cc;
+  backdrop-filter: blur(7px);
+  z-index: 10;
+  display: grid;
+  place-items: center;
+  padding: 20px;
+}
+.modal {
+  width: min(100%, 480px);
+  max-height: 90vh;
+  overflow: auto;
+  position: relative;
+  background: linear-gradient(140deg, #203e54, #0e1d2b);
+  border: 1px solid #3a5e79;
+  border-radius: 8px;
+  padding: 42px 35px;
+  box-shadow: 0 25px 90px #0008;
+}
+.close {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  color: #8faabc;
+}
+.modal-icon {
+  display: grid;
+  place-items: center;
+  width: 65px;
+  height: 65px;
+  border-radius: 16px;
+  background: #2c5771;
+  color: #a1dbfc;
+  margin-bottom: 25px;
+}
+.modal h2 {
+  font-size: 23px;
+  color: #eaf3f9;
+  font-weight: 600;
+  margin-bottom: 15px;
+}
+.modal p {
+  font-size: 12px;
+  line-height: 1.8;
+  color: #a7bece;
+  margin: 10px 0 22px;
+}
+.modal .google {
+  width: 100%;
+  margin: 6px 0 16px;
+}
+.modal > small {
+  display: block;
+  text-align: center;
+  font-size: 10px;
+}
+.modal .muted {
+  font-size: 10px;
+  color: #7897ae;
+  line-height: 1.7;
+  margin: 18px 0;
+}
+.profile-title {
+  display: flex;
+  gap: 14px;
+  align-items: center;
+  margin-bottom: 25px;
+}
+.profile-title h2 {
+  margin: 0 0 5px;
+}
+.profile-progress {
+  padding: 20px;
+  background: #0b1c29;
+  border: 1px solid #2a4459;
+  margin-bottom: 25px;
+}
+.profile-progress strong {
+  font-size: 35px;
+  color: #80c9f3;
+  display: block;
+}
+.profile-progress span {
+  font-size: 11px;
+}
+.modal h3 {
+  font-size: 14px;
+  color: #d9e7f1;
+}
+.featured-list {
+  margin: 14px 0 25px;
+}
+.featured-list > div {
+  padding: 12px;
+  background: #243d50;
+  border: 1px solid #3a5264;
+  display: flex;
+  gap: 10px;
+  color: #ddc084;
+  margin-bottom: 6px;
+}
+.privacy {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 11px;
+}
+.privacy input {
+  accent-color: #66c0f4;
+}
+.error {
+  position: fixed;
+  bottom: 22px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 20;
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  background: #593c34;
+  color: #ffe0d1;
+  border: 1px solid #c07c62;
+  padding: 16px;
+  border-radius: 5px;
+  max-width: 90%;
+  font-size: 12px;
+}

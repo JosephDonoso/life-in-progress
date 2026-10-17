@@ -1,0 +1,133 @@
+.sidebar {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+.side-panel {
+  background: #0a1722ee;
+  padding: 16px 14px 16px;
+  border-radius: 2px;
+}
+.side-heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0 0 11px;
+}
+.side-heading h3 {
+  font-size: 18px;
+  line-height: 23px;
+  font-weight: 500;
+  color: #f0f1f4;
+}
+.side-heading button {
+  color: #66bde9;
+  font-size: 12px;
+  padding: 0 2px;
+}
+.player {
+  display: flex;
+  align-items: center;
+  gap: 13px;
+  background: #12243099;
+  padding: 9px 8px 10px;
+  border-radius: 4px;
+}
+.player > div {
+  flex: 1;
+  min-width: 0;
+}
+.player strong {
+  display: block;
+  font-size: 14px;
+  font-weight: 500;
+  color: #eef0f4;
+  margin-bottom: 6px;
+}
+.player small {
+  display: block;
+  font-size: 12px;
+  color: #a9b9c9;
+  margin-bottom: 9px;
+}
+.rarity-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px 19px;
+  padding: 14px 3px 1px;
+}
+.rarity-grid > div {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  color: var(--rarity, #6cb4e8);
+  font-size: 12px;
+}
+.rarity-grid b {
+  margin-left: auto;
+  font-size: 12px;
+  color: #c4d3de;
+  font-weight: 400;
+}
+.rarity-grid svg {
+  width: 19px;
+  height: 19px;
+}
+.rarity-grid [data-rarity="Común"] svg {
+  color: var(--rarity);
+  fill: color-mix(in srgb, var(--rarity) 20%, transparent);
+}
+.rarity-grid [data-rarity="Legendario"] svg {
+  color: var(--rarity);
+  fill: color-mix(in srgb, var(--rarity) 20%, transparent);
+}
+.categories .side-heading {
+  margin-bottom: 10px;
+}
+.categories > button {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  gap: 10px;
+  text-align: left;
+  padding: 7px 0;
+  border-bottom: 1px solid #20334170;
+  font-size: 12px;
+  color: #aebcca;
+}
+.categories > button:last-child {
+  border-bottom: 0;
+}
+.categories > button > svg {
+  margin-left: auto;
+  color: #73899b;
+}
+.categories .chosen {
+  color: #78c5f5;
+}
+.category-symbol {
+  width: 23px;
+  flex-shrink: 0;
+  text-align: center;
+  font-size: 20px;
+  line-height: 16px;
+  color: #6ab3ed;
+}
+@media (max-width: 760px) {
+  .side-panel {
+    padding: 17px;
+  }
+  .player strong {
+    font-size: 15px;
+  }
+  .player small {
+    font-size: 13px;
+  }
+  .categories > button {
+    font-size: 14px;
+    padding: 10px 0;
+  }
+  .rarity-grid {
+    font-size: 13px;
+  }
+}

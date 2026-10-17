@@ -1,0 +1,292 @@
+.modal.adventure-modal {
+  width: min(100%, 920px);
+  height: min(88vh, 850px);
+  max-height: 88vh;
+  padding: 0;
+  overflow: hidden;
+  border-color: #385970;
+  border-radius: 5px;
+}
+.adventure-modal > .close {
+  top: 17px;
+  right: 17px;
+  z-index: 2;
+}
+.adventure-section {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+}
+.adventure-header {
+  padding: 25px 27px 19px;
+  background: linear-gradient(120deg, #24465d, #172e40);
+}
+.adventure-title {
+  display: flex;
+  gap: 13px;
+  align-items: center;
+  margin-bottom: 20px;
+  padding-right: 35px;
+}
+.adventure-title .avatar {
+  width: 44px;
+  height: 44px;
+  font-size: 21px;
+}
+.adventure-title h2 {
+  font-size: 23px;
+  margin: 0 0 5px;
+}
+.adventure-title small {
+  font-size: 12px;
+  color: #a0bacd;
+}
+.adventure-progress {
+  background: #0c203049;
+  padding: 13px 14px;
+  border: 1px solid #36566b80;
+}
+.adventure-progress > div:first-child {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 10px;
+  font-size: 12px;
+  color: #c5d6e3;
+}
+.adventure-progress > div:first-child > span {
+  text-transform: uppercase;
+  font-weight: 500;
+}
+.adventure-progress b {
+  font-weight: 600;
+  color: #e1eff7;
+}
+.adventure-tabs {
+  padding-left: 22px;
+  background: #132b3c;
+  flex-shrink: 0;
+}
+.adventure-tabs button {
+  font-size: 12px;
+  text-transform: uppercase;
+}
+.adventure-list-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 17px 22px 13px;
+  background: #0b1b28;
+  flex-shrink: 0;
+}
+.adventure-list-heading .search-field {
+  width: 310px;
+}
+.adventure-list-heading > span {
+  font-size: 11px;
+  text-transform: uppercase;
+  color: #9ab3c6;
+  text-align: right;
+}
+.adventure-list {
+  flex: 1;
+  min-height: 0;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  padding: 0 22px 8px;
+  background: #0b1b28;
+  scrollbar-width: thin;
+  scrollbar-color: #426780 #142a3a;
+  scrollbar-gutter: stable;
+}
+.adventure-row {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  gap: 13px;
+  position: relative;
+  text-align: left;
+  border-radius: 3px;
+  min-height: 83px;
+  padding: 10px 14px 10px 11px;
+  margin-bottom: 9px;
+  isolation: isolate;
+}
+.adventure-row .adventure-proportion {
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  background: #4f729231;
+  border-right: 1px solid #789fbc22;
+  z-index: -1;
+  pointer-events: none;
+}
+.adventure-row.unlocked .adventure-proportion {
+  background: color-mix(in srgb, var(--rarity) 20%, transparent);
+  border-color: color-mix(in srgb, var(--rarity) 22%, transparent);
+}
+.adventure-row > .achievement-icon {
+  width: 56px;
+  height: 60px;
+  padding: 3px;
+  align-self: center;
+  flex-shrink: 0;
+}
+.adventure-row > .achievement-icon > span {
+  height: 54px;
+  font-size: 32px;
+}
+.adventure-row .achievement-copy {
+  padding: 0;
+  z-index: 1;
+}
+.adventure-row-heading {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  flex-wrap: wrap;
+  margin-bottom: 4px;
+}
+.adventure-row h3 {
+  margin: 0;
+  font-size: 15px;
+  line-height: 20px;
+}
+.adventure-row .rarity {
+  font-size: 8px;
+  padding: 2px 5px;
+  line-height: 12px;
+}
+.adventure-row .achievement-copy p {
+  margin: 0;
+  font-size: 13px;
+  line-height: 20px;
+}
+.adventure-percentage {
+  width: 72px;
+  flex-shrink: 0;
+  text-align: right;
+  font-size: 15px;
+  font-weight: 600;
+  color: #c4d4e2;
+  z-index: 1;
+}
+.adventure-row.unlocked .adventure-percentage {
+  color: #edf6fd;
+}
+.adventure-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 14px 22px;
+  background: #122b3c;
+  border-top: 1px solid #28495e;
+  flex-shrink: 0;
+}
+.adventure-footer > span {
+  font-size: 11px;
+  color: #8ba6bb;
+}
+.adventure-load-more {
+  display: flex;
+  justify-content: center;
+  padding: 12px 0 17px;
+}
+.load-more {
+  min-width: 80px;
+  height: 30px;
+  padding: 0 10px;
+  border: 1px solid #2c4154;
+  border-radius: 3px;
+  background: #1d3042;
+  color: #c7d5e0;
+  font-size: 12px;
+  font-weight: 400;
+}
+.load-more:hover:not(:disabled) {
+  background: #29465d;
+  border-color: #466780;
+}
+@media (max-width: 600px) {
+  .modal.adventure-modal {
+    height: 90vh;
+    max-height: 90vh;
+  }
+  .adventure-header {
+    padding: 20px 15px 15px;
+  }
+  .adventure-title h2 {
+    font-size: 21px;
+  }
+  .adventure-title {
+    margin-bottom: 15px;
+  }
+  .adventure-progress {
+    padding: 11px;
+  }
+  .adventure-progress > div:first-child {
+    font-size: 10px;
+  }
+  .adventure-tabs {
+    padding-left: 0;
+  }
+  .adventure-tabs button {
+    flex: 1;
+    font-size: 11px;
+    padding: 0 10px;
+  }
+  .adventure-list-heading {
+    padding: 13px 12px;
+    gap: 10px;
+  }
+  .adventure-list-heading .search-field {
+    width: auto;
+    flex: 1;
+  }
+  .adventure-list-heading > span {
+    font-size: 9px;
+    max-width: 97px;
+  }
+  .adventure-list {
+    padding: 0 10px 6px;
+  }
+  .adventure-row {
+    padding: 9px 8px;
+    gap: 9px;
+    min-height: 85px;
+  }
+  .adventure-row > .achievement-icon {
+    width: 43px;
+    height: 47px;
+    padding: 2px;
+  }
+  .adventure-row > .achievement-icon > span {
+    height: 43px;
+    font-size: 26px;
+  }
+  .adventure-row h3 {
+    font-size: 13px;
+    line-height: 18px;
+  }
+  .adventure-row .achievement-copy p {
+    font-size: 11px;
+    line-height: 16px;
+  }
+  .adventure-row-heading {
+    gap: 5px;
+  }
+  .adventure-percentage {
+    width: 47px;
+    font-size: 12px;
+  }
+  .adventure-footer {
+    padding: 12px;
+    gap: 10px;
+    flex-wrap: wrap;
+  }
+}

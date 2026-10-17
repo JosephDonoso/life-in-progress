@@ -1,0 +1,153 @@
+.site-header {
+  height: 66px;
+  background: #0e1823ef;
+  border-bottom: 1px solid #142739;
+}
+.header-inner {
+  width: calc(100% - 104px);
+  max-width: 1600px;
+  height: 100%;
+  margin: auto;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+.header-inner > a {
+  flex-shrink: 0;
+}
+.header-inner nav {
+  display: flex;
+  align-items: center;
+  align-self: stretch;
+  gap: 40px;
+  margin-left: 42px;
+}
+.header-inner nav a,
+.header-inner nav button {
+  align-self: stretch;
+  font-size: 16px;
+  font-weight: 400;
+  color: #c7cbd2;
+  position: relative;
+  padding: 0;
+  display: flex;
+  align-items: center;
+}
+.header-inner nav .active {
+  color: white;
+}
+.header-inner nav .active:after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 15px;
+  height: 3px;
+  background: #66c9f4;
+}
+.header-search {
+  margin-left: auto;
+  width: 250px;
+  flex-shrink: 1;
+}
+.search-field {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  height: 35px;
+  border: 1px solid #2b4052;
+  background: linear-gradient(#1b2b3b, #182a39);
+  box-shadow: inset 0 0 4px #0004;
+  border-radius: 3px;
+  padding: 0 9px;
+  color: #91aabe;
+  min-width: 0;
+}
+.search-field input {
+  width: 100%;
+  font-size: 12px;
+  outline: 0;
+}
+.header-search {
+  height: 38px;
+  flex-direction: row-reverse;
+}
+.header-search input {
+  font-size: 14px;
+}
+.header-search svg {
+  width: 23px;
+  height: 23px;
+  flex-shrink: 0;
+}
+.account {
+  height: 38px;
+}
+.header-inner > .google {
+  flex-shrink: 0;
+  min-width: 197px;
+}
+@media (max-width: 1250px) {
+  .header-inner {
+    width: calc(100% - 48px);
+    gap: 16px;
+  }
+  .header-inner nav {
+    margin-left: 15px;
+    gap: 22px;
+  }
+  .header-search {
+    width: 190px;
+  }
+  .brand {
+    font-size: 26px;
+  }
+  .brand-icon {
+    width: 40px;
+    height: 40px;
+  }
+}
+@media (max-width: 1000px) {
+  .header-search {
+    display: none;
+  }
+  .header-inner > .google,
+  .account {
+    margin-left: auto;
+  }
+  .header-inner nav {
+    gap: 20px;
+  }
+}
+@media (max-width: 760px) {
+  .site-header {
+    height: 62px;
+  }
+  .header-inner {
+    width: calc(100% - 28px);
+    gap: 10px;
+  }
+  .header-inner nav {
+    display: none;
+  }
+  .brand {
+    font-size: 23px;
+    gap: 8px;
+  }
+  .brand-icon {
+    width: 35px;
+    height: 35px;
+  }
+  .brand-icon svg {
+    width: 27px;
+    height: 27px;
+  }
+  .header-inner > .google {
+    min-width: 38px;
+    width: 38px;
+    padding: 0;
+  }
+  .header-inner > .google span {
+    display: none;
+  }
+}
