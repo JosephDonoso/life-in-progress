@@ -54,9 +54,11 @@ El total de logros se obtiene contando las entradas activas. Los jugadores, los 
 
 1. Edita `catalogo.json` y guarda el cambio en `main`.
 2. Abre **Actions → Deploy to GitHub Pages** y espera a que se genere el artefacto **catalogo-supabase**. Se prepara antes del despliegue del sitio, así que puede estar disponible aunque Pages falle después.
-3. Descarga y descomprime el artefacto. Contiene `seed.sql` y `migrations/007_catalog_keys.sql`.
+3. Descarga y descomprime el artefacto. Contiene `seed.sql`, `migrations/007_catalog_keys.sql` y `migrations/008_bilingual_search_index.sql`.
 4. **Solo la primera vez:** ejecuta `007_catalog_keys.sql` en el SQL Editor de Supabase. Las migraciones 001–006 ya deben estar aplicadas. Esta migración vincula las entradas iniciales existentes a sus claves, conservando los UUID y desbloqueos.
 5. Ejecuta el `seed.sql` del artefacto correspondiente a ese cambio. Puedes repetirlo: actualiza el catálogo sin crear usuarios ni borrar desbloqueos. Recarga la página para consultar los datos actualizados.
+
+La migración 008 optimiza las búsquedas en español e inglés. Ejecútala una sola vez, después de la 007; no necesitas repetirla cada vez que cambies el catálogo.
 
 El despliegue del frontend no modifica Supabase automáticamente. No se necesita añadir la contraseña de la base de datos ni una clave administrativa a GitHub para este flujo.
 

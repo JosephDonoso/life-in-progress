@@ -82,6 +82,44 @@ await db.exec(
     "utf8",
   ),
 );
+const bilingualIndexMigration = readFileSync(
+  new URL(
+    "../supabase/migrations/008_bilingual_search_index.sql",
+    import.meta.url,
+  ),
+  "utf8",
+);
+// PGlite lacks pg_trgm: execute the same expression/partial predicate using
+// B-tree to validate migration syntax and maintenance, not trigram performance.
+await db.exec(
+  bilingualIndexMigration
+    .replace("using gin", "using btree")
+    .replace(" gin_trgm_ops", ""),
+);
+const indexExpression = bilingualIndexMigration.match(
+  /\n (\(name[^\n]+\)) gin_trgm_ops/,
+)?.[1];
+assert.ok(indexExpression);
+const catalogFunction = readFileSync(
+  new URL(
+    "../supabase/migrations/006_catalog_sort_directions.sql",
+    import.meta.url,
+  ),
+  "utf8",
+)
+  .replaceAll("a.", "")
+  .replace(/\s+/g, "");
+assert.ok(
+  catalogFunction.includes(indexExpression.replace(/\s+/g, "")),
+  "Bilingual index must match the search expression",
+);
+const searchIndex = (
+  await db.query(
+    "select indexdef from pg_indexes where indexname='achievements_search_bilingual'",
+  )
+).rows[0].indexdef;
+assert.match(searchIndex, /WHERE active/);
+assert.match(searchIndex, /translations/);
 await db.exec(
   "grant select on all tables in schema public to anon,authenticated; grant insert,update,delete on public.user_achievements to authenticated;",
 );
@@ -138,6 +176,21 @@ const englishCatalog = (
 ).rows[0].data;
 assert.equal(englishCatalog.total, 1);
 assert.equal(englishCatalog.items[0].name, "Under the stars");
+for (const term of [
+  "Bajo las estrellas",
+  "lluvia de meteoros",
+  "Under the stars",
+  "meteor shower",
+]) {
+  const data = (
+    await db.query(
+      "select public.catalog_page($1,'','','all','popular',0,'es') data",
+      [term],
+    )
+  ).rows[0].data;
+  assert.equal(data.total, 1);
+  assert.equal(data.items[0].name, "Bajo las estrellas");
+}
 for (const sort of ["rare", "percentage_asc"]) {
   const data = (
     await db.query("select public.catalog_page('','','','all',$1) data", [sort])

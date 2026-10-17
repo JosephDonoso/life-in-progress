@@ -60,13 +60,17 @@ export async function listCommunity(
   filter: string,
   page: number,
   authenticated: boolean,
+  signal?: AbortSignal,
 ) {
   if (db) {
-    const { data, error } = await db.rpc("community_profiles", {
+    const request = db.rpc("community_profiles", {
       search_text: search,
       list_filter: filter,
       page_number: page,
     });
+    const { data, error } = await (signal
+      ? request.abortSignal(signal)
+      : request);
     if (error) throw error;
     return data as { items: CommunityPlayer[]; total: number };
   }

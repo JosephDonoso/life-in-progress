@@ -5,12 +5,15 @@ import { db } from "../service";
 import type { Progress } from "../service";
 import { useLanguage } from "../i18n/useLanguage";
 import { compareAchievements } from "../sorting";
+import { useDebouncedValue } from "./useDebouncedValue";
+import { getCatalogMetadata } from "../catalogMetadata";
 export function useCatalog(
   progress: Progress,
   retry: number,
   setError: (error: string) => void,
   initialSort = "catalog",
   progressive = false,
+  userId?: string,
 ) {
   const cache = useRef<{
     version: string;
@@ -34,9 +37,14 @@ export function useCatalog(
     [sort, setSort] = useState(initialSort),
     [page, setPage] = useState(0),
     [count, setCount] = useState(0);
+  const searchText = query.trim();
+  const settledSearch = useDebouncedValue(searchText);
+  // Supabase is refreshed after a successful write; optimistic UI updates do not
+  // issue reads against the old database state while that write is still pending.
+  const unlockedKey = db ? "" : JSON.stringify(progress.unlocked);
 
   const filterKey = JSON.stringify([
-    query,
+    settledSearch,
     category,
     rare,
     status,
@@ -53,24 +61,52 @@ export function useCatalog(
     }
   }
   useEffect(() => {
+    if (!db) return;
     let active = true;
-    const version = JSON.stringify([filterKey, progress.unlocked, retry]);
+    async function refresh() {
+      try {
+        const data = await getCatalogMetadata();
+        if (active) {
+          setCategories(data.categories);
+          setStats(data.stats);
+        }
+      } catch {
+        if (active)
+          setError(
+            "No pudimos cargar el catálogo. Revisa la conexión y las migraciones de Supabase.",
+          );
+      }
+    }
+    void refresh();
+    window.addEventListener("focus", refresh);
+    return () => {
+      active = false;
+      window.removeEventListener("focus", refresh);
+    };
+  }, [retry, userId, setError]);
+  useEffect(() => {
+    const controller = new AbortController();
+    let active = true;
+    // Immediately cancel obsolete searches, then wait for the input to settle.
+    if (searchText !== settledSearch) return;
+    const version = JSON.stringify([filterKey, unlockedKey, retry, userId]);
+    const unlocked = new Set<string>(JSON.parse(unlockedKey || "[]"));
     async function load() {
       setLoading(true);
       try {
         if (!db) {
           const filtered = demo.filter(
             (a) =>
-              (!query ||
+              (!settledSearch ||
                 `${a.name} ${a.description} ${t(a.name)} ${t(a.description)}`
                   .toLowerCase()
-                  .includes(query.toLowerCase())) &&
+                  .includes(settledSearch.toLowerCase())) &&
               (!category || a.category === category) &&
               (!rare || achievementRarity(a) === rare) &&
               (status === "all" ||
                 (status === "unlocked"
-                  ? progress.unlocked.includes(a.id)
-                  : !progress.unlocked.includes(a.id))),
+                  ? unlocked.has(a.id)
+                  : !unlocked.has(a.id))),
           );
           filtered.sort((a, b) => compareAchievements(a, b, sort, language, t));
           if (active) {
@@ -93,15 +129,17 @@ export function useCatalog(
               : [page];
           const responses = await Promise.all(
             pages.map((pageNumber) =>
-              db!.rpc("catalog_page", {
-                search_text: query,
-                category_name: category,
-                rarity_name: rare,
-                state_filter: status,
-                sort_order: sort,
-                page_number: pageNumber,
-                locale_language: language,
-              }),
+              db!
+                .rpc("catalog_page", {
+                  search_text: settledSearch,
+                  category_name: category,
+                  rarity_name: rare,
+                  state_filter: status,
+                  sort_order: sort,
+                  page_number: pageNumber,
+                  locale_language: language,
+                })
+                .abortSignal(controller.signal),
             ),
           );
           const failed = responses.find((r) => r.error);
@@ -110,21 +148,14 @@ export function useCatalog(
           const batch: Achievement[] = responses.flatMap((r) => r.data.items);
           const combined = append ? [...cache.current!.items, ...batch] : batch;
           const visible = [...new Map(combined.map((a) => [a.id, a])).values()];
-          const [s, c] = await Promise.all([
-            db.rpc("global_stats"),
-            db.from("categories").select("name").order("name"),
-          ]);
-          if (s.error || c.error) throw s.error || c.error;
           if (active) {
             cache.current = { version, page, items: visible };
             setItems(visible);
             setCount(data.total);
-            setStats(s.data);
-            setCategories(c.data.map((x) => x.name));
           }
         }
       } catch {
-        if (active)
+        if (active && !controller.signal.aborted)
           setError(
             "No pudimos cargar el catálogo. Revisa la conexión y las migraciones de Supabase.",
           );
@@ -135,15 +166,18 @@ export function useCatalog(
     void load();
     return () => {
       active = false;
+      controller.abort();
     };
   }, [
-    query,
+    searchText,
+    settledSearch,
     category,
     rare,
     status,
     sort,
     page,
-    progress.unlocked,
+    unlockedKey,
+    userId,
     retry,
     setError,
     t,

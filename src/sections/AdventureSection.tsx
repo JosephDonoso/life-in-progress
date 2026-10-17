@@ -7,7 +7,14 @@ import { SearchField } from "../components/SearchField";
 import { AdventureAchievementRow } from "../components/AdventureAchievementRow";
 export function AdventureSection({ model: m }: { model: LifeProgress }) {
   const { t, language } = useLanguage();
-  const list = useCatalog(m.progress, m.retry, m.setError, "popular", true);
+  const list = useCatalog(
+    m.progress,
+    m.retry,
+    m.setError,
+    "popular",
+    true,
+    m.user?.id,
+  );
   return (
     <div className="adventure-section">
       <header className="adventure-header">

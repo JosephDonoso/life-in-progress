@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import type { User } from "@supabase/supabase-js";
 import { demo } from "../data";
 import { useCatalog } from "./useCatalog";
@@ -6,6 +6,7 @@ import { db, empty, localProgress } from "../service";
 import type { Progress, PlayerState } from "../service";
 import { persistProfile, readLocalProfile } from "../profile";
 import type { EditableProfile } from "../profile";
+import { invalidateCatalogStats } from "../catalogMetadata";
 export function useLifeProgress() {
   const [profile, setProfile] = useState<EditableProfile | null>(
     db ? null : readLocalProfile,
@@ -13,6 +14,8 @@ export function useLifeProgress() {
   const [profileSaving, setProfileSaving] = useState(false);
   const [personal, setPersonal] = useState<PlayerState | null>(null);
   const [profileReady, setProfileReady] = useState(!db);
+  const sessionUserId = useRef<string | null>(null);
+  const [profileRetry, setProfileRetry] = useState(0);
   const [user, setUser] = useState<User | null>(null),
     [demoUser, setDemoUser] = useState(false),
     [progress, setProgress] = useState<Progress>(db ? empty : localProgress);
@@ -39,7 +42,8 @@ export function useLifeProgress() {
     setPage,
     count,
     loading,
-  } = useCatalog(progress, retry, setError);
+  } = useCatalog(progress, retry, setError, "catalog", false, user?.id);
+  const userId = user?.id;
   const authenticated = !!user || demoUser,
     name: string =
       profile?.display_name || user?.user_metadata.full_name || "Explorador",
@@ -51,32 +55,46 @@ export function useLifeProgress() {
   useEffect(() => {
     if (!db) return;
     const client = db;
-    client.auth.getSession().then(({ data, error }) => {
-      if (error) setError(error.message);
-      setUser(data.session?.user || null);
-    });
-    const { data } = client.auth.onAuthStateChange((event, session) => {
-      setUser(session?.user || null);
-      if (event === "PASSWORD_RECOVERY") setModal("reset-password");
-      if (!session) {
+    let active = true;
+    function applyUser(next: User | null) {
+      if (!active) return;
+      const id = next?.id || null;
+      if (id !== sessionUserId.current) {
+        sessionUserId.current = id;
+        invalidateCatalogStats();
         setProfile(null);
         setProgress(empty);
         setPersonal(null);
         setProfileReady(false);
       }
+      setUser(next);
+    }
+    client.auth.getSession().then(({ data, error }) => {
+      if (!active) return;
+      if (error) setError(error.message);
+      applyUser(data.session?.user || null);
     });
-    return () => data.subscription.unsubscribe();
+    const { data } = client.auth.onAuthStateChange((event, session) => {
+      applyUser(session?.user || null);
+      if (event === "PASSWORD_RECOVERY") setModal("reset-password");
+    });
+    return () => {
+      active = false;
+      data.subscription.unsubscribe();
+    };
   }, []);
   useEffect(() => {
     if (!db) return;
-    if (!user) return;
+    if (!userId) return;
+    const controller = new AbortController();
     let active = true;
     Promise.all([
-      db.rpc("player_state"),
+      db.rpc("player_state").abortSignal(controller.signal),
       db
         .from("profiles")
         .select("display_name,avatar_url")
-        .eq("id", user.id)
+        .eq("id", userId)
+        .abortSignal(controller.signal)
         .single(),
     ]).then(([{ data, error }, account]) => {
       if (!active) return;
@@ -95,8 +113,15 @@ export function useLifeProgress() {
     });
     return () => {
       active = false;
+      controller.abort();
     };
-  }, [user, retry]);
+  }, [userId, profileRetry]);
+  function reload() {
+    if (db) setProfileReady(false);
+    invalidateCatalogStats();
+    setRetry((r) => r + 1);
+    setProfileRetry((r) => r + 1);
+  }
   async function editProfile(next: EditableProfile, file: File | null) {
     if (!authenticated || profileSaving) return false;
     setProfileSaving(true);
@@ -141,17 +166,33 @@ export function useLifeProgress() {
           });
           if (error) throw error;
         }
+        if (id) invalidateCatalogStats();
         const state = await db.rpc("player_state");
+        if (sessionUserId.current !== user.id) return;
+        let unlocksChanged = false;
         if (state.error)
           setError(
             "El cambio se guardó, pero las estadísticas no se pudieron actualizar.",
           );
-        else setPersonal(state.data);
-        setRetry((r) => r + 1);
+        else {
+          unlocksChanged =
+            JSON.stringify(state.data.unlocked) !==
+            JSON.stringify(next.unlocked);
+          setPersonal(state.data);
+          setProgress({
+            unlocked: state.data.unlocked,
+            featured: state.data.featured,
+            public: state.data.public,
+          });
+        }
+        if (unlocksChanged && !id) invalidateCatalogStats();
+        if (id || unlocksChanged) setRetry((r) => r + 1);
       }
     } catch {
-      setProgress(old);
-      setError("No se guardó el cambio. Inténtalo nuevamente.");
+      if (!db || sessionUserId.current === user?.id) {
+        setProgress(old);
+        setError("No se guardó el cambio. Inténtalo nuevamente.");
+      }
     } finally {
       setPending(false);
     }
@@ -245,6 +286,7 @@ export function useLifeProgress() {
     pending,
     retry,
     setRetry,
+    reload,
     authenticated,
     name,
     completed,

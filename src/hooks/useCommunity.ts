@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { listCommunity, changeFriendship } from "../community";
 import type { CommunityPlayer, FriendAction } from "../community";
+import { useDebouncedValue } from "./useDebouncedValue";
 export function useCommunity(
   authenticated: boolean,
   userId: string | undefined,
@@ -14,31 +15,55 @@ export function useCommunity(
     [loading, setLoading] = useState(true),
     [pending, setPending] = useState(false),
     [revision, setRevision] = useState(0);
-  const key = search + filter,
+  const searchText = search.trim();
+  const settledSearch = useDebouncedValue(searchText);
+  const key = JSON.stringify([settledSearch, filter]),
     [oldKey, setOldKey] = useState(key);
   if (oldKey !== key) {
     setOldKey(key);
     setPage(0);
   }
   useEffect(() => {
+    if (searchText !== settledSearch) return;
+    const controller = new AbortController();
     let active = true;
-    listCommunity(search, filter, page, authenticated)
-      .then((data) => {
-        if (active) {
-          setPlayers(data.items);
-          setTotal(data.total);
-        }
-      })
-      .catch(() => {
-        if (active) onError("No pudimos cargar la comunidad.");
-      })
-      .finally(() => {
-        if (active) setLoading(false);
-      });
+    async function load() {
+      setLoading(true);
+      await listCommunity(
+        settledSearch,
+        filter,
+        page,
+        authenticated,
+        controller.signal,
+      )
+        .then((data) => {
+          if (active) {
+            setPlayers(data.items);
+            setTotal(data.total);
+          }
+        })
+        .catch(() => {
+          if (active) onError("No pudimos cargar la comunidad.");
+        })
+        .finally(() => {
+          if (active) setLoading(false);
+        });
+    }
+    void load();
     return () => {
       active = false;
+      controller.abort();
     };
-  }, [search, filter, page, authenticated, userId, revision, onError]);
+  }, [
+    searchText,
+    settledSearch,
+    filter,
+    page,
+    authenticated,
+    userId,
+    revision,
+    onError,
+  ]);
   async function act(id: string, action: FriendAction) {
     if (pending) return;
     setPending(true);

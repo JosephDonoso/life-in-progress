@@ -61,7 +61,7 @@ export default function App() {
           <button
             onClick={() => {
               model.setError("");
-              model.setRetry((r) => r + 1);
+              model.reload();
             }}
           >
             {tr("Reintentar ")}

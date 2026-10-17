@@ -1,7 +1,13 @@
 import { test, expect, type Page } from "@playwright/test";
 
 // Isolated Auth and PostgREST responses: never create accounts or send real emails.
-async function mockSupabase(page: Page) {
+async function mockSupabase(
+  page: Page,
+  options: {
+    catalogSize?: number;
+    heldSearches?: Map<string, Promise<void>>;
+  } = {},
+) {
   const user = {
     id: "11111111-1111-4111-8111-111111111111",
     email: "player@example.test",
@@ -41,6 +47,17 @@ async function mockSupabase(page: Page) {
     percentage: 50,
     created_at: "2026-10-16T12:00:00Z",
   };
+  const achievements = Array.from(
+    { length: options.catalogSize || 1 },
+    (_, i) =>
+      i === 0
+        ? achievement
+        : {
+            ...achievement,
+            id: `33333333-3333-4333-8333-${String(i).padStart(12, "0")}`,
+            name: `Experiencia ${i}`,
+          },
+  );
   const state = {
     unlocked: [] as string[],
     featured: [] as string[],
@@ -93,10 +110,21 @@ async function mockSupabase(page: Page) {
       case "/auth/v1/logout":
         break;
       case "/rest/v1/rpc/catalog_page":
-        json = { items: [achievement], total: 1 };
+        await options.heldSearches?.get(String(body.search_text));
+        json = {
+          items: achievements.slice(
+            Number(body.page_number) * 12,
+            Number(body.page_number) * 12 + 12,
+          ),
+          total: achievements.length,
+        };
         break;
       case "/rest/v1/rpc/global_stats":
-        json = { achievements: 1, players: 2, unlocks: state.unlocked.length };
+        json = {
+          achievements: achievements.length,
+          players: 2,
+          unlocks: state.unlocked.length,
+        };
         break;
       case "/rest/v1/categories":
         json = [{ name: achievement.category }];
@@ -107,8 +135,15 @@ async function mockSupabase(page: Page) {
       case "/rest/v1/rpc/player_state":
         json = state;
         break;
+      case "/rest/v1/rpc/community_profiles":
+        json = { items: [], total: 0 };
+        break;
       case "/rest/v1/rpc/edit_profile":
         displayName = body.new_name;
+        break;
+      case "/rest/v1/rpc/update_profile":
+        state.featured = body.favorites;
+        state.public = body.public_profile;
         break;
       case "/rest/v1/user_achievements":
         state.unlocked = request.method() === "DELETE" ? [] : [achievement.id];
@@ -116,6 +151,7 @@ async function mockSupabase(page: Page) {
       default:
         throw new Error(`Unexpected Supabase request: ${url.pathname}`);
     }
+    if (request.failure()) return;
     await route.fulfill({
       status,
       json,
@@ -303,4 +339,182 @@ test("a recovery callback opens password update and validates matching passwords
         r.body.password === "new-example-password",
     ),
   ).toBe(true);
+});
+
+test("searches debounce typing and reuse metadata across filtering, pagination and views", async ({
+  page,
+}) => {
+  const mock = await mockSupabase(page, { catalogSize: 24 });
+  const count = (path: string) =>
+    mock.requests.filter((r) => r.path === `/rest/v1/${path}`).length;
+  await page.clock.install();
+  await page.goto("/");
+  await expect(page.locator(".achievement")).toHaveCount(12);
+  await expect.poll(() => count("rpc/global_stats")).toBe(1);
+  await expect.poll(() => count("categories")).toBe(1);
+  await page.clock.pauseAt(new Date(Date.now() + 1000));
+  const initial = count("rpc/catalog_page");
+  const search = page.getByLabel("Buscar en el catálogo", { exact: true });
+  await search.fill("v");
+  await page.clock.runFor(100);
+  await search.fill("vu");
+  await page.clock.runFor(100);
+  await search.fill("vuelo");
+  await page.clock.runFor(299);
+  expect(count("rpc/catalog_page")).toBe(initial);
+  await page.clock.runFor(1);
+  await expect.poll(() => count("rpc/catalog_page")).toBe(initial + 1);
+  expect(
+    mock.requests.filter((r) => r.path === "/rest/v1/rpc/catalog_page").at(-1)
+      ?.body.search_text,
+  ).toBe("vuelo");
+  await expect(page.locator(".achievement")).toHaveCount(12);
+  await page.getByRole("button", { name: "Siguiente", exact: true }).click();
+  await expect.poll(() => count("rpc/catalog_page")).toBe(initial + 2);
+  expect(
+    mock.requests.filter((r) => r.path === "/rest/v1/rpc/catalog_page").at(-1)
+      ?.body.page_number,
+  ).toBe(1);
+  await expect(page.locator(".achievement")).toHaveCount(12);
+  await page
+    .getByLabel("Categoría", { exact: true })
+    .selectOption("Viajes y exploración");
+  await expect.poll(() => count("rpc/catalog_page")).toBe(initial + 3);
+  expect(
+    mock.requests.filter((r) => r.path === "/rest/v1/rpc/catalog_page").at(-1)
+      ?.body.page_number,
+  ).toBe(0);
+  expect(count("rpc/global_stats")).toBe(1);
+  expect(count("categories")).toBe(1);
+  await page.getByRole("tab", { name: "COMUNIDAD", exact: true }).click();
+  await expect.poll(() => count("rpc/community_profiles")).toBeGreaterThan(0);
+  const community = count("rpc/community_profiles");
+  const players = page.getByLabel("Buscar jugadores", { exact: true });
+  await players.fill("A");
+  await page.clock.runFor(100);
+  await players.fill("Alex");
+  await page.clock.runFor(299);
+  expect(count("rpc/community_profiles")).toBe(community);
+  await page.clock.runFor(1);
+  await expect.poll(() => count("rpc/community_profiles")).toBe(community + 1);
+  await page.clock.runFor(30_001);
+  await page.evaluate(() => window.dispatchEvent(new Event("focus")));
+  await expect.poll(() => count("rpc/global_stats")).toBe(2);
+  expect(count("categories")).toBe(1);
+});
+
+test("obsolete searches are aborted as soon as the input changes", async ({
+  page,
+}) => {
+  let release = () => {};
+  const held = new Promise<void>((resolve) => {
+    release = resolve;
+  });
+  const mock = await mockSupabase(page, {
+    heldSearches: new Map([["lenta", held]]),
+  });
+  let aborted = false;
+  page.on("requestfailed", (request) => {
+    if (
+      request.url().includes("/rpc/catalog_page") &&
+      request.postDataJSON()?.search_text === "lenta"
+    )
+      aborted = true;
+  });
+  await page.clock.install();
+  await page.goto("/");
+  await expect(page.locator(".achievement")).toHaveCount(1);
+  await page.clock.pauseAt(new Date(Date.now() + 1000));
+  const search = page.getByLabel("Buscar en el catálogo", { exact: true });
+  await search.fill("lenta");
+  await page.clock.runFor(300);
+  await expect
+    .poll(() => mock.requests.some((r) => r.body.search_text === "lenta"))
+    .toBe(true);
+  await search.fill("nueva");
+  await expect.poll(() => aborted).toBe(true);
+  expect(mock.requests.some((r) => r.body.search_text === "nueva")).toBe(false);
+  release();
+  await page.clock.runFor(300);
+  await expect
+    .poll(() => mock.requests.some((r) => r.body.search_text === "nueva"))
+    .toBe(true);
+  await expect(page.locator(".achievement")).toHaveCount(1);
+  await expect(page.getByRole("alert")).toHaveCount(0);
+});
+
+test("saving an achievement refreshes progress once and shares metadata with My adventure", async ({
+  page,
+}) => {
+  const mock = await mockSupabase(page);
+  const count = (path: string) =>
+    mock.requests.filter((r) => r.path === `/rest/v1/${path}`).length;
+  const dialog = await openAuth(page);
+  await dialog
+    .getByLabel("Correo electrónico", { exact: true })
+    .fill("player@example.test");
+  await dialog
+    .getByLabel("Contraseña", { exact: true })
+    .fill("example-password");
+  await dialog
+    .getByRole("button", { name: "Iniciar sesión", exact: true })
+    .click();
+  await expect(page.locator(".header-inner .account")).toBeVisible();
+  const unlock = page.getByRole("button", {
+    name: "Desbloquear Mi primer vuelo",
+    exact: true,
+  });
+  await expect(unlock).toBeEnabled();
+  await expect.poll(() => count("rpc/global_stats")).toBe(2);
+  const before = {
+    profile: count("profiles"),
+    state: count("rpc/player_state"),
+    catalog: count("rpc/catalog_page"),
+    stats: count("rpc/global_stats"),
+    categories: count("categories"),
+  };
+  await unlock.click();
+  const completed = page.getByRole("button", {
+    name: "Desmarcar Mi primer vuelo",
+    exact: true,
+  });
+  await expect(completed).toBeEnabled();
+  await expect.poll(() => count("rpc/global_stats")).toBe(before.stats + 1);
+  await expect.poll(() => count("rpc/catalog_page")).toBe(before.catalog + 1);
+  expect(count("profiles")).toBe(before.profile);
+  expect(count("rpc/player_state")).toBe(before.state + 1);
+  expect(count("categories")).toBe(before.categories);
+  const favorite = page.getByRole("button", {
+    name: "Destacar Mi primer vuelo",
+    exact: true,
+  });
+  await favorite.click();
+  await expect(favorite).toBeEnabled();
+  await expect(favorite).toHaveAttribute("aria-pressed", "true");
+  await expect.poll(() => count("rpc/player_state")).toBe(before.state + 2);
+  expect(count("profiles")).toBe(before.profile);
+  expect(count("rpc/catalog_page")).toBe(before.catalog + 1);
+  expect(count("rpc/global_stats")).toBe(before.stats + 1);
+  await page.getByRole("button", { name: "Mi aventura", exact: true }).click();
+  const adventure = page.getByRole("dialog", {
+    name: "Mi aventura",
+    exact: true,
+  });
+  await expect(adventure.locator(".adventure-row")).toHaveCount(1);
+  expect(count("rpc/global_stats")).toBe(before.stats + 1);
+  expect(count("categories")).toBe(before.categories);
+  await page.clock.install();
+  await page.clock.pauseAt(new Date(Date.now() + 1000));
+  const initial = count("rpc/catalog_page");
+  await adventure
+    .getByLabel("Buscar en mi aventura", { exact: true })
+    .fill("vue");
+  await page.clock.runFor(100);
+  await adventure
+    .getByLabel("Buscar en mi aventura", { exact: true })
+    .fill("vuelo");
+  await page.clock.runFor(299);
+  expect(count("rpc/catalog_page")).toBe(initial);
+  await page.clock.runFor(1);
+  await expect.poll(() => count("rpc/catalog_page")).toBe(initial + 1);
 });
