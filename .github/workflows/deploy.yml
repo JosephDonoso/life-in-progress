@@ -23,6 +23,13 @@ jobs:
           node-version: 24
           cache: npm
       - run: npm ci
+      - run: npm run catalog:generate
+      - uses: actions/upload-artifact@v4
+        with:
+          name: catalogo-supabase
+          path: |
+            supabase/seed.sql
+            supabase/migrations/007_catalog_keys.sql
       - run: npm run lint
       - run: npm run build
         env:

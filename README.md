@@ -6,6 +6,8 @@ Soy Joseph Donoso y creé Life in Progress como un pasatiempo para experimentar 
 
 El proyecto está en su primer MVP. Las funciones, el diseño y el alcance pueden cambiar a medida que evolucione. Su estética se inspira en tiendas de videojuegos, con identidad propia e independiente de Steam.
 
+**Para editar logros, categorías y umbrales de rareza:** abre [catalogo.json](catalogo.json). Los campos están en español y la [guía de edición](docs/EDITAR_CATALOGO.md) explica cómo aplicar los cambios a Supabase.
+
 ## Funciones disponibles
 
 - Catálogo inicial de 24 logros, con búsqueda, categorías y filtros por rareza y estado. El orden por rareza, porcentaje de jugadores, nombre o fecha se invierte al seleccionar de nuevo el mismo criterio.
@@ -39,6 +41,7 @@ src/
   service.ts      Cliente de Supabase y tipos de progreso
   config.ts       Enlaces del proyecto y del autor
 public/           Recursos estáticos
+catalogo.json     Catálogo editable en español y umbrales de rareza
 supabase/
   migrations/     Esquema, funciones, permisos y evolución de la base
   seed.sql        Categorías y catálogo inicial bilingüe
@@ -78,8 +81,8 @@ Todo valor `VITE_*` se incorpora al código del navegador. `.env.local` está ex
 
 ## Conectar Supabase
 
-1. Crea un proyecto de Supabase y ejecuta todas las migraciones de `supabase/migrations` en orden: `001_initial.sql`, `002_community_profiles.sql`, `003_avatar_storage.sql`, `004_catalog_languages.sql`, `005_achievement_showcases.sql` y `006_catalog_sort_directions.sql`. Ejecuta cada migración una sola vez. En un proyecto existente aplica solo las que falten.
-2. Ejecuta `supabase/seed.sql` para cargar categorías, 24 logros iniciales y sus traducciones inglesas. No contiene usuarios ni porcentajes ficticios. Puede repetirse para completar traducciones después de una actualización.
+1. Crea un proyecto de Supabase y ejecuta todas las migraciones de `supabase/migrations` en orden: `001_initial.sql`, `002_community_profiles.sql`, `003_avatar_storage.sql`, `004_catalog_languages.sql`, `005_achievement_showcases.sql`, `006_catalog_sort_directions.sql` y `007_catalog_keys.sql`. Ejecuta cada migración una sola vez. En un proyecto existente aplica solo las que falten.
+2. Ejecuta `npm run catalog:generate` y aplica `supabase/seed.sql` para cargar categorías, logros y traducciones desde `catalogo.json`. No contiene usuarios ni porcentajes ficticios. Se puede repetir para actualizar textos, categorías, actividad y rarezas sin borrar el progreso de los jugadores.
 3. Copia `.env.example` como `.env.local`. Completa la URL y la clave **publishable** del proyecto. Nunca utilices una clave secret/service_role en el cliente.
 4. En Authentication / Sign In / Providers verifica que **Email** y la creación de cuentas estén habilitados. Google es opcional.
 5. Configura Site URL y las Redirect URLs permitidas: `http://127.0.0.1:5173/`, `http://localhost:5173/` si lo usas, y la dirección final de GitHub Pages, incluida la ruta del repositorio y su barra final.
@@ -103,7 +106,7 @@ Una cuenta de correo confirmado se enlaza automáticamente al entrar con Google 
 
 Supabase Auth administra usuarios, identidades externas y sesiones. Un trigger crea el perfil privado. RLS restringe el progreso a su propietario. Los desbloqueos usan una clave primaria compuesta y upsert idempotente. Los favoritos referencian únicamente desbloqueos existentes y se eliminan en cascada al desmarcar. Las estadísticas públicas se exponen mediante funciones que devuelven agregados, sin identidades individuales. Los umbrales se administran en `rarity_thresholds`.
 
-Las rarezas actuales son común (50–100 %), raro (5–menos de 50 %), épico (1–menos de 5 %) y legendario (menos de 1 %). La migración 002 reemplaza la clasificación anterior.
+Los umbrales iniciales son común (50–100 %), raro (5–menos de 50 %), épico (1–menos de 5 %) y legendario (menos de 1 %). Puedes cambiarlos en `catalogo.json`; conserva las cuatro rarezas y sus nombres para mantener los estilos del sitio.
 
 ## Perfiles, comunidad e idioma
 
@@ -117,7 +120,7 @@ Las vitrinas del propietario y de otros jugadores usan miniaturas con el mismo i
 
 La demo incluye tres perfiles de ejemplo y una solicitud entrante para probar el recorrido, identificados expresamente como demostración. La base de datos de producción no recibe esos perfiles ni amistades ficticias.
 
-El selector del encabezado permite Auto, ES o EN. Auto usa inglés o español según el idioma principal del sistema y español para otros idiomas; la selección manual se guarda en este dispositivo. El catálogo inicial tiene traducciones completas. Para nuevos logros agrega `translations.en.name` y `translations.en.description` al JSON de `achievements`; si faltan, se conserva el texto español. La búsqueda del servidor encuentra textos en ambos idiomas.
+El selector del encabezado permite Auto, ES o EN. Auto usa inglés o español según el idioma principal del sistema y español para otros idiomas; la selección manual se guarda en este dispositivo. El catálogo inicial tiene traducciones completas. Para nuevos logros completa `ingles.nombre` e `ingles.descripcion` en `catalogo.json`; el generador los convierte al formato de Supabase. Si omites `ingles`, se conserva el español. La búsqueda del servidor encuentra textos en ambos idiomas.
 
 El botón «Seguir» abre el repositorio del proyecto y el botón oficial de Ko-fi, enlazado a `https://ko-fi.com/jdevshowcase`. Puedes cambiar el destino mediante `VITE_KOFI_URL` en `.env.local` o como variable del repositorio antes de compilar. Los enlaces se centralizan en `src/config.ts`.
 
@@ -127,7 +130,11 @@ Las categorías residen en PostgreSQL. El catálogo se consulta desde el servido
 
 Los porcentajes conectados se calculan a partir de los jugadores y desbloqueos registrados; los valores ilustrativos solo existen en la demo. La rareza cambia con el porcentaje global de obtención.
 
-Para este MVP, administra el catálogo en el Table Editor de Supabase con una cuenta administrativa: permite crear, editar, desactivar e importar CSV sin cambiar el código. Importa categorías primero; el CSV de logros debe incluir `name,description,icon,category_id,active`. Omite `id` para generar UUID automáticamente. Los nombres tienen restricción única. No concedas permisos de escritura del catálogo a clientes anónimos o autenticados. `image_url` queda disponible para ilustraciones futuras; la interfaz inicial utiliza iconos emoji.
+La fuente del catálogo es [catalogo.json](catalogo.json). Usa textos normales en los campos españoles para editar nombres, descripciones, iconos, categorías y traducciones, y ajusta los porcentajes mínimos de rareza. Los totales se calculan automáticamente. Las claves de categorías y logros deben permanecer estables para conservar sus identidades aunque cambien de nombre.
+
+En cada despliegue, GitHub Actions valida el JSON y publica el artefacto descargable `catalogo-supabase` con el SQL generado y la migración 007. Para actualizar el catálogo real aplica ese SQL en Supabase; editar el JSON por sí solo actualiza la demo al desplegar, pero no escribe en tu base de datos. No requiere guardar contraseñas administrativas en GitHub. Consulta la [guía completa](docs/EDITAR_CATALOGO.md).
+
+El Table Editor sigue disponible para administración, pero la siguiente aplicación del JSON reemplazará los campos de las entradas que administra. Los logros retirados se desactivan, conservando los desbloqueos. Las categorías antiguas y los registros creados manualmente sin clave editorial se conservan. No concedas permisos de escritura del catálogo a clientes anónimos o autenticados. `image_url` queda disponible para ilustraciones futuras; la interfaz inicial utiliza iconos emoji.
 
 ## Publicar en GitHub Pages
 

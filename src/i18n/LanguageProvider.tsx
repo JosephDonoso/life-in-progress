@@ -1,6 +1,7 @@
 import { useCallback, useEffect, useState } from "react";
 import type { ReactNode } from "react";
 import { english } from "./english";
+import { catalogEnglish } from "../data";
 import { LanguageContext as Context } from "./context";
 import type { Preference } from "./context";
 function detect(): "es" | "en" {
@@ -36,7 +37,7 @@ export function LanguageProvider({ children }: { children: ReactNode }) {
       const text = String(input);
       if (language === "es") return text;
       const key = text.replace(/\s+/g, " ").trim();
-      const value = english[key];
+      const value = catalogEnglish[key] || english[key];
       return value ? text.replace(key, value) : text;
     },
     [language],

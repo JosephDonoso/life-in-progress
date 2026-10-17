@@ -1,6 +1,10 @@
 import { PGlite } from "@electric-sql/pglite";
 import { readFileSync } from "node:fs";
 import assert from "node:assert/strict";
+import { catalogSql, validateCatalog } from "../supabase/generate-seed.mjs";
+const editableCatalog = JSON.parse(
+  readFileSync(new URL("../catalogo.json", import.meta.url), "utf8"),
+);
 const db = new PGlite();
 await db.exec(`create role anon; create role authenticated;
 create schema auth;
@@ -44,6 +48,16 @@ await db.exec(
       "../supabase/migrations/004_catalog_languages.sql",
       import.meta.url,
     ),
+    "utf8",
+  ),
+);
+// Simulate an existing installation with randomly assigned IDs before migration 007.
+const legacyId = "00000000-0000-4000-8000-000000000999";
+await db.exec(`insert into public.categories(name) values('Viajes y exploración');
+insert into public.achievements(id,name,description,category_id) select '${legacyId}','Mi primer vuelo','Descripción anterior',id from public.categories where name='Viajes y exploración';`);
+await db.exec(
+  readFileSync(
+    new URL("../supabase/migrations/007_catalog_keys.sql", import.meta.url),
     "utf8",
   ),
 );
@@ -262,7 +276,88 @@ await assert.rejects(
 const stats = (await db.query("select public.global_stats() data")).rows[0]
   .data;
 assert.deepEqual(stats, { achievements: 24, players: 2, unlocks: 0 });
+await db.exec("reset role;");
+assert.equal(
+  (
+    await db.query(
+      "select id from public.achievements where catalog_key='demo-1'",
+    )
+  ).rows[0].id,
+  legacyId,
+);
+await db.exec(
+  `insert into public.user_achievements(user_id,achievement_id) values('${userA}','${legacyId}');`,
+);
+const updatedCatalog = structuredClone(editableCatalog);
+const flight = updatedCatalog.logros.find((a) => a.clave === "demo-1");
+flight.nombre = "Mi vuelo: Joseph's edition";
+flight.descripcion =
+  "Probando comillas '; select 1; -- sin ejecutar instrucciones.";
+updatedCatalog.categorias.find((c) => c.clave === flight.categoria).nombre =
+  "Viajes de Joseph's";
+updatedCatalog.rarezas[0].porcentaje_minimo = 60;
+await db.exec(catalogSql(updatedCatalog));
+await db.exec(catalogSql(updatedCatalog));
+const saved = (
+  await db.query(
+    "select id,name,description from public.achievements where id=$1",
+    [legacyId],
+  )
+).rows[0];
+assert.equal(saved.name, flight.nombre);
+assert.equal(saved.description, flight.descripcion);
+assert.equal(
+  (
+    await db.query(
+      "select count(*) n from public.user_achievements where achievement_id=$1",
+      [legacyId],
+    )
+  ).rows[0].n,
+  1,
+);
+flight.activo = false;
+await db.exec(catalogSql(updatedCatalog));
+assert.equal(
+  (
+    await db.query("select active from public.achievements where id=$1", [
+      legacyId,
+    ])
+  ).rows[0].active,
+  false,
+);
+updatedCatalog.logros = updatedCatalog.logros.filter(
+  (a) => a.clave !== "demo-1",
+);
+await db.exec(catalogSql(updatedCatalog));
+assert.equal(
+  (
+    await db.query(
+      "select count(*) n from public.user_achievements where achievement_id=$1",
+      [legacyId],
+    )
+  ).rows[0].n,
+  1,
+);
+assert.equal(
+  (
+    await db.query(
+      "select minimum from public.rarity_thresholds where name='Común'",
+    )
+  ).rows[0].minimum,
+  "60",
+);
+for (const mutate of [
+  (c) => c.logros.push({ ...c.logros[0] }),
+  (c) => (c.logros[0].categoria = "inexistente"),
+  (c) => (c.rarezas[1].porcentaje_minimo = 99),
+  (c) => (c.logros[0].porcentaje_demostracion = 101),
+  (c) => (c.logros[0].fecha = "2026-02-30T00:00:00.000Z"),
+]) {
+  const invalid = structuredClone(editableCatalog);
+  mutate(invalid);
+  assert.throws(() => validateCatalog(invalid), /catalogo.json/);
+}
 await db.close();
 console.log(
-  "Database checks passed: migration, seed, pagination, idempotency, real percentages, private profiles, RLS isolation, favorite cascade.",
+  "Database checks passed: migrations, seed, RLS, editable catalog validation, legacy ID adoption, rename without progress loss, SQL escaping, retirement without deletion and real percentages.",
 );

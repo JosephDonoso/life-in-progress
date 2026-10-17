@@ -23,7 +23,7 @@ export function useCatalog(
   const [items, setItems] = useState<Achievement[]>([]),
     [categories, setCategories] = useState(defaults),
     [stats, setStats] = useState({
-      achievements: db ? 0 : 24,
+      achievements: db ? 0 : demo.length,
       players: db ? 0 : 1248,
       unlocks: db ? 0 : 8736,
     });

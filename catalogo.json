@@ -1,0 +1,441 @@
+{
+  "_instrucciones": [
+    "Edita los nombres y descripciones como texto normal. Conserva las comillas y comas del JSON.",
+    "No cambies las claves de elementos existentes: permiten renombrarlos sin perder los logros de los jugadores.",
+    "La categoria de cada logro debe coincidir con la clave de una categoria de esta lista.",
+    "Usa activo: false para retirar un logro sin borrar su historial.",
+    "La rareza es automatica segun el porcentaje de jugadores que obtuvo el logro. Puedes ajustar los cuatro umbrales.",
+    "Los totales de logros y categorias se calculan a partir del catalogo; jugadores y desbloqueos se calculan desde Supabase.",
+    "porcentaje_demostracion solo afecta a la demo. Nunca modifica las estadisticas reales.",
+    "Al guardar en GitHub, Actions genera el archivo SQL en el artefacto catalogo-supabase. Descargalo y aplica seed.sql en el SQL Editor de Supabase. La migracion 007 se ejecuta una sola vez, antes del primer seed nuevo. En local: npm run catalog:generate."
+  ],
+  "version": 1,
+  "rarezas": [
+    {
+      "nombre": "Común",
+      "porcentaje_minimo": 50
+    },
+    {
+      "nombre": "Raro",
+      "porcentaje_minimo": 5
+    },
+    {
+      "nombre": "Épico",
+      "porcentaje_minimo": 1
+    },
+    {
+      "nombre": "Legendario",
+      "porcentaje_minimo": 0
+    }
+  ],
+  "categorias": [
+    {
+      "clave": "categoria-1",
+      "nombre": "Infancia y crecimiento",
+      "ingles": "Childhood and growing up"
+    },
+    {
+      "clave": "categoria-2",
+      "nombre": "Salud y cuerpo",
+      "ingles": "Health and body"
+    },
+    {
+      "clave": "categoria-3",
+      "nombre": "Educación",
+      "ingles": "Education"
+    },
+    {
+      "clave": "categoria-4",
+      "nombre": "Trabajo y profesión",
+      "ingles": "Work and career"
+    },
+    {
+      "clave": "categoria-5",
+      "nombre": "Amor y relaciones",
+      "ingles": "Love and relationships"
+    },
+    {
+      "clave": "categoria-6",
+      "nombre": "Familia y amistades",
+      "ingles": "Family and friends"
+    },
+    {
+      "clave": "categoria-7",
+      "nombre": "Viajes y exploración",
+      "ingles": "Travel and exploration"
+    },
+    {
+      "clave": "categoria-8",
+      "nombre": "Naturaleza y animales",
+      "ingles": "Nature and animals"
+    },
+    {
+      "clave": "categoria-9",
+      "nombre": "Tecnología e Internet",
+      "ingles": "Technology and Internet"
+    },
+    {
+      "clave": "categoria-10",
+      "nombre": "Deportes y actividades",
+      "ingles": "Sports and activities"
+    },
+    {
+      "clave": "categoria-11",
+      "nombre": "Cultura y entretenimiento",
+      "ingles": "Culture and entertainment"
+    },
+    {
+      "clave": "categoria-12",
+      "nombre": "Experiencias extraordinarias",
+      "ingles": "Extraordinary experiences"
+    },
+    {
+      "clave": "categoria-13",
+      "nombre": "Situaciones desafortunadas",
+      "ingles": "Unfortunate events"
+    },
+    {
+      "clave": "categoria-14",
+      "nombre": "Acontecimientos cotidianos",
+      "ingles": "Everyday moments"
+    }
+  ],
+  "logros": [
+    {
+      "clave": "demo-0",
+      "nombre": "¡Rómpete una pierna!",
+      "descripcion": "Te has roto algún hueso alguna vez.",
+      "icono": "🦴",
+      "categoria": "categoria-2",
+      "activo": true,
+      "fecha": "2026-01-01T03:00:00.000Z",
+      "porcentaje_demostracion": 18.4,
+      "ingles": {
+        "nombre": "Break a leg!",
+        "descripcion": "You have broken a bone."
+      }
+    },
+    {
+      "clave": "demo-1",
+      "nombre": "Mi primer vuelo",
+      "descripcion": "Has viajado en avión por primera vez.",
+      "icono": "✈️",
+      "categoria": "categoria-7",
+      "activo": true,
+      "fecha": "2026-01-02T03:00:00.000Z",
+      "porcentaje_demostracion": 62.1,
+      "ingles": {
+        "nombre": "My first flight",
+        "descripcion": "You have taken your first flight."
+      }
+    },
+    {
+      "clave": "demo-2",
+      "nombre": "Corazón roto",
+      "descripcion": "Una historia terminó. La tuya continúa.",
+      "icono": "💔",
+      "categoria": "categoria-5",
+      "activo": true,
+      "fecha": "2026-01-03T03:00:00.000Z",
+      "porcentaje_demostracion": 71.3,
+      "ingles": {
+        "nombre": "Broken heart",
+        "descripcion": "One story ended. Yours goes on."
+      }
+    },
+    {
+      "clave": "demo-3",
+      "nombre": "Bajo las estrellas",
+      "descripcion": "Has presenciado una lluvia de meteoros.",
+      "icono": "🌠",
+      "categoria": "categoria-8",
+      "activo": true,
+      "fecha": "2026-01-04T03:00:00.000Z",
+      "porcentaje_demostracion": 4.2,
+      "ingles": {
+        "nombre": "Under the stars",
+        "descripcion": "You have watched a meteor shower."
+      }
+    },
+    {
+      "clave": "demo-4",
+      "nombre": "Vuelta al mundo",
+      "descripcion": "Has visitado los siete continentes.",
+      "icono": "🌍",
+      "categoria": "categoria-7",
+      "activo": true,
+      "fecha": "2026-01-05T03:00:00.000Z",
+      "porcentaje_demostracion": 0.08,
+      "ingles": {
+        "nombre": "Around the world",
+        "descripcion": "You have visited all seven continents."
+      }
+    },
+    {
+      "clave": "demo-5",
+      "nombre": "Un año más",
+      "descripcion": "Has celebrado tu cumpleaños número 30.",
+      "icono": "🎂",
+      "categoria": "categoria-1",
+      "activo": true,
+      "fecha": "2026-01-06T03:00:00.000Z",
+      "porcentaje_demostracion": 58.7,
+      "ingles": {
+        "nombre": "Another year",
+        "descripcion": "You have celebrated your 30th birthday."
+      }
+    },
+    {
+      "clave": "demo-6",
+      "nombre": "Primera sangre",
+      "descripcion": "Has pasado por una cirugía.",
+      "icono": "🩹",
+      "categoria": "categoria-2",
+      "activo": true,
+      "fecha": "2026-01-07T03:00:00.000Z",
+      "porcentaje_demostracion": 32,
+      "ingles": {
+        "nombre": "First blood",
+        "descripcion": "You have undergone surgery."
+      }
+    },
+    {
+      "clave": "demo-7",
+      "nombre": "Sin conexión",
+      "descripcion": "Has pasado una semana sin Internet.",
+      "icono": "📵",
+      "categoria": "categoria-9",
+      "activo": true,
+      "fecha": "2026-01-08T03:00:00.000Z",
+      "porcentaje_demostracion": 12,
+      "ingles": {
+        "nombre": "Offline",
+        "descripcion": "You have spent a week without Internet."
+      }
+    },
+    {
+      "clave": "demo-8",
+      "nombre": "El primer capítulo",
+      "descripcion": "Has terminado un libro por tu cuenta.",
+      "icono": "📖",
+      "categoria": "categoria-3",
+      "activo": true,
+      "fecha": "2026-01-09T03:00:00.000Z",
+      "porcentaje_demostracion": 84,
+      "ingles": {
+        "nombre": "The first chapter",
+        "descripcion": "You have finished reading a book on your own."
+      }
+    },
+    {
+      "clave": "demo-9",
+      "nombre": "Día de pago",
+      "descripcion": "Has recibido tu primer sueldo.",
+      "icono": "💼",
+      "categoria": "categoria-4",
+      "activo": true,
+      "fecha": "2026-01-10T03:00:00.000Z",
+      "porcentaje_demostracion": 64,
+      "ingles": {
+        "nombre": "Payday",
+        "descripcion": "You have received your first paycheck."
+      }
+    },
+    {
+      "clave": "demo-10",
+      "nombre": "Tu propia cima",
+      "descripcion": "Has llegado a la cumbre de una montaña.",
+      "icono": "🏔️",
+      "categoria": "categoria-10",
+      "activo": true,
+      "fecha": "2026-01-11T03:00:00.000Z",
+      "porcentaje_demostracion": 9,
+      "ingles": {
+        "nombre": "Your own summit",
+        "descripcion": "You have reached a mountain summit."
+      }
+    },
+    {
+      "clave": "demo-11",
+      "nombre": "En primera fila",
+      "descripcion": "Has cantado en un concierto inolvidable.",
+      "icono": "🎸",
+      "categoria": "categoria-11",
+      "activo": true,
+      "fecha": "2026-01-12T03:00:00.000Z",
+      "porcentaje_demostracion": 46,
+      "ingles": {
+        "nombre": "Front row",
+        "descripcion": "You have sung at an unforgettable concert."
+      }
+    },
+    {
+      "clave": "demo-12",
+      "nombre": "Un nuevo hogar",
+      "descripcion": "Has vivido en otra ciudad.",
+      "icono": "🏡",
+      "categoria": "categoria-7",
+      "activo": true,
+      "fecha": "2026-01-13T03:00:00.000Z",
+      "porcentaje_demostracion": 28,
+      "ingles": {
+        "nombre": "A new home",
+        "descripcion": "You have lived in another city."
+      }
+    },
+    {
+      "clave": "demo-13",
+      "nombre": "Compañero de aventuras",
+      "descripcion": "Has cuidado de un animal.",
+      "icono": "🐾",
+      "categoria": "categoria-8",
+      "activo": true,
+      "fecha": "2026-01-14T03:00:00.000Z",
+      "porcentaje_demostracion": 76,
+      "ingles": {
+        "nombre": "Adventure companion",
+        "descripcion": "You have cared for an animal."
+      }
+    },
+    {
+      "clave": "demo-14",
+      "nombre": "Mesa para todos",
+      "descripcion": "Has cocinado para tus amigos o familia.",
+      "icono": "🍜",
+      "categoria": "categoria-6",
+      "activo": true,
+      "fecha": "2026-01-15T03:00:00.000Z",
+      "porcentaje_demostracion": 65,
+      "ingles": {
+        "nombre": "A table for everyone",
+        "descripcion": "You have cooked for friends or family."
+      }
+    },
+    {
+      "clave": "demo-15",
+      "nombre": "Salto de fe",
+      "descripcion": "Has saltado en paracaídas.",
+      "icono": "🪂",
+      "categoria": "categoria-12",
+      "activo": true,
+      "fecha": "2026-01-16T03:00:00.000Z",
+      "porcentaje_demostracion": 0.7,
+      "ingles": {
+        "nombre": "Leap of faith",
+        "descripcion": "You have gone skydiving."
+      }
+    },
+    {
+      "clave": "demo-16",
+      "nombre": "A contracorriente",
+      "descripcion": "Has aprendido a nadar.",
+      "icono": "🏊",
+      "categoria": "categoria-10",
+      "activo": true,
+      "fecha": "2026-01-17T03:00:00.000Z",
+      "porcentaje_demostracion": 72,
+      "ingles": {
+        "nombre": "Against the current",
+        "descripcion": "You have learned to swim."
+      }
+    },
+    {
+      "clave": "demo-17",
+      "nombre": "Pequeñas victorias",
+      "descripcion": "Has cuidado una planta durante un año.",
+      "icono": "🌱",
+      "categoria": "categoria-14",
+      "activo": true,
+      "fecha": "2026-01-18T03:00:00.000Z",
+      "porcentaje_demostracion": 22,
+      "ingles": {
+        "nombre": "Small victories",
+        "descripcion": "You have kept a plant alive for a year."
+      }
+    },
+    {
+      "clave": "demo-18",
+      "nombre": "Pantalla azul",
+      "descripcion": "Has perdido un archivo que no guardaste.",
+      "icono": "💾",
+      "categoria": "categoria-13",
+      "activo": true,
+      "fecha": "2026-01-19T03:00:00.000Z",
+      "porcentaje_demostracion": 89,
+      "ingles": {
+        "nombre": "Blue screen",
+        "descripcion": "You have lost an unsaved file."
+      }
+    },
+    {
+      "clave": "demo-19",
+      "nombre": "Sobre dos ruedas",
+      "descripcion": "Has aprendido a andar en bicicleta.",
+      "icono": "🚲",
+      "categoria": "categoria-1",
+      "activo": true,
+      "fecha": "2026-01-20T03:00:00.000Z",
+      "porcentaje_demostracion": 81,
+      "ingles": {
+        "nombre": "On two wheels",
+        "descripcion": "You have learned to ride a bicycle."
+      }
+    },
+    {
+      "clave": "demo-20",
+      "nombre": "Otro idioma",
+      "descripcion": "Has conversado en otro idioma.",
+      "icono": "💬",
+      "categoria": "categoria-3",
+      "activo": true,
+      "fecha": "2026-01-21T03:00:00.000Z",
+      "porcentaje_demostracion": 14,
+      "ingles": {
+        "nombre": "Another language",
+        "descripcion": "You have had a conversation in another language."
+      }
+    },
+    {
+      "clave": "demo-21",
+      "nombre": "El gran estreno",
+      "descripcion": "Has subido a un escenario.",
+      "icono": "🎭",
+      "categoria": "categoria-11",
+      "activo": true,
+      "fecha": "2026-01-22T03:00:00.000Z",
+      "porcentaje_demostracion": 8,
+      "ingles": {
+        "nombre": "The big debut",
+        "descripcion": "You have stepped onto a stage."
+      }
+    },
+    {
+      "clave": "demo-22",
+      "nombre": "Kilómetro cero",
+      "descripcion": "Has hecho un viaje en solitario.",
+      "icono": "🧭",
+      "categoria": "categoria-7",
+      "activo": true,
+      "fecha": "2026-01-23T03:00:00.000Z",
+      "porcentaje_demostracion": 6,
+      "ingles": {
+        "nombre": "Mile zero",
+        "descripcion": "You have traveled solo."
+      }
+    },
+    {
+      "clave": "demo-23",
+      "nombre": "Un amanecer distinto",
+      "descripcion": "Has visto amanecer después de una noche en vela.",
+      "icono": "🌅",
+      "categoria": "categoria-14",
+      "activo": true,
+      "fecha": "2026-01-24T03:00:00.000Z",
+      "porcentaje_demostracion": 56,
+      "ingles": {
+        "nombre": "A different sunrise",
+        "descripcion": "You have watched the sunrise after staying up all night."
+      }
+    }
+  ]
+}
