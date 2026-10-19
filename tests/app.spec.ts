@@ -1,4 +1,45 @@
 import { test, expect } from "@playwright/test";
+
+test("all catalog pages display locally bundled achievement images", async ({
+  page,
+}) => {
+  await page.goto("/");
+  let checked = 0;
+  for (let current = 0; current < 18; current++) {
+    const cards = page.locator(".achievement-grid .achievement");
+    await expect(cards).toHaveCount(current === 17 ? 2 : 12);
+    const images = cards.locator(".achievement-artwork img");
+    await expect(images).toHaveCount(current === 17 ? 2 : 12);
+    const loaded = await images.evaluateAll(async (nodes) =>
+      Promise.all(
+        nodes.map(async (node) => {
+          const img = node as HTMLImageElement;
+          await img.decode();
+          return (
+            img.naturalWidth > 0 && img.src.includes("/images/achievements/")
+          );
+        }),
+      ),
+    );
+    expect(loaded.every(Boolean)).toBe(true);
+    checked += loaded.length;
+    const next = page.getByRole("button", { name: "Siguiente", exact: true });
+    if (current < 17) await next.click();
+    else await expect(next).toBeDisabled();
+  }
+  expect(checked).toBe(206);
+});
+
+test("unavailable achievement images show a visible fallback", async ({
+  page,
+}) => {
+  await page.route("**/images/achievements/*.svg", (route) => route.abort());
+  await page.goto("/");
+  await expect(page.locator(".achievement-artwork .lucide-award")).toHaveCount(
+    12,
+  );
+  await expect(page.locator(".achievement-artwork img")).toHaveCount(0);
+});
 test("demo: login, persistence, favorite, filters and removal", async ({
   page,
 }) => {

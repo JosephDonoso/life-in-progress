@@ -70,7 +70,10 @@ test("editable profile, social requests, public showcase and follow links", asyn
     2,
   );
   const mini = page.locator(".public-profile .achievement-mini").first();
-  await expect(mini.locator(".achievement-artwork")).toHaveText("🚲");
+  await expect(mini.locator(".achievement-artwork img")).toHaveAttribute(
+    "src",
+    /1f6b2\.svg$/,
+  );
   await expect(mini).toHaveAttribute("data-rarity", "Común");
   await expect(mini.locator(".rarity")).toHaveText("Común");
   await mini.hover();

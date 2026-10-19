@@ -363,9 +363,26 @@
   box-shadow: 0 0 15px color-mix(in srgb, var(--rarity) 12%, transparent);
 }
 .achievement-artwork {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
   transition:
     filter 0.25s,
     opacity 0.25s;
+}
+.achievement-artwork > img,
+.achievement-artwork > svg {
+  display: block;
+  width: 74%;
+  height: 74%;
+  object-fit: contain;
+}
+.achievement-custom-image > img {
+  width: 100%;
+  height: 100%;
 }
 .achievement:not(.unlocked) {
   background: #101d28;

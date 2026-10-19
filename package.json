@@ -8,6 +8,7 @@
     "build": "npm run catalog:check && tsc -b && vite build",
     "catalog:check": "node supabase/generate-seed.mjs --check",
     "catalog:generate": "node supabase/generate-seed.mjs",
+    "icons:sync": "node scripts/sync-achievement-icons.mjs",
     "lint": "oxlint",
     "preview": "vite preview",
     "format": "prettier --write src tests docs catalogo.json README.md vite.config.ts playwright.config.ts supabase/generate-seed.mjs",

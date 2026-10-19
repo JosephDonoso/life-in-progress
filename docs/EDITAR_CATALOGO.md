@@ -4,20 +4,20 @@ El archivo [catalogo.json](../catalogo.json) contiene los logros, las categoría
 
 ## Qué puedes cambiar
 
-| Campo                                  | Uso                                                                                  |
-| -------------------------------------- | ------------------------------------------------------------------------------------ |
-| `categorias[].clave`                   | Identificador interno. No cambies el de una categoría existente.                     |
-| `categorias[].nombre`                  | Nombre visible de la categoría en español.                                           |
-| `categorias[].ingles`                  | Nombre visible al elegir inglés.                                                     |
-| `logros[].clave`                       | Identificador estable. No cambies el de un logro existente.                          |
-| `nombre` y `descripcion`               | Título y explicación del logro.                                                      |
-| `icono`                                | Emoji que se muestra en el catálogo y la vitrina.                                    |
-| `categoria`                            | Clave de una de las categorías del archivo.                                          |
-| `activo`                               | `true` para mostrarlo; `false` para retirarlo y conservar su historial.              |
-| `fecha`                                | Fecha usada para ordenar: formato `2026-10-16T00:00:00.000Z`.                        |
-| `porcentaje_demostracion`              | Porcentaje ilustrativo de 0 a 100, usado únicamente sin Supabase.                    |
-| `ingles.nombre` y `ingles.descripcion` | Traducciones. Si omites el objeto `ingles`, se conserva el español como alternativa. |
-| `rarezas[].porcentaje_minimo`          | Porcentaje global de obtención a partir del cual corresponde esa rareza.             |
+| Campo                                  | Uso                                                                                   |
+| -------------------------------------- | ------------------------------------------------------------------------------------- |
+| `categorias[].clave`                   | Identificador interno. No cambies el de una categoría existente.                      |
+| `categorias[].nombre`                  | Nombre visible de la categoría en español.                                            |
+| `categorias[].ingles`                  | Nombre visible al elegir inglés.                                                      |
+| `logros[].clave`                       | Identificador estable. No cambies el de un logro existente.                           |
+| `nombre` y `descripcion`               | Título y explicación del logro.                                                       |
+| `icono`                                | Emoji con imagen local o ruta/URL de una imagen, compartida entre catálogo y vitrina. |
+| `categoria`                            | Clave de una de las categorías del archivo.                                           |
+| `activo`                               | `true` para mostrarlo; `false` para retirarlo y conservar su historial.               |
+| `fecha`                                | Fecha usada para ordenar: formato `2026-10-16T00:00:00.000Z`.                         |
+| `porcentaje_demostracion`              | Porcentaje ilustrativo de 0 a 100, usado únicamente sin Supabase.                     |
+| `ingles.nombre` y `ingles.descripcion` | Traducciones. Si omites el objeto `ingles`, se conserva el español como alternativa.  |
+| `rarezas[].porcentaje_minimo`          | Porcentaje global de obtención a partir del cual corresponde esa rareza.              |
 
 Las claves admiten letras minúsculas sin tildes, números y guiones. Cada clave y cada nombre deben ser únicos dentro de su lista. Las claves `vida-…` identifican las nuevas experiencias; algunas claves `demo-…` se conservan para mantener el progreso de experiencias equivalentes del catálogo anterior. Conserva todas estas claves aunque cambies los textos.
 
@@ -41,6 +41,14 @@ Para añadir un logro, copia un bloque de la lista `logros` y usa una clave y no
 ```
 
 Para crear una categoría, añade su clave, nombre e inglés a `categorias`, y usa esa clave en los logros correspondientes. No elimines una categoría que todavía esté referenciada. Las categorías antiguas de Supabase se conservan aunque dejen de figurar en el JSON.
+
+### Imágenes de los logros
+
+Los emojis del catálogo se muestran como imágenes SVG locales para que no dependan de las fuentes ni de la versión del sistema del visitante. Las 164 imágenes de Twemoji cubren los 206 logros actuales. Si añades un emoji nuevo, ejecuta `npm run icons:sync` y guarda los archivos generados junto con el catálogo. Esta descarga solo se hace al editar; los visitantes reciben las imágenes desde el propio sitio.
+
+También puedes guardar una imagen propia en `public/images/` y usar, por ejemplo, `"icono": "images/mi-logro.png"`, o indicar una URL HTTPS. Las rutas locales respetan la carpeta del proyecto en GitHub Pages. El catálogo, «Mi aventura» y las vitrinas usan la misma imagen; si falla su carga se muestra una medalla como alternativa.
+
+Los créditos y la licencia de las ilustraciones están en `public/images/achievements/ATTRIBUTION.txt` y `LICENSE-GRAPHICS.txt`.
 
 ## Rarezas y totales
 

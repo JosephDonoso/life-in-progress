@@ -170,6 +170,8 @@ Incluye catálogo bilingüe, registro y acceso por correo, recuperación de cont
 
 Fotografías remotas de Unsplash y tipografías de Google Fonts: requieren conexión; la composición conserva colores y fuentes alternativas si no cargan.
 
+Las imágenes de los logros se sirven desde el proyecto para evitar emojis ausentes según el dispositivo. Ilustraciones de [Twemoji](https://github.com/jdecked/twemoji), de Twitter, Inc. y otros colaboradores, distribuidas sin modificaciones bajo [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/). Los créditos y la licencia se incluyen en [public/images/achievements](public/images/achievements). Usa `npm run icons:sync` al añadir nuevos emojis al catálogo.
+
 ## Autor y apoyo
 
 Desarrollado por [JosephDonoso](https://github.com/JosephDonoso), bajo [JDevShowcase](https://jdevshowcase.github.io/showcase/).
