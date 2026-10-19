@@ -251,7 +251,7 @@ export function useLifeProgress() {
   }
   const all = db ? items : demo;
   const categoryProgress = db
-    ? personal?.categories || []
+    ? (personal?.categories || []).filter((c) => c.total > 0)
     : categories.map((c) => ({
         name: c,
         total: demo.filter((a) => a.category === c).length,

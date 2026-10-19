@@ -19,7 +19,7 @@ El archivo [catalogo.json](../catalogo.json) contiene los logros, las categoría
 | `ingles.nombre` y `ingles.descripcion` | Traducciones. Si omites el objeto `ingles`, se conserva el español como alternativa. |
 | `rarezas[].porcentaje_minimo`          | Porcentaje global de obtención a partir del cual corresponde esa rareza.             |
 
-Las claves admiten letras minúsculas sin tildes, números y guiones. Cada clave y cada nombre deben ser únicos dentro de su lista. Las claves actuales `demo-0`, `demo-1`, etc. identifican las entradas iniciales también al sincronizar Supabase; conserva esos valores aunque les cambies los textos.
+Las claves admiten letras minúsculas sin tildes, números y guiones. Cada clave y cada nombre deben ser únicos dentro de su lista. Las claves `vida-…` identifican las nuevas experiencias; algunas claves `demo-…` se conservan para mantener el progreso de experiencias equivalentes del catálogo anterior. Conserva todas estas claves aunque cambies los textos.
 
 Para añadir un logro, copia un bloque de la lista `logros` y usa una clave y nombre nuevos. Ejemplo, para una categoría existente:
 
@@ -76,6 +76,14 @@ El primer comando valida el archivo. El segundo genera `supabase/seed.sql`. Apli
 La demo consume el JSON directamente y el proceso de compilación lo valida. El modo conectado consulta el catálogo de Supabase: necesita que apliques el SQL generado.
 
 ## Renombrar y retirar logros
+
+### Sustitución por la lista de ideas
+
+El catálogo actual contiene los 206 logros y las 16 categorías de `ideas_logros.txt`, con sus títulos y descripciones exactos en español y traducciones completas al inglés. El archivo de texto es el borrador editorial; la página y el generador SQL usan `catalogo.json`.
+
+Para actualizar una instalación existente, ejecuta `supabase/seed.sql` después de haber aplicado la migración 007. No hace falta vaciar tablas ni borrar jugadores. Las experiencias equivalentes conservan su clave anterior y sus desbloqueos; las entradas anteriores que ya no forman parte de la lista se desactivan conservando su historial. Las categorías sin logros activos dejan de aparecer en los filtros y estadísticas.
+
+Los porcentajes ilustrativos del catálogo solo se utilizan en la demostración. En Supabase los porcentajes y rarezas se siguen calculando a partir de los jugadores reales.
 
 Cambia `nombre`, `descripcion` o `categoria` manteniendo la misma `clave`. El UUID de Supabase y las relaciones con jugadores se conservan. Usa `activo: false` para retirar una experiencia; el historial queda almacenado y reaparece al reactivarla. Si quitas una entrada del JSON, la sincronización también la desactiva, siempre que haya sido vinculada previamente mediante su clave.
 

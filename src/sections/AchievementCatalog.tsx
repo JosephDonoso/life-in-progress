@@ -3,6 +3,7 @@ import { ChevronRight, Search } from "lucide-react";
 import type { LifeProgress } from "../hooks/useLifeProgress";
 import { rarities } from "../data";
 import { AchievementCard } from "../components/AchievementCard";
+import { AchievementSkeleton } from "../components/AchievementSkeleton";
 import { SearchField } from "../components/SearchField";
 import { ProgressBar } from "../components/ProgressBar";
 import { StatisticsSection } from "./StatisticsSection";
@@ -76,17 +77,22 @@ export function AchievementCatalog({ model: m }: { model: LifeProgress }) {
               <CatalogSort value={m.sort} onChange={m.setSort} />
             </div>
           </div>
-          {m.loading ? (
-            <div className="empty">{tr("Cargando experiencias…")}</div>
-          ) : (
-            <div className="achievement-grid">
+          <div className="catalog-results" aria-busy={m.loading}>
+            <div
+              className={`achievement-grid${m.loading ? " catalog-grid-loading" : ""}`}
+              aria-hidden={m.loading || undefined}
+            >
               {m.items.map((a) => (
                 <AchievementCard
                   key={a.id}
                   achievement={a}
                   unlocked={m.progress.unlocked.includes(a.id)}
                   featured={m.progress.featured.includes(a.id)}
-                  disabled={m.pending || (m.authenticated && !m.profileReady)}
+                  disabled={
+                    m.loading ||
+                    m.pending ||
+                    (m.authenticated && !m.profileReady)
+                  }
                   onToggle={() => m.toggle(a.id)}
                   onFeature={() =>
                     void m.save({
@@ -99,6 +105,21 @@ export function AchievementCatalog({ model: m }: { model: LifeProgress }) {
                 />
               ))}
             </div>
+            {m.loading && (
+              <div
+                className={`achievement-grid skeleton-grid${m.items.length ? " skeleton-overlay" : ""}`}
+                aria-hidden="true"
+              >
+                {Array.from({ length: m.items.length || 12 }, (_, index) => (
+                  <AchievementSkeleton key={index} />
+                ))}
+              </div>
+            )}
+          </div>
+          {m.loading && (
+            <span className="catalog-loading-label" role="status">
+              {tr("Cargando experiencias…")}
+            </span>
           )}
           {!m.loading && !m.items.length && (
             <div className="empty">

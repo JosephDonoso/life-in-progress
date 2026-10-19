@@ -10,7 +10,7 @@ El proyecto está en su primer MVP. Las funciones, el diseño y el alcance puede
 
 ## Funciones disponibles
 
-- Catálogo inicial de 24 logros, con búsqueda, categorías y filtros por rareza y estado. El orden por rareza, nombre o fecha se invierte al seleccionar de nuevo el mismo criterio.
+- Catálogo de 206 logros en 16 categorías, con títulos y descripciones en español e inglés, con búsqueda, categorías y filtros por rareza y estado. El orden por rareza, nombre o fecha se invierte al seleccionar de nuevo el mismo criterio.
 - Logros pendientes atenuados y logros obtenidos a color, con marcos y brillo según su rareza.
 - «Mi aventura»: listado personal y global, proporciones de obtención, orden del más al menos conseguido y carga progresiva mediante «Ver más».
 - Registro, acceso y recuperación de contraseña por correo; integración de Google preparada para configurar su proveedor.
@@ -59,7 +59,7 @@ npm ci
 npm run dev
 ```
 
-Sin variables de entorno se activa una demostración claramente identificada: 24 experiencias, porcentajes ilustrativos y progreso en localStorage. No simula una autenticación real de Google. Pulsa «Entrar en la demostración» para probar el marcado, los favoritos y el perfil. El progreso local permanece entre visitas, pero no se sincroniza con otras cuentas ni dispositivos.
+Sin variables de entorno se activa una demostración claramente identificada: 206 experiencias, porcentajes ilustrativos y progreso en localStorage. No simula una autenticación real de Google. Pulsa «Entrar en la demostración» para probar el marcado, los favoritos y el perfil. El progreso local permanece entre visitas, pero no se sincroniza con otras cuentas ni dispositivos.
 
 ### Variables de entorno
 

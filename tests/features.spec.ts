@@ -70,15 +70,15 @@ test("editable profile, social requests, public showcase and follow links", asyn
     2,
   );
   const mini = page.locator(".public-profile .achievement-mini").first();
-  await expect(mini.locator(".achievement-artwork")).toHaveText("✈️");
+  await expect(mini.locator(".achievement-artwork")).toHaveText("🚲");
   await expect(mini).toHaveAttribute("data-rarity", "Común");
   await expect(mini.locator(".rarity")).toHaveText("Común");
   await mini.hover();
   const tooltip = page
     .getByRole("tooltip")
-    .filter({ hasText: "Mi primer vuelo" });
+    .filter({ hasText: "Adiós, rueditas" });
   await expect(tooltip).toBeVisible();
-  await expect(tooltip).toContainText("Has viajado en avión por primera vez.");
+  await expect(tooltip).toContainText("Has aprendido a andar en bicicleta.");
   await page.screenshot({
     path: "test-results/profile-showcase.png",
     fullPage: true,
@@ -114,13 +114,13 @@ test("language preference, translated catalog search and rarity bands", async ({
   await expect(
     page.getByRole("tab", { name: "COMMUNITY", exact: true }),
   ).toBeVisible();
-  await page.getByLabel("Search the catalog").fill("meteor");
+  await page.getByLabel("Search the catalog").fill("shooting star");
   await expect(
-    page.getByRole("heading", { name: "Under the stars", exact: true }),
+    page.getByRole("heading", { name: "Make a wish", exact: true }),
   ).toBeVisible();
   await page.getByLabel("Search the catalog").fill("");
   await page.getByLabel("Rarity", { exact: true }).selectOption("Raro");
-  await expect(page.locator(".achievement")).toHaveCount(10);
+  await expect(page.locator(".achievement")).toHaveCount(12);
   await expect(page.locator(".achievement").first()).toHaveAttribute(
     "data-rarity",
     "Raro",

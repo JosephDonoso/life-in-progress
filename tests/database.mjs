@@ -54,7 +54,8 @@ await db.exec(
 // Simulate an existing installation with randomly assigned IDs before migration 007.
 const legacyId = "00000000-0000-4000-8000-000000000999";
 await db.exec(`insert into public.categories(name) values('Viajes y exploración');
-insert into public.achievements(id,name,description,category_id) select '${legacyId}','Mi primer vuelo','Descripción anterior',id from public.categories where name='Viajes y exploración';`);
+insert into public.achievements(id,name,description,category_id) select '${legacyId}','¡Rómpete una pierna!','Descripción anterior',id from public.categories where name='Viajes y exploración';
+insert into public.achievements(name,description,category_id) select 'Mi primer vuelo','Logro que se retira',id from public.categories where name='Viajes y exploración';`);
 await db.exec(
   readFileSync(
     new URL("../supabase/migrations/007_catalog_keys.sql", import.meta.url),
@@ -166,21 +167,21 @@ const ownShowcase = (
 assert.deepEqual(ownShowcase.featured, state.featured_details);
 const catalog = (await db.query("select public.catalog_page() data")).rows[0]
   .data;
-assert.equal(catalog.total, 24);
+assert.equal(catalog.total, 206);
 assert.equal(catalog.items.length, 12);
 assert.equal(catalog.items[0].percentage, 50);
 const englishCatalog = (
   await db.query(
-    "select public.catalog_page('meteor','','','all','popular',0,'en') data",
+    "select public.catalog_page('shooting star','','','all','popular',0,'en') data",
   )
 ).rows[0].data;
 assert.equal(englishCatalog.total, 1);
-assert.equal(englishCatalog.items[0].name, "Under the stars");
+assert.equal(englishCatalog.items[0].name, "Make a wish");
 for (const term of [
-  "Bajo las estrellas",
-  "lluvia de meteoros",
-  "Under the stars",
-  "meteor shower",
+  "Pide un deseo",
+  "estrella fugaz",
+  "Make a wish",
+  "shooting star",
 ]) {
   const data = (
     await db.query(
@@ -189,7 +190,7 @@ for (const term of [
     )
   ).rows[0].data;
   assert.equal(data.total, 1);
-  assert.equal(data.items[0].name, "Bajo las estrellas");
+  assert.equal(data.items[0].name, "Pide un deseo");
 }
 for (const sort of ["rare", "percentage_asc"]) {
   const data = (
@@ -328,12 +329,56 @@ await assert.rejects(
 );
 const stats = (await db.query("select public.global_stats() data")).rows[0]
   .data;
-assert.deepEqual(stats, { achievements: 24, players: 2, unlocks: 0 });
+assert.deepEqual(stats, { achievements: 206, players: 2, unlocks: 0 });
 await db.exec("reset role;");
+const retired = (
+  await db.query(
+    "select id,active from public.achievements where catalog_key='demo-1'",
+  )
+).rows[0];
+assert.equal(retired.active, false);
+await db.query(
+  "insert into public.user_achievements(user_id,achievement_id) values($1,$2)",
+  [userA, retired.id],
+);
+await db.exec(catalogSql(editableCatalog));
 assert.equal(
   (
     await db.query(
-      "select id from public.achievements where catalog_key='demo-1'",
+      "select count(*) n from public.user_achievements where achievement_id=$1",
+      [retired.id],
+    )
+  ).rows[0].n,
+  1,
+  "Retiring a previous achievement must preserve its history",
+);
+assert.equal(
+  (await db.query("select count(*) n from public.achievements where active"))
+    .rows[0].n,
+  206,
+);
+for (const entry of editableCatalog.logros) {
+  const saved = (
+    await db.query(
+      "select a.name,a.description,a.translations,c.name category from public.achievements a join public.categories c on c.id=a.category_id where a.catalog_key=$1",
+      [entry.clave],
+    )
+  ).rows[0];
+  assert.equal(saved.name, entry.nombre);
+  assert.equal(saved.description, entry.descripcion);
+  assert.deepEqual(saved.translations.en, {
+    name: entry.ingles.nombre,
+    description: entry.ingles.descripcion,
+  });
+  assert.equal(
+    saved.category,
+    editableCatalog.categorias.find((c) => c.clave === entry.categoria).nombre,
+  );
+}
+assert.equal(
+  (
+    await db.query(
+      "select id from public.achievements where catalog_key='demo-0'",
     )
   ).rows[0].id,
   legacyId,
@@ -342,11 +387,11 @@ await db.exec(
   `insert into public.user_achievements(user_id,achievement_id) values('${userA}','${legacyId}');`,
 );
 const updatedCatalog = structuredClone(editableCatalog);
-const flight = updatedCatalog.logros.find((a) => a.clave === "demo-1");
-flight.nombre = "Mi vuelo: Joseph's edition";
-flight.descripcion =
+const bone = updatedCatalog.logros.find((a) => a.clave === "demo-0");
+bone.nombre = "Huesos de Joseph's edition";
+bone.descripcion =
   "Probando comillas '; select 1; -- sin ejecutar instrucciones.";
-updatedCatalog.categorias.find((c) => c.clave === flight.categoria).nombre =
+updatedCatalog.categorias.find((c) => c.clave === bone.categoria).nombre =
   "Viajes de Joseph's";
 updatedCatalog.rarezas[0].porcentaje_minimo = 60;
 await db.exec(catalogSql(updatedCatalog));
@@ -357,8 +402,8 @@ const saved = (
     [legacyId],
   )
 ).rows[0];
-assert.equal(saved.name, flight.nombre);
-assert.equal(saved.description, flight.descripcion);
+assert.equal(saved.name, bone.nombre);
+assert.equal(saved.description, bone.descripcion);
 assert.equal(
   (
     await db.query(
@@ -368,7 +413,7 @@ assert.equal(
   ).rows[0].n,
   1,
 );
-flight.activo = false;
+bone.activo = false;
 await db.exec(catalogSql(updatedCatalog));
 assert.equal(
   (
@@ -379,7 +424,7 @@ assert.equal(
   false,
 );
 updatedCatalog.logros = updatedCatalog.logros.filter(
-  (a) => a.clave !== "demo-1",
+  (a) => a.clave !== "demo-0",
 );
 await db.exec(catalogSql(updatedCatalog));
 assert.equal(

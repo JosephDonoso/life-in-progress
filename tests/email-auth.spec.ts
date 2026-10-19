@@ -6,6 +6,7 @@ async function mockSupabase(
   options: {
     catalogSize?: number;
     heldSearches?: Map<string, Promise<void>>;
+    heldPages?: Map<number, Promise<void>>;
   } = {},
 ) {
   const user = {
@@ -111,6 +112,7 @@ async function mockSupabase(
         break;
       case "/rest/v1/rpc/catalog_page":
         await options.heldSearches?.get(String(body.search_text));
+        await options.heldPages?.get(Number(body.page_number));
         json = {
           items: achievements.slice(
             Number(body.page_number) * 12,
@@ -582,6 +584,88 @@ test("expired recovery links report the error instead of reopening a stored reco
     page.getByRole("dialog", { name: "Nueva contraseña", exact: true }),
   ).toHaveCount(0);
 });
+
+for (const width of [1536, 390]) {
+  test(`catalog skeleton preserves layout while changing pages at ${width}px`, async ({
+    page,
+  }) => {
+    await page.setViewportSize({ width, height: 900 });
+    let releaseInitial = () => {};
+    let releaseNext = () => {};
+    const initial = new Promise<void>((resolve) => {
+      releaseInitial = resolve;
+    });
+    const next = new Promise<void>((resolve) => {
+      releaseNext = resolve;
+    });
+    await mockSupabase(page, {
+      catalogSize: 24,
+      heldPages: new Map([
+        [0, initial],
+        [1, next],
+      ]),
+    });
+    try {
+      await page.goto("/");
+      const results = page.locator(".catalog-results");
+      const skeletons = page.locator(".achievement-skeleton");
+      await expect(results).toHaveAttribute("aria-busy", "true");
+      await expect(skeletons).toHaveCount(12);
+      await expect(page.getByRole("status")).toHaveText(
+        "Cargando experiencias…",
+      );
+      releaseInitial();
+      await expect(results).toHaveAttribute("aria-busy", "false");
+      await expect(skeletons).toHaveCount(0);
+      await expect(page.locator(".achievement")).toHaveCount(12);
+      const button = page.getByRole("button", {
+        name: "Siguiente",
+        exact: true,
+      });
+      await button.scrollIntoViewIfNeeded();
+      const before = await results.boundingBox();
+      const footerBefore = await page.locator(".catalog-bottom").boundingBox();
+      const scrollBefore = await page.evaluate(() => scrollY);
+      await button.click();
+      await expect(results).toHaveAttribute("aria-busy", "true");
+      await expect(skeletons).toHaveCount(12);
+      await expect(button).toBeDisabled();
+      await expect(page.locator(".achievement-main").first()).not.toBeVisible();
+      const during = await results.boundingBox();
+      const footerDuring = await page.locator(".catalog-bottom").boundingBox();
+      expect(during!.height).toBeCloseTo(before!.height, 1);
+      expect(footerDuring!.y).toBeCloseTo(footerBefore!.y, 1);
+      expect(await page.evaluate(() => scrollY)).toBe(scrollBefore);
+      await page.emulateMedia({ reducedMotion: "reduce" });
+      expect(
+        await skeletons
+          .first()
+          .locator(".skeleton-shimmer")
+          .first()
+          .evaluate((el) => getComputedStyle(el, "::after").animationName),
+      ).toBe("none");
+      await page.screenshot({
+        path: `test-results/catalog-loading-${width}.png`,
+        fullPage: true,
+      });
+      releaseNext();
+      await expect(results).toHaveAttribute("aria-busy", "false");
+      await expect(skeletons).toHaveCount(0);
+      await expect(page.locator(".achievement").first()).toContainText(
+        "Experiencia 12",
+      );
+      await expect(page.locator(".achievement-main").first()).toBeVisible();
+      expect(
+        await page.evaluate(
+          () => document.documentElement.scrollWidth <= innerWidth,
+        ),
+      ).toBe(true);
+    } finally {
+      releaseInitial();
+      releaseNext();
+    }
+  });
+}
 
 test("signup confirmations do not open password recovery", async ({ page }) => {
   const mock = await mockSupabase(page);

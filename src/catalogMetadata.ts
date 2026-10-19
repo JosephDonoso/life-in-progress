@@ -37,7 +37,8 @@ function resource<T>(ttl: number, load: () => Promise<T>) {
 const categories = resource(5 * 60_000, async () => {
   const { data, error } = await db!
     .from("categories")
-    .select("name")
+    .select("name,achievements!inner(id)")
+    .eq("achievements.active", true)
     .order("name");
   if (error) throw error;
   return data.map((c: { name: string }) => c.name);

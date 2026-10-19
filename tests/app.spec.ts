@@ -5,32 +5,32 @@ test("demo: login, persistence, favorite, filters and removal", async ({
   await page.goto("/");
   await expect(page.getByText("MODO DEMOSTRACIÓN")).toBeVisible();
   await page
-    .getByRole("button", { name: "Desbloquear Mi primer vuelo", exact: true })
+    .getByRole("button", { name: "Desbloquear Día de pago", exact: true })
     .click();
   await page.getByRole("button", { name: "Entrar en la demostración" }).click();
   await page
-    .getByRole("button", { name: "Desbloquear Mi primer vuelo", exact: true })
+    .getByRole("button", { name: "Desbloquear Día de pago", exact: true })
     .click();
   await expect(
     page.getByRole("button", {
-      name: "Desmarcar Mi primer vuelo",
+      name: "Desmarcar Día de pago",
       exact: true,
     }),
   ).toHaveAttribute("aria-pressed", "true");
   await page
-    .getByRole("button", { name: "Destacar Mi primer vuelo", exact: true })
+    .getByRole("button", { name: "Destacar Día de pago", exact: true })
     .click();
   await page.reload();
   await expect(
     page.getByRole("button", {
-      name: "Desmarcar Mi primer vuelo",
+      name: "Desmarcar Día de pago",
       exact: true,
     }),
   ).toBeVisible();
-  await page.getByLabel("Buscar en el catálogo").fill("meteor");
+  await page.getByLabel("Buscar en el catálogo").fill("estrella fugaz");
   await expect(page.locator(".achievement")).toHaveCount(1);
   await expect(
-    page.getByRole("heading", { name: "Bajo las estrellas", exact: true }),
+    page.getByRole("heading", { name: "Pide un deseo", exact: true }),
   ).toBeVisible();
   await page.getByLabel("Buscar en el catálogo").fill("ningún resultado aquí");
   await expect(
@@ -40,11 +40,11 @@ test("demo: login, persistence, favorite, filters and removal", async ({
   await page.getByRole("button", { name: "Iniciar sesión" }).first().click();
   await page.getByRole("button", { name: "Entrar en la demostración" }).click();
   await page
-    .getByRole("button", { name: "Desmarcar Mi primer vuelo", exact: true })
+    .getByRole("button", { name: "Desmarcar Día de pago", exact: true })
     .click();
   await expect(
     page.getByRole("button", {
-      name: "Desbloquear Mi primer vuelo",
+      name: "Desbloquear Día de pago",
       exact: true,
     }),
   ).toHaveAttribute("aria-pressed", "false");

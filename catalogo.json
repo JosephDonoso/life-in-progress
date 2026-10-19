@@ -31,18 +31,13 @@
   "categorias": [
     {
       "clave": "categoria-1",
-      "nombre": "Infancia y crecimiento",
-      "ingles": "Childhood and growing up"
-    },
-    {
-      "clave": "categoria-2",
-      "nombre": "Salud y cuerpo",
-      "ingles": "Health and body"
+      "nombre": "Etapas de la vida",
+      "ingles": "Life stages"
     },
     {
       "clave": "categoria-3",
-      "nombre": "Educación",
-      "ingles": "Education"
+      "nombre": "Educación y aprendizaje",
+      "ingles": "Education and learning"
     },
     {
       "clave": "categoria-4",
@@ -50,89 +45,1028 @@
       "ingles": "Work and career"
     },
     {
-      "clave": "categoria-5",
-      "nombre": "Amor y relaciones",
-      "ingles": "Love and relationships"
+      "clave": "dinero-y-compras",
+      "nombre": "Dinero y compras",
+      "ingles": "Money and shopping"
     },
     {
-      "clave": "categoria-6",
-      "nombre": "Familia y amistades",
-      "ingles": "Family and friends"
+      "clave": "hogar-y-vivienda",
+      "nombre": "Hogar y vivienda",
+      "ingles": "Home and housing"
+    },
+    {
+      "clave": "categoria-2",
+      "nombre": "Salud y cuerpo",
+      "ingles": "Health and body"
+    },
+    {
+      "clave": "categoria-5",
+      "nombre": "Relaciones, familia y vida social",
+      "ingles": "Relationships, family and social life"
+    },
+    {
+      "clave": "comunidad-y-ayuda",
+      "nombre": "Comunidad y ayuda a otros",
+      "ingles": "Community and helping others"
     },
     {
       "clave": "categoria-7",
-      "nombre": "Viajes y exploración",
-      "ingles": "Travel and exploration"
+      "nombre": "Viajes y transporte",
+      "ingles": "Travel and transportation"
     },
     {
       "clave": "categoria-8",
-      "nombre": "Naturaleza y animales",
-      "ingles": "Nature and animals"
-    },
-    {
-      "clave": "categoria-9",
-      "nombre": "Tecnología e Internet",
-      "ingles": "Technology and Internet"
-    },
-    {
-      "clave": "categoria-10",
-      "nombre": "Deportes y actividades",
-      "ingles": "Sports and activities"
+      "nombre": "Naturaleza y entorno",
+      "ingles": "Nature and surroundings"
     },
     {
       "clave": "categoria-11",
-      "nombre": "Cultura y entretenimiento",
-      "ingles": "Culture and entertainment"
+      "nombre": "Arte, cultura y entretenimiento",
+      "ingles": "Arts, culture and entertainment"
     },
     {
-      "clave": "categoria-12",
-      "nombre": "Experiencias extraordinarias",
-      "ingles": "Extraordinary experiences"
+      "clave": "categoria-10",
+      "nombre": "Deporte y movimiento corporal",
+      "ingles": "Sports and movement"
+    },
+    {
+      "clave": "cocina-y-habilidades",
+      "nombre": "Cocina, oficios y habilidades prácticas",
+      "ingles": "Cooking, crafts and practical skills"
+    },
+    {
+      "clave": "categoria-9",
+      "nombre": "Tecnología y vida digital",
+      "ingles": "Technology and digital life"
     },
     {
       "clave": "categoria-13",
-      "nombre": "Situaciones desafortunadas",
-      "ingles": "Unfortunate events"
+      "nombre": "Conflictos y seguridad",
+      "ingles": "Conflict and safety"
     },
     {
       "clave": "categoria-14",
-      "nombre": "Acontecimientos cotidianos",
-      "ingles": "Everyday moments"
+      "nombre": "Vida cotidiana y situaciones inesperadas",
+      "ingles": "Everyday life and unexpected moments"
     }
   ],
   "logros": [
     {
+      "clave": "vida-llegar-al-juego",
+      "nombre": "Llegar al juego",
+      "descripcion": "Has nacido.",
+      "icono": "👶",
+      "categoria": "categoria-1",
+      "activo": true,
+      "fecha": "2026-10-18T00:00:00.000Z",
+      "porcentaje_demostracion": 100,
+      "ingles": {
+        "nombre": "Joining the game",
+        "descripcion": "You were born."
+      }
+    },
+    {
+      "clave": "vida-primera-decada",
+      "nombre": "Primera década",
+      "descripcion": "Has cumplido 10 años.",
+      "icono": "🎂",
+      "categoria": "categoria-1",
+      "activo": true,
+      "fecha": "2026-10-18T00:00:01.000Z",
+      "porcentaje_demostracion": 96,
+      "ingles": {
+        "nombre": "First decade",
+        "descripcion": "You have turned 10."
+      }
+    },
+    {
+      "clave": "vida-se-desbloquearon-las-responsabilidades",
+      "nombre": "Se desbloquearon las responsabilidades",
+      "descripcion": "Has cumplido 18 años.",
+      "icono": "🔑",
+      "categoria": "categoria-1",
+      "activo": true,
+      "fecha": "2026-10-18T00:00:02.000Z",
+      "porcentaje_demostracion": 88,
+      "ingles": {
+        "nombre": "Responsibilities unlocked",
+        "descripcion": "You have turned 18."
+      }
+    },
+    {
+      "clave": "vida-dos-decadas",
+      "nombre": "Dos décadas",
+      "descripcion": "Has cumplido 20 años.",
+      "icono": "🎂",
+      "categoria": "categoria-1",
+      "activo": true,
+      "fecha": "2026-10-18T00:00:03.000Z",
+      "porcentaje_demostracion": 84,
+      "ingles": {
+        "nombre": "Two decades",
+        "descripcion": "You have turned 20."
+      }
+    },
+    {
+      "clave": "demo-5",
+      "nombre": "Los veinte: segunda temporada",
+      "descripcion": "Has cumplido 30 años.",
+      "icono": "🎂",
+      "categoria": "categoria-1",
+      "activo": true,
+      "fecha": "2026-01-06T03:00:00.000Z",
+      "porcentaje_demostracion": 58.7,
+      "ingles": {
+        "nombre": "Your twenties: season two",
+        "descripcion": "You have turned 30."
+      }
+    },
+    {
+      "clave": "vida-cuarentena",
+      "nombre": "Cuarentena",
+      "descripcion": "Has cumplido 40 años.",
+      "icono": "🎂",
+      "categoria": "categoria-1",
+      "activo": true,
+      "fecha": "2026-10-18T00:00:05.000Z",
+      "porcentaje_demostracion": 42,
+      "ingles": {
+        "nombre": "Forty and counting",
+        "descripcion": "You have turned 40."
+      }
+    },
+    {
+      "clave": "vida-medio-siglo",
+      "nombre": "Medio siglo",
+      "descripcion": "Has cumplido 50 años.",
+      "icono": "🎂",
+      "categoria": "categoria-1",
+      "activo": true,
+      "fecha": "2026-10-18T00:00:06.000Z",
+      "porcentaje_demostracion": 30,
+      "ingles": {
+        "nombre": "Half a century",
+        "descripcion": "You have turned 50."
+      }
+    },
+    {
+      "clave": "vida-longevidad-i",
+      "nombre": "Longevidad I",
+      "descripcion": "Has cumplido 70 años.",
+      "icono": "🎂",
+      "categoria": "categoria-1",
+      "activo": true,
+      "fecha": "2026-10-18T00:00:07.000Z",
+      "porcentaje_demostracion": 9,
+      "ingles": {
+        "nombre": "Longevity I",
+        "descripcion": "You have turned 70."
+      }
+    },
+    {
+      "clave": "vida-longevidad-ii",
+      "nombre": "Longevidad II",
+      "descripcion": "Has cumplido 80 años.",
+      "icono": "🎂",
+      "categoria": "categoria-1",
+      "activo": true,
+      "fecha": "2026-10-18T00:00:08.000Z",
+      "porcentaje_demostracion": 3,
+      "ingles": {
+        "nombre": "Longevity II",
+        "descripcion": "You have turned 80."
+      }
+    },
+    {
+      "clave": "vida-leyenda-viviente",
+      "nombre": "Leyenda viviente",
+      "descripcion": "Has superado los 90 años.",
+      "icono": "👑",
+      "categoria": "categoria-1",
+      "activo": true,
+      "fecha": "2026-10-18T00:00:09.000Z",
+      "porcentaje_demostracion": 0.6,
+      "ingles": {
+        "nombre": "Living legend",
+        "descripcion": "You have lived beyond the age of 90."
+      }
+    },
+    {
+      "clave": "vida-tutorial-completado",
+      "nombre": "Tutorial completado",
+      "descripcion": "Has terminado la educación primaria.",
+      "icono": "🎒",
+      "categoria": "categoria-3",
+      "activo": true,
+      "fecha": "2026-10-18T00:00:10.000Z",
+      "porcentaje_demostracion": 94,
+      "ingles": {
+        "nombre": "Tutorial complete",
+        "descripcion": "You have completed primary school."
+      }
+    },
+    {
+      "clave": "vida-suena-el-ultimo-timbre",
+      "nombre": "Suena el último timbre",
+      "descripcion": "Has terminado la educación secundaria.",
+      "icono": "🏫",
+      "categoria": "categoria-3",
+      "activo": true,
+      "fecha": "2026-10-18T00:00:11.000Z",
+      "porcentaje_demostracion": 86,
+      "ingles": {
+        "nombre": "The final bell",
+        "descripcion": "You have completed secondary school."
+      }
+    },
+    {
+      "clave": "vida-el-carton-mas-caro",
+      "nombre": "El cartón más caro",
+      "descripcion": "Has terminado una carrera universitaria de pregrado.",
+      "icono": "🎓",
+      "categoria": "categoria-3",
+      "activo": true,
+      "fecha": "2026-10-18T00:00:12.000Z",
+      "porcentaje_demostracion": 38,
+      "ingles": {
+        "nombre": "The most expensive piece of paper",
+        "descripcion": "You have completed an undergraduate degree."
+      }
+    },
+    {
+      "clave": "vida-un-paso-mas",
+      "nombre": "Un paso más",
+      "descripcion": "Has terminado un posgrado.",
+      "icono": "🎓",
+      "categoria": "categoria-3",
+      "activo": true,
+      "fecha": "2026-10-18T00:00:13.000Z",
+      "porcentaje_demostracion": 12,
+      "ingles": {
+        "nombre": "One step further",
+        "descripcion": "You have completed a postgraduate qualification."
+      }
+    },
+    {
+      "clave": "vida-ahora-con-certificado",
+      "nombre": "Ahora con certificado",
+      "descripcion": "Has obtenido una certificación profesional.",
+      "icono": "📜",
+      "categoria": "categoria-3",
+      "activo": true,
+      "fecha": "2026-10-18T00:00:14.000Z",
+      "porcentaje_demostracion": 28,
+      "ingles": {
+        "nombre": "Now certified",
+        "descripcion": "You have earned a professional certification."
+      }
+    },
+    {
+      "clave": "vida-autodidacta",
+      "nombre": "Autodidacta",
+      "descripcion": "Has aprendido una habilidad compleja por tu cuenta.",
+      "icono": "📚",
+      "categoria": "categoria-3",
+      "activo": true,
+      "fecha": "2026-10-18T00:00:15.000Z",
+      "porcentaje_demostracion": 43,
+      "ingles": {
+        "nombre": "Self-taught",
+        "descripcion": "You have learned a complex skill on your own."
+      }
+    },
+    {
+      "clave": "vida-de-que-me-sirve",
+      "nombre": "¿De qué me sirve?",
+      "descripcion": "Has aprendido a resolver una ecuación de segundo grado.",
+      "icono": "🧮",
+      "categoria": "categoria-3",
+      "activo": true,
+      "fecha": "2026-10-18T00:00:16.000Z",
+      "porcentaje_demostracion": 62,
+      "ingles": {
+        "nombre": "When will I ever use this?",
+        "descripcion": "You have learned to solve a quadratic equation."
+      }
+    },
+    {
+      "clave": "vida-oferta",
+      "nombre": "¡Oferta!",
+      "descripcion": "Has aprendido a calcular un descuento.",
+      "icono": "🏷️",
+      "categoria": "categoria-3",
+      "activo": true,
+      "fecha": "2026-10-18T00:00:17.000Z",
+      "porcentaje_demostracion": 85,
+      "ingles": {
+        "nombre": "On sale!",
+        "descripcion": "You have learned to calculate a discount."
+      }
+    },
+    {
+      "clave": "vida-sin-subtitulos",
+      "nombre": "Sin subtítulos",
+      "descripcion": "Has aprendido un idioma distinto de tu lengua materna.",
+      "icono": "🗣️",
+      "categoria": "categoria-3",
+      "activo": true,
+      "fecha": "2026-10-18T00:00:18.000Z",
+      "porcentaje_demostracion": 34,
+      "ingles": {
+        "nombre": "No subtitles needed",
+        "descripcion": "You have learned a language other than your native language."
+      }
+    },
+    {
+      "clave": "vida-las-manos-hablan",
+      "nombre": "Las manos hablan",
+      "descripcion": "Has aprendido a comunicarte mediante una lengua de señas.",
+      "icono": "🤟",
+      "categoria": "categoria-3",
+      "activo": true,
+      "fecha": "2026-10-18T00:00:19.000Z",
+      "porcentaje_demostracion": 4,
+      "ingles": {
+        "nombre": "Let your hands do the talking",
+        "descripcion": "You have learned to communicate using a sign language."
+      }
+    },
+    {
+      "clave": "vida-conocimiento-compartido",
+      "nombre": "Conocimiento compartido",
+      "descripcion": "Le has enseñado una habilidad a otra persona.",
+      "icono": "📖",
+      "categoria": "categoria-3",
+      "activo": true,
+      "fecha": "2026-10-18T00:00:20.000Z",
+      "porcentaje_demostracion": 78,
+      "ingles": {
+        "nombre": "Knowledge shared",
+        "descripcion": "You have taught someone a skill."
+      }
+    },
+    {
+      "clave": "vida-por-la-ciencia",
+      "nombre": "Por la ciencia",
+      "descripcion": "Has participado como sujeto de un estudio o investigación.",
+      "icono": "🔬",
+      "categoria": "categoria-3",
+      "activo": true,
+      "fecha": "2026-10-18T00:00:21.000Z",
+      "porcentaje_demostracion": 16,
+      "ingles": {
+        "nombre": "For science",
+        "descripcion": "You have taken part in a study or research project as a participant."
+      }
+    },
+    {
+      "clave": "vida-experiencia-temprana",
+      "nombre": "Experiencia temprana",
+      "descripcion": "Has tenido tu primer trabajo durante la juventud.",
+      "icono": "🧰",
+      "categoria": "categoria-4",
+      "activo": true,
+      "fecha": "2026-10-18T00:00:22.000Z",
+      "porcentaje_demostracion": 65,
+      "ingles": {
+        "nombre": "An early start",
+        "descripcion": "You had your first job when you were young."
+      }
+    },
+    {
+      "clave": "vida-de-la-teoria-al-cafe",
+      "nombre": "De la teoría al café",
+      "descripcion": "Has completado una práctica profesional.",
+      "icono": "☕",
+      "categoria": "categoria-4",
+      "activo": true,
+      "fecha": "2026-10-18T00:00:23.000Z",
+      "porcentaje_demostracion": 39,
+      "ingles": {
+        "nombre": "From theory to coffee",
+        "descripcion": "You have completed a professional internship."
+      }
+    },
+    {
+      "clave": "vida-cuentame-sobre-ti",
+      "nombre": "Cuéntame sobre ti",
+      "descripcion": "Has asistido a una entrevista de trabajo.",
+      "icono": "💼",
+      "categoria": "categoria-4",
+      "activo": true,
+      "fecha": "2026-10-18T00:00:24.000Z",
+      "porcentaje_demostracion": 81,
+      "ingles": {
+        "nombre": "Tell me about yourself",
+        "descripcion": "You have attended a job interview."
+      }
+    },
+    {
+      "clave": "vida-bienvenido-a-la-nomina",
+      "nombre": "Bienvenido a la nómina",
+      "descripcion": "Has tenido tu primer trabajo formal.",
+      "icono": "📝",
+      "categoria": "categoria-4",
+      "activo": true,
+      "fecha": "2026-10-18T00:00:25.000Z",
+      "porcentaje_demostracion": 75,
+      "ingles": {
+        "nombre": "Welcome to the payroll",
+        "descripcion": "You have had your first formal job."
+      }
+    },
+    {
+      "clave": "demo-9",
+      "nombre": "Día de pago",
+      "descripcion": "Has recibido tu primer sueldo.",
+      "icono": "💵",
+      "categoria": "categoria-4",
+      "activo": true,
+      "fecha": "2026-01-10T03:00:00.000Z",
+      "porcentaje_demostracion": 82.4,
+      "ingles": {
+        "nombre": "Payday",
+        "descripcion": "You have received your first paycheck."
+      }
+    },
+    {
+      "clave": "vida-subiendo-de-rango",
+      "nombre": "Subiendo de rango",
+      "descripcion": "Has conseguido tu primer ascenso laboral.",
+      "icono": "📈",
+      "categoria": "categoria-4",
+      "activo": true,
+      "fecha": "2026-10-18T00:00:27.000Z",
+      "porcentaje_demostracion": 38,
+      "ingles": {
+        "nombre": "Moving up the ranks",
+        "descripcion": "You have earned your first promotion."
+      }
+    },
+    {
+      "clave": "vida-mismo-personaje-mejor-sueldo",
+      "nombre": "Mismo personaje, mejor sueldo",
+      "descripcion": "Has recibido tu primer aumento salarial.",
+      "icono": "💰",
+      "categoria": "categoria-4",
+      "activo": true,
+      "fecha": "2026-10-18T00:00:28.000Z",
+      "porcentaje_demostracion": 48,
+      "ingles": {
+        "nombre": "Same character, better pay",
+        "descripcion": "You have received your first pay raise."
+      }
+    },
+    {
+      "clave": "vida-expediente-abierto",
+      "nombre": "Expediente abierto",
+      "descripcion": "Has recibido tu primera amonestación laboral.",
+      "icono": "📋",
+      "categoria": "categoria-4",
+      "activo": true,
+      "fecha": "2026-10-18T00:00:29.000Z",
+      "porcentaje_demostracion": 23,
+      "ingles": {
+        "nombre": "On the record",
+        "descripcion": "You have received your first disciplinary warning at work."
+      }
+    },
+    {
+      "clave": "vida-despedido",
+      "nombre": "Despedido",
+      "descripcion": "Has vivido tu primer despido laboral.",
+      "icono": "📦",
+      "categoria": "categoria-4",
+      "activo": true,
+      "fecha": "2026-10-18T00:00:30.000Z",
+      "porcentaje_demostracion": 29,
+      "ingles": {
+        "nombre": "Fired",
+        "descripcion": "You have been dismissed from a job for the first time."
+      }
+    },
+    {
+      "clave": "vida-por-decision-propia",
+      "nombre": "Por decisión propia",
+      "descripcion": "Has renunciado a un trabajo.",
+      "icono": "🚪",
+      "categoria": "categoria-4",
+      "activo": true,
+      "fecha": "2026-10-18T00:00:31.000Z",
+      "porcentaje_demostracion": 57,
+      "ingles": {
+        "nombre": "On your own terms",
+        "descripcion": "You have resigned from a job."
+      }
+    },
+    {
+      "clave": "vida-cambio-de-rumbo",
+      "nombre": "Cambio de rumbo",
+      "descripcion": "Has cambiado de profesión.",
+      "icono": "🧭",
+      "categoria": "categoria-4",
+      "activo": true,
+      "fecha": "2026-10-18T00:00:32.000Z",
+      "porcentaje_demostracion": 24,
+      "ingles": {
+        "nombre": "A change of direction",
+        "descripcion": "You have changed careers."
+      }
+    },
+    {
+      "clave": "vida-ahora-el-jefe-eres-tu",
+      "nombre": "Ahora el jefe eres tú",
+      "descripcion": "Has iniciado tu propio negocio.",
+      "icono": "🏪",
+      "categoria": "categoria-4",
+      "activo": true,
+      "fecha": "2026-10-18T00:00:33.000Z",
+      "porcentaje_demostracion": 18,
+      "ingles": {
+        "nombre": "You're the boss now",
+        "descripcion": "You have started your own business."
+      }
+    },
+    {
+      "clave": "vida-adios-al-despertador",
+      "nombre": "Adiós al despertador",
+      "descripcion": "Te has retirado de la vida laboral.",
+      "icono": "⏰",
+      "categoria": "categoria-4",
+      "activo": true,
+      "fecha": "2026-10-18T00:00:34.000Z",
+      "porcentaje_demostracion": 11,
+      "ingles": {
+        "nombre": "Goodbye, alarm clock",
+        "descripcion": "You have retired from working life."
+      }
+    },
+    {
+      "clave": "vida-sin-patrocinadores",
+      "nombre": "Sin patrocinadores",
+      "descripcion": "Has cubierto tus propios gastos.",
+      "icono": "💳",
+      "categoria": "dinero-y-compras",
+      "activo": true,
+      "fecha": "2026-10-18T00:00:35.000Z",
+      "porcentaje_demostracion": 77,
+      "ingles": {
+        "nombre": "No sponsors",
+        "descripcion": "You have covered your own expenses."
+      }
+    },
+    {
+      "clave": "vida-trato-hecho",
+      "nombre": "Trato hecho",
+      "descripcion": "Has negociado el precio de una compra.",
+      "icono": "🤝",
+      "categoria": "dinero-y-compras",
+      "activo": true,
+      "fecha": "2026-10-18T00:00:36.000Z",
+      "porcentaje_demostracion": 66,
+      "ingles": {
+        "nombre": "Deal done",
+        "descripcion": "You have negotiated the price of a purchase."
+      }
+    },
+    {
+      "clave": "vida-nuevo-para-mi",
+      "nombre": "Nuevo para mí",
+      "descripcion": "Has comprado algo que ya había tenido otro dueño.",
+      "icono": "🛍️",
+      "categoria": "dinero-y-compras",
+      "activo": true,
+      "fecha": "2026-10-18T00:00:37.000Z",
+      "porcentaje_demostracion": 83,
+      "ingles": {
+        "nombre": "New to me",
+        "descripcion": "You have bought something that had a previous owner."
+      }
+    },
+    {
+      "clave": "vida-esto-no-cabe-en-la-bolsa",
+      "nombre": "Esto no cabe en la bolsa",
+      "descripcion": "Has comprado un vehículo u otro bien de alto valor.",
+      "icono": "🚗",
+      "categoria": "dinero-y-compras",
+      "activo": true,
+      "fecha": "2026-10-18T00:00:38.000Z",
+      "porcentaje_demostracion": 48,
+      "ingles": {
+        "nombre": "This won't fit in the bag",
+        "descripcion": "You have bought a vehicle or another high-value item."
+      }
+    },
+    {
+      "clave": "vida-cuentas-saldadas",
+      "nombre": "Cuentas saldadas",
+      "descripcion": "Has terminado de pagar una deuda.",
+      "icono": "🧾",
+      "categoria": "dinero-y-compras",
+      "activo": true,
+      "fecha": "2026-10-18T00:00:39.000Z",
+      "porcentaje_demostracion": 54,
+      "ingles": {
+        "nombre": "All paid up",
+        "descripcion": "You have finished paying off a debt."
+      }
+    },
+    {
+      "clave": "vida-tu-vida-en-cajas",
+      "nombre": "Tu vida en cajas",
+      "descripcion": "Has cambiado de hogar por primera vez.",
+      "icono": "📦",
+      "categoria": "hogar-y-vivienda",
+      "activo": true,
+      "fecha": "2026-10-18T00:00:40.000Z",
+      "porcentaje_demostracion": 79,
+      "ingles": {
+        "nombre": "Your life in boxes",
+        "descripcion": "You have moved home for the first time."
+      }
+    },
+    {
+      "clave": "vida-bajo-el-mismo-techo",
+      "nombre": "Bajo el mismo techo",
+      "descripcion": "Has compartido vivienda con personas que no son de tu familia.",
+      "icono": "🏘️",
+      "categoria": "hogar-y-vivienda",
+      "activo": true,
+      "fecha": "2026-10-18T00:00:41.000Z",
+      "porcentaje_demostracion": 51,
+      "ingles": {
+        "nombre": "Under the same roof",
+        "descripcion": "You have shared a home with people outside your family."
+      }
+    },
+    {
+      "clave": "vida-llaves-propias",
+      "nombre": "Llaves propias",
+      "descripcion": "Has vivido solo por primera vez.",
+      "icono": "🔑",
+      "categoria": "hogar-y-vivienda",
+      "activo": true,
+      "fecha": "2026-10-18T00:00:42.000Z",
+      "porcentaje_demostracion": 42,
+      "ingles": {
+        "nombre": "Keys of your own",
+        "descripcion": "You have lived alone for the first time."
+      }
+    },
+    {
+      "clave": "vida-un-hogar-propio",
+      "nombre": "Un hogar propio",
+      "descripcion": "Has comprado una vivienda.",
+      "icono": "🏠",
+      "categoria": "hogar-y-vivienda",
+      "activo": true,
+      "fecha": "2026-10-18T00:00:43.000Z",
+      "porcentaje_demostracion": 26,
+      "ingles": {
+        "nombre": "A home of your own",
+        "descripcion": "You have bought a home."
+      }
+    },
+    {
+      "clave": "vida-banda-sonora-de-taladros",
+      "nombre": "Banda sonora de taladros",
+      "descripcion": "Has vivido en una casa mientras se realizaban obras en ella.",
+      "icono": "🔨",
+      "categoria": "hogar-y-vivienda",
+      "activo": true,
+      "fecha": "2026-10-18T00:00:44.000Z",
+      "porcentaje_demostracion": 46,
+      "ingles": {
+        "nombre": "The sound of power drills",
+        "descripcion": "You have lived in a home while it was being renovated."
+      }
+    },
+    {
+      "clave": "vida-acceso-denegado",
+      "nombre": "Acceso denegado",
+      "descripcion": "Te has quedado fuera de casa por no tener las llaves.",
+      "icono": "🚪",
+      "categoria": "hogar-y-vivienda",
+      "activo": true,
+      "fecha": "2026-10-18T00:00:45.000Z",
+      "porcentaje_demostracion": 58,
+      "ingles": {
+        "nombre": "Access denied",
+        "descripcion": "You have been locked out of your home because you did not have your keys."
+      }
+    },
+    {
+      "clave": "vida-en-buenas-manos",
+      "nombre": "En buenas manos",
+      "descripcion": "Has recibido atención médica por primera vez.",
+      "icono": "🩺",
+      "categoria": "categoria-2",
+      "activo": true,
+      "fecha": "2026-10-18T00:00:46.000Z",
+      "porcentaje_demostracion": 98,
+      "ingles": {
+        "nombre": "In good hands",
+        "descripcion": "You have received medical care for the first time."
+      }
+    },
+    {
+      "clave": "vida-no-lo-revientes",
+      "nombre": "No lo revientes",
+      "descripcion": "Has tenido acné.",
+      "icono": "🪞",
+      "categoria": "categoria-2",
+      "activo": true,
+      "fecha": "2026-10-18T00:00:47.000Z",
+      "porcentaje_demostracion": 88,
+      "ingles": {
+        "nombre": "Don't pop it",
+        "descripcion": "You have had acne."
+      }
+    },
+    {
+      "clave": "vida-reaccion-inesperada",
+      "nombre": "Reacción inesperada",
+      "descripcion": "Has tenido una reacción alérgica.",
+      "icono": "🤧",
+      "categoria": "categoria-2",
+      "activo": true,
+      "fecha": "2026-10-18T00:00:48.000Z",
+      "porcentaje_demostracion": 52,
+      "ingles": {
+        "nombre": "An unexpected reaction",
+        "descripcion": "You have had an allergic reaction."
+      }
+    },
+    {
+      "clave": "vida-cambio-de-skin",
+      "nombre": "Cambio de skin",
+      "descripcion": "Te has teñido el pelo.",
+      "icono": "🎨",
+      "categoria": "categoria-2",
+      "activo": true,
+      "fecha": "2026-10-18T00:00:49.000Z",
+      "porcentaje_demostracion": 49,
+      "ingles": {
+        "nombre": "New skin equipped",
+        "descripcion": "You have dyed your hair."
+      }
+    },
+    {
+      "clave": "vida-otra-mirada",
+      "nombre": "Otra mirada",
+      "descripcion": "Has usado lentes de contacto.",
+      "icono": "👁️",
+      "categoria": "categoria-2",
+      "activo": true,
+      "fecha": "2026-10-18T00:00:50.000Z",
+      "porcentaje_demostracion": 24,
+      "ingles": {
+        "nombre": "A different view",
+        "descripcion": "You have worn contact lenses."
+      }
+    },
+    {
+      "clave": "vida-el-dedo-contra-el-mundo",
+      "nombre": "El dedo contra el mundo",
+      "descripcion": "Te has golpeado un dedo del pie.",
+      "icono": "🦶",
+      "categoria": "categoria-2",
+      "activo": true,
+      "fecha": "2026-10-18T00:00:51.000Z",
+      "porcentaje_demostracion": 97,
+      "ingles": {
+        "nombre": "Toe versus the world",
+        "descripcion": "You have stubbed your toe."
+      }
+    },
+    {
+      "clave": "vida-paso-en-falso",
+      "nombre": "Paso en falso",
+      "descripcion": "Has sufrido un esguince.",
+      "icono": "🩹",
+      "categoria": "categoria-2",
+      "activo": true,
+      "fecha": "2026-10-18T00:00:52.000Z",
+      "porcentaje_demostracion": 58,
+      "ingles": {
+        "nombre": "A false step",
+        "descripcion": "You have suffered a sprain."
+      }
+    },
+    {
+      "clave": "vida-fuera-de-lugar",
+      "nombre": "Fuera de lugar",
+      "descripcion": "Has sufrido una luxación.",
+      "icono": "🦴",
+      "categoria": "categoria-2",
+      "activo": true,
+      "fecha": "2026-10-18T00:00:53.000Z",
+      "porcentaje_demostracion": 14,
+      "ingles": {
+        "nombre": "Out of place",
+        "descripcion": "You have suffered a dislocation."
+      }
+    },
+    {
       "clave": "demo-0",
-      "nombre": "¡Rómpete una pierna!",
-      "descripcion": "Te has roto algún hueso alguna vez.",
+      "nombre": "Huesos de cristal",
+      "descripcion": "Has sufrido una fractura.",
       "icono": "🦴",
       "categoria": "categoria-2",
       "activo": true,
       "fecha": "2026-01-01T03:00:00.000Z",
       "porcentaje_demostracion": 18.4,
       "ingles": {
-        "nombre": "Break a leg!",
+        "nombre": "Glass bones",
         "descripcion": "You have broken a bone."
       }
     },
     {
-      "clave": "demo-1",
-      "nombre": "Mi primer vuelo",
-      "descripcion": "Has viajado en avión por primera vez.",
-      "icono": "✈️",
-      "categoria": "categoria-7",
+      "clave": "demo-6",
+      "nombre": "Bajo el bisturí",
+      "descripcion": "Te has sometido a una operación.",
+      "icono": "🏥",
+      "categoria": "categoria-2",
       "activo": true,
-      "fecha": "2026-01-02T03:00:00.000Z",
-      "porcentaje_demostracion": 62.1,
+      "fecha": "2026-01-07T03:00:00.000Z",
+      "porcentaje_demostracion": 41.2,
       "ingles": {
-        "nombre": "My first flight",
-        "descripcion": "You have taken your first flight."
+        "nombre": "Under the knife",
+        "descripcion": "You have undergone surgery."
+      }
+    },
+    {
+      "clave": "vida-a-prueba-de-todo",
+      "nombre": "A prueba de todo",
+      "descripcion": "Has superado una enfermedad.",
+      "icono": "💪",
+      "categoria": "categoria-2",
+      "activo": true,
+      "fecha": "2026-10-18T00:00:56.000Z",
+      "porcentaje_demostracion": 93,
+      "ingles": {
+        "nombre": "Resilient",
+        "descripcion": "You have recovered from an illness."
+      }
+    },
+    {
+      "clave": "vida-apagon",
+      "nombre": "Apagón",
+      "descripcion": "Has sufrido un desmayo.",
+      "icono": "💫",
+      "categoria": "categoria-2",
+      "activo": true,
+      "fecha": "2026-10-18T00:00:57.000Z",
+      "porcentaje_demostracion": 32,
+      "ingles": {
+        "nombre": "Lights out",
+        "descripcion": "You have fainted."
+      }
+    },
+    {
+      "clave": "vida-segunda-oportunidad",
+      "nombre": "Segunda oportunidad",
+      "descripcion": "Has sobrevivido a una situación en la que tu vida estuvo en peligro.",
+      "icono": "❤️‍🩹",
+      "categoria": "categoria-2",
+      "activo": true,
+      "fecha": "2026-10-18T00:00:58.000Z",
+      "porcentaje_demostracion": 15,
+      "ingles": {
+        "nombre": "A second chance",
+        "descripcion": "You have survived a life-threatening situation."
+      }
+    },
+    {
+      "clave": "vida-modo-cooperativo",
+      "nombre": "Modo cooperativo",
+      "descripcion": "Has hecho tu primera amistad.",
+      "icono": "🤝",
+      "categoria": "categoria-5",
+      "activo": true,
+      "fecha": "2026-10-18T00:00:59.000Z",
+      "porcentaje_demostracion": 96,
+      "ingles": {
+        "nombre": "Co-op mode",
+        "descripcion": "You have made your first friend."
+      }
+    },
+    {
+      "clave": "vida-amistad-legendaria",
+      "nombre": "Amistad legendaria",
+      "descripcion": "Has mantenido una amistad durante más de 20 años.",
+      "icono": "🫂",
+      "categoria": "categoria-5",
+      "activo": true,
+      "fecha": "2026-10-18T00:01:00.000Z",
+      "porcentaje_demostracion": 29,
+      "ingles": {
+        "nombre": "Legendary friendship",
+        "descripcion": "You have maintained a friendship for more than 20 years."
+      }
+    },
+    {
+      "clave": "vida-de-puno-y-letra",
+      "nombre": "De puño y letra",
+      "descripcion": "Has recibido una carta escrita a mano.",
+      "icono": "✉️",
+      "categoria": "categoria-5",
+      "activo": true,
+      "fecha": "2026-10-18T00:01:01.000Z",
+      "porcentaje_demostracion": 63,
+      "ingles": {
+        "nombre": "By hand, with love",
+        "descripcion": "You have received a handwritten letter."
+      }
+    },
+    {
+      "clave": "vida-del-chat-al-cafe",
+      "nombre": "Del chat al café",
+      "descripcion": "Has conocido en persona a alguien con quien habías hablado por Internet.",
+      "icono": "💬",
+      "categoria": "categoria-5",
+      "activo": true,
+      "fecha": "2026-10-18T00:01:02.000Z",
+      "porcentaje_demostracion": 61,
+      "ingles": {
+        "nombre": "From chat to coffee",
+        "descripcion": "You have met someone in person after talking to them online."
+      }
+    },
+    {
+      "clave": "vida-que-pequeno-es-el-mundo",
+      "nombre": "Qué pequeño es el mundo",
+      "descripcion": "Te has encontrado por casualidad con alguien conocido durante un viaje.",
+      "icono": "🌍",
+      "categoria": "categoria-5",
+      "activo": true,
+      "fecha": "2026-10-18T00:01:03.000Z",
+      "porcentaje_demostracion": 42,
+      "ingles": {
+        "nombre": "It's a small world",
+        "descripcion": "You have unexpectedly run into someone you know while traveling."
+      }
+    },
+    {
+      "clave": "vida-sin-avisar",
+      "nombre": "Sin avisar",
+      "descripcion": "Has recibido una visita inesperada.",
+      "icono": "🚪",
+      "categoria": "categoria-5",
+      "activo": true,
+      "fecha": "2026-10-18T00:01:04.000Z",
+      "porcentaje_demostracion": 85,
+      "ingles": {
+        "nombre": "Without warning",
+        "descripcion": "You have received an unexpected visit."
+      }
+    },
+    {
+      "clave": "vida-hacer-las-paces",
+      "nombre": "Hacer las paces",
+      "descripcion": "Te has reconciliado con alguien después de una discusión.",
+      "icono": "🕊️",
+      "categoria": "categoria-5",
+      "activo": true,
+      "fecha": "2026-10-18T00:01:05.000Z",
+      "porcentaje_demostracion": 82,
+      "ingles": {
+        "nombre": "Making peace",
+        "descripcion": "You have reconciled with someone after an argument."
+      }
+    },
+    {
+      "clave": "vida-primer-amor",
+      "nombre": "Primer amor",
+      "descripcion": "Te has enamorado por primera vez.",
+      "icono": "💘",
+      "categoria": "categoria-5",
+      "activo": true,
+      "fecha": "2026-10-18T00:01:06.000Z",
+      "porcentaje_demostracion": 91,
+      "ingles": {
+        "nombre": "First love",
+        "descripcion": "You have fallen in love for the first time."
+      }
+    },
+    {
+      "clave": "vida-amor-correspondido",
+      "nombre": "Amor correspondido",
+      "descripcion": "Has tenido tu primera relación sentimental.",
+      "icono": "💕",
+      "categoria": "categoria-5",
+      "activo": true,
+      "fecha": "2026-10-18T00:01:07.000Z",
+      "porcentaje_demostracion": 83,
+      "ingles": {
+        "nombre": "Love returned",
+        "descripcion": "You have had your first romantic relationship."
       }
     },
     {
       "clave": "demo-2",
       "nombre": "Corazón roto",
-      "descripcion": "Una historia terminó. La tuya continúa.",
+      "descripcion": "Has vivido tu primera ruptura amorosa.",
       "icono": "💔",
       "categoria": "categoria-5",
       "activo": true,
@@ -140,27 +1074,433 @@
       "porcentaje_demostracion": 71.3,
       "ingles": {
         "nombre": "Broken heart",
-        "descripcion": "One story ended. Yours goes on."
+        "descripcion": "You have experienced your first romantic breakup."
       }
     },
     {
-      "clave": "demo-3",
-      "nombre": "Bajo las estrellas",
-      "descripcion": "Has presenciado una lluvia de meteoros.",
-      "icono": "🌠",
-      "categoria": "categoria-8",
+      "clave": "vida-hasta-que-la-muerte-nos-separe",
+      "nombre": "Hasta que la muerte nos separe",
+      "descripcion": "Te has casado.",
+      "icono": "💍",
+      "categoria": "categoria-5",
       "activo": true,
-      "fecha": "2026-01-04T03:00:00.000Z",
-      "porcentaje_demostracion": 4.2,
+      "fecha": "2026-10-18T00:01:09.000Z",
+      "porcentaje_demostracion": 37,
       "ingles": {
-        "nombre": "Under the stars",
-        "descripcion": "You have watched a meteor shower."
+        "nombre": "Till death do us part",
+        "descripcion": "You have gotten married."
+      }
+    },
+    {
+      "clave": "vida-celebrar-el-amor",
+      "nombre": "Celebrar el amor",
+      "descripcion": "Has asistido a una boda.",
+      "icono": "🥂",
+      "categoria": "categoria-5",
+      "activo": true,
+      "fecha": "2026-10-18T00:01:10.000Z",
+      "porcentaje_demostracion": 78,
+      "ingles": {
+        "nombre": "Celebrating love",
+        "descripcion": "You have attended a wedding."
+      }
+    },
+    {
+      "clave": "vida-nuevo-jugador-en-la-familia",
+      "nombre": "Nuevo jugador en la familia",
+      "descripcion": "Te has convertido en padre o madre.",
+      "icono": "👶",
+      "categoria": "categoria-5",
+      "activo": true,
+      "fecha": "2026-10-18T00:01:11.000Z",
+      "porcentaje_demostracion": 42,
+      "ingles": {
+        "nombre": "A new player joins the family",
+        "descripcion": "You have become a parent."
+      }
+    },
+    {
+      "clave": "vida-tio-modo-desbloqueado",
+      "nombre": "Tío: modo desbloqueado",
+      "descripcion": "Te has convertido en tío o tía.",
+      "icono": "🧸",
+      "categoria": "categoria-5",
+      "activo": true,
+      "fecha": "2026-10-18T00:01:12.000Z",
+      "porcentaje_demostracion": 55,
+      "ingles": {
+        "nombre": "Uncle or aunt mode unlocked",
+        "descripcion": "You have become an uncle or aunt."
+      }
+    },
+    {
+      "clave": "vida-dar-y-recibir",
+      "nombre": "Dar y recibir",
+      "descripcion": "Has participado en un intercambio de regalos.",
+      "icono": "🎁",
+      "categoria": "categoria-5",
+      "activo": true,
+      "fecha": "2026-10-18T00:01:13.000Z",
+      "porcentaje_demostracion": 79,
+      "ingles": {
+        "nombre": "Give and receive",
+        "descripcion": "You have taken part in a gift exchange."
+      }
+    },
+    {
+      "clave": "vida-hecho-para-ti",
+      "nombre": "Hecho para ti",
+      "descripcion": "Has regalado algo hecho por ti.",
+      "icono": "🎀",
+      "categoria": "categoria-5",
+      "activo": true,
+      "fecha": "2026-10-18T00:01:14.000Z",
+      "porcentaje_demostracion": 59,
+      "ingles": {
+        "nombre": "Made for you",
+        "descripcion": "You have given someone a gift you made yourself."
+      }
+    },
+    {
+      "clave": "vida-la-fiesta-corre-por-mi-cuenta",
+      "nombre": "La fiesta corre por mi cuenta",
+      "descripcion": "Has organizado una fiesta.",
+      "icono": "🎉",
+      "categoria": "categoria-5",
+      "activo": true,
+      "fecha": "2026-10-18T00:01:15.000Z",
+      "porcentaje_demostracion": 57,
+      "ingles": {
+        "nombre": "The party's on me",
+        "descripcion": "You have organized a party."
+      }
+    },
+    {
+      "clave": "vida-y-si-me-los-imagino-en-pijama",
+      "nombre": "¿Y si me los imagino en pijama?",
+      "descripcion": "Has dado un discurso en público.",
+      "icono": "🎤",
+      "categoria": "categoria-5",
+      "activo": true,
+      "fecha": "2026-10-18T00:01:16.000Z",
+      "porcentaje_demostracion": 47,
+      "ingles": {
+        "nombre": "What if I picture them in pajamas?",
+        "descripcion": "You have given a speech in public."
+      }
+    },
+    {
+      "clave": "vida-mama-sali-en-la-tele",
+      "nombre": "Mamá, salí en la tele",
+      "descripcion": "Has aparecido en un medio de comunicación.",
+      "icono": "📺",
+      "categoria": "categoria-5",
+      "activo": true,
+      "fecha": "2026-10-18T00:01:17.000Z",
+      "porcentaje_demostracion": 18,
+      "ingles": {
+        "nombre": "Mom, I'm on TV",
+        "descripcion": "You have appeared in the media."
+      }
+    },
+    {
+      "clave": "vida-la-despedida",
+      "nombre": "La despedida",
+      "descripcion": "Has asistido a un funeral.",
+      "icono": "🕯️",
+      "categoria": "categoria-5",
+      "activo": true,
+      "fecha": "2026-10-18T00:01:18.000Z",
+      "porcentaje_demostracion": 73,
+      "ingles": {
+        "nombre": "The farewell",
+        "descripcion": "You have attended a funeral."
+      }
+    },
+    {
+      "clave": "vida-tu-voz-cuenta",
+      "nombre": "Tu voz cuenta",
+      "descripcion": "Has votado en una elección.",
+      "icono": "🗳️",
+      "categoria": "comunidad-y-ayuda",
+      "activo": true,
+      "fecha": "2026-10-18T00:01:19.000Z",
+      "porcentaje_demostracion": 76,
+      "ingles": {
+        "nombre": "Your voice counts",
+        "descripcion": "You have voted in an election."
+      }
+    },
+    {
+      "clave": "vida-manos-a-la-obra",
+      "nombre": "Manos a la obra",
+      "descripcion": "Has participado en un voluntariado.",
+      "icono": "🤲",
+      "categoria": "comunidad-y-ayuda",
+      "activo": true,
+      "fecha": "2026-10-18T00:01:20.000Z",
+      "porcentaje_demostracion": 45,
+      "ingles": {
+        "nombre": "Helping hands",
+        "descripcion": "You have taken part in volunteer work."
+      }
+    },
+    {
+      "clave": "vida-primeros-auxilios",
+      "nombre": "Primeros auxilios",
+      "descripcion": "Has aprendido técnicas básicas de primeros auxilios.",
+      "icono": "🩹",
+      "categoria": "comunidad-y-ayuda",
+      "activo": true,
+      "fecha": "2026-10-18T00:01:21.000Z",
+      "porcentaje_demostracion": 37,
+      "ingles": {
+        "nombre": "First aid",
+        "descripcion": "You have learned basic first aid techniques."
+      }
+    },
+    {
+      "clave": "vida-estar-ahi",
+      "nombre": "Estar ahí",
+      "descripcion": "Has cuidado a una persona enferma.",
+      "icono": "🫂",
+      "categoria": "comunidad-y-ayuda",
+      "activo": true,
+      "fecha": "2026-10-18T00:01:22.000Z",
+      "porcentaje_demostracion": 74,
+      "ingles": {
+        "nombre": "Being there",
+        "descripcion": "You have cared for someone who was ill."
+      }
+    },
+    {
+      "clave": "vida-una-parte-de-ti",
+      "nombre": "Una parte de ti",
+      "descripcion": "Has donado sangre.",
+      "icono": "🩸",
+      "categoria": "comunidad-y-ayuda",
+      "activo": true,
+      "fecha": "2026-10-18T00:01:23.000Z",
+      "porcentaje_demostracion": 28,
+      "ingles": {
+        "nombre": "A part of you",
+        "descripcion": "You have donated blood."
+      }
+    },
+    {
+      "clave": "vida-esto-es-un-simulacro",
+      "nombre": "Esto es un simulacro",
+      "descripcion": "Has participado en un simulacro de emergencia.",
+      "icono": "🚨",
+      "categoria": "comunidad-y-ayuda",
+      "activo": true,
+      "fecha": "2026-10-18T00:01:24.000Z",
+      "porcentaje_demostracion": 81,
+      "ingles": {
+        "nombre": "This is a drill",
+        "descripcion": "You have taken part in an emergency drill."
+      }
+    },
+    {
+      "clave": "vida-al-volante",
+      "nombre": "Al volante",
+      "descripcion": "Has aprendido a conducir un auto.",
+      "icono": "🚗",
+      "categoria": "categoria-7",
+      "activo": true,
+      "fecha": "2026-10-18T00:01:25.000Z",
+      "porcentaje_demostracion": 68,
+      "ingles": {
+        "nombre": "Behind the wheel",
+        "descripcion": "You have learned to drive a car."
+      }
+    },
+    {
+      "clave": "vida-dos-ruedas-y-un-motor",
+      "nombre": "Dos ruedas y un motor",
+      "descripcion": "Has aprendido a conducir una moto.",
+      "icono": "🏍️",
+      "categoria": "categoria-7",
+      "activo": true,
+      "fecha": "2026-10-18T00:01:26.000Z",
+      "porcentaje_demostracion": 22,
+      "ingles": {
+        "nombre": "Two wheels and an engine",
+        "descripcion": "You have learned to ride a motorcycle."
+      }
+    },
+    {
+      "clave": "vida-plan-b-sobre-ruedas",
+      "nombre": "Plan B sobre ruedas",
+      "descripcion": "Has aprendido a cambiar una rueda de un vehículo.",
+      "icono": "🛞",
+      "categoria": "categoria-7",
+      "activo": true,
+      "fecha": "2026-10-18T00:01:27.000Z",
+      "porcentaje_demostracion": 36,
+      "ingles": {
+        "nombre": "Plan B on wheels",
+        "descripcion": "You have learned to change a vehicle's tire."
+      }
+    },
+    {
+      "clave": "vida-al-timon",
+      "nombre": "Al timón",
+      "descripcion": "Has aprendido a manejar una embarcación.",
+      "icono": "⛵",
+      "categoria": "categoria-7",
+      "activo": true,
+      "fecha": "2026-10-18T00:01:28.000Z",
+      "porcentaje_demostracion": 4.5,
+      "ingles": {
+        "nombre": "At the helm",
+        "descripcion": "You have learned to operate a boat."
+      }
+    },
+    {
+      "clave": "vida-a-los-mandos",
+      "nombre": "A los mandos",
+      "descripcion": "Has aprendido a pilotar una aeronave.",
+      "icono": "🛩️",
+      "categoria": "categoria-7",
+      "activo": true,
+      "fecha": "2026-10-18T00:01:29.000Z",
+      "porcentaje_demostracion": 0.4,
+      "ingles": {
+        "nombre": "At the controls",
+        "descripcion": "You have learned to pilot an aircraft."
+      }
+    },
+    {
+      "clave": "vida-sobre-rieles",
+      "nombre": "Sobre rieles",
+      "descripcion": "Has viajado en tren.",
+      "icono": "🚆",
+      "categoria": "categoria-7",
+      "activo": true,
+      "fecha": "2026-10-18T00:01:30.000Z",
+      "porcentaje_demostracion": 64,
+      "ingles": {
+        "nombre": "On the rails",
+        "descripcion": "You have traveled by train."
+      }
+    },
+    {
+      "clave": "vida-a-bordo",
+      "nombre": "A bordo",
+      "descripcion": "Has viajado en barco.",
+      "icono": "🚢",
+      "categoria": "categoria-7",
+      "activo": true,
+      "fecha": "2026-10-18T00:01:31.000Z",
+      "porcentaje_demostracion": 51,
+      "ingles": {
+        "nombre": "All aboard",
+        "descripcion": "You have traveled by boat."
+      }
+    },
+    {
+      "clave": "vida-por-los-aires",
+      "nombre": "Por los aires",
+      "descripcion": "Has subido a un teleférico.",
+      "icono": "🚠",
+      "categoria": "categoria-7",
+      "activo": true,
+      "fecha": "2026-10-18T00:01:32.000Z",
+      "porcentaje_demostracion": 43,
+      "ingles": {
+        "nombre": "Up in the air",
+        "descripcion": "You have ridden a cable car."
+      }
+    },
+    {
+      "clave": "vida-llaves-prestadas",
+      "nombre": "Llaves prestadas",
+      "descripcion": "Has alquilado un vehículo.",
+      "icono": "🔑",
+      "categoria": "categoria-7",
+      "activo": true,
+      "fecha": "2026-10-18T00:01:33.000Z",
+      "porcentaje_demostracion": 32,
+      "ingles": {
+        "nombre": "Borrowed keys",
+        "descripcion": "You have rented a vehicle."
+      }
+    },
+    {
+      "clave": "vida-mi-casa-tiene-recepcion",
+      "nombre": "Mi casa tiene recepción",
+      "descripcion": "Te has alojado en un hotel.",
+      "icono": "🏨",
+      "categoria": "categoria-7",
+      "activo": true,
+      "fecha": "2026-10-18T00:01:34.000Z",
+      "porcentaje_demostracion": 76,
+      "ingles": {
+        "nombre": "My home has a front desk",
+        "descripcion": "You have stayed at a hotel."
+      }
+    },
+    {
+      "clave": "demo-22",
+      "nombre": "Grupo de viaje: tú",
+      "descripcion": "Has viajado solo.",
+      "icono": "🎒",
+      "categoria": "categoria-7",
+      "activo": true,
+      "fecha": "2026-01-23T03:00:00.000Z",
+      "porcentaje_demostracion": 26.3,
+      "ingles": {
+        "nombre": "Travel party: you",
+        "descripcion": "You have traveled alone."
+      }
+    },
+    {
+      "clave": "vida-el-mapa-se-hizo-mas-grande",
+      "nombre": "El mapa se hizo más grande",
+      "descripcion": "Has realizado tu primer viaje internacional.",
+      "icono": "🛂",
+      "categoria": "categoria-7",
+      "activo": true,
+      "fecha": "2026-10-18T00:01:36.000Z",
+      "porcentaje_demostracion": 57,
+      "ingles": {
+        "nombre": "The map just got bigger",
+        "descripcion": "You have traveled internationally for the first time."
+      }
+    },
+    {
+      "clave": "vida-nuevos-horizontes",
+      "nombre": "Nuevos horizontes",
+      "descripcion": "Has viajado a otro continente por primera vez.",
+      "icono": "🌅",
+      "categoria": "categoria-7",
+      "activo": true,
+      "fecha": "2026-10-18T00:01:37.000Z",
+      "porcentaje_demostracion": 31,
+      "ingles": {
+        "nombre": "New horizons",
+        "descripcion": "You have traveled to another continent for the first time."
+      }
+    },
+    {
+      "clave": "vida-viajero-continental",
+      "nombre": "Viajero continental",
+      "descripcion": "Has visitado tres continentes.",
+      "icono": "🌐",
+      "categoria": "categoria-7",
+      "activo": true,
+      "fecha": "2026-10-18T00:01:38.000Z",
+      "porcentaje_demostracion": 6,
+      "ingles": {
+        "nombre": "Continental traveler",
+        "descripcion": "You have visited three continents."
       }
     },
     {
       "clave": "demo-4",
       "nombre": "Vuelta al mundo",
-      "descripcion": "Has visitado los siete continentes.",
+      "descripcion": "Has visitado todos los continentes habitables.",
       "icono": "🌍",
       "categoria": "categoria-7",
       "activo": true,
@@ -168,273 +1508,1491 @@
       "porcentaje_demostracion": 0.08,
       "ingles": {
         "nombre": "Around the world",
-        "descripcion": "You have visited all seven continents."
+        "descripcion": "You have visited all inhabited continents."
       }
     },
     {
-      "clave": "demo-5",
-      "nombre": "Un año más",
-      "descripcion": "Has celebrado tu cumpleaños número 30.",
-      "icono": "🎂",
-      "categoria": "categoria-1",
+      "clave": "vida-sin-fronteras",
+      "nombre": "Sin fronteras",
+      "descripcion": "Has visitado cinco países.",
+      "icono": "🗺️",
+      "categoria": "categoria-7",
       "activo": true,
-      "fecha": "2026-01-06T03:00:00.000Z",
-      "porcentaje_demostracion": 58.7,
+      "fecha": "2026-10-18T00:01:40.000Z",
+      "porcentaje_demostracion": 21,
       "ingles": {
-        "nombre": "Another year",
-        "descripcion": "You have celebrated your 30th birthday."
+        "nombre": "Without borders",
+        "descripcion": "You have visited five countries."
       }
     },
     {
-      "clave": "demo-6",
-      "nombre": "Primera sangre",
-      "descripcion": "Has pasado por una cirugía.",
-      "icono": "🩹",
-      "categoria": "categoria-2",
+      "clave": "vida-ciudadano-del-mundo",
+      "nombre": "Ciudadano del mundo",
+      "descripcion": "Has visitado diez países.",
+      "icono": "🌎",
+      "categoria": "categoria-7",
       "activo": true,
-      "fecha": "2026-01-07T03:00:00.000Z",
-      "porcentaje_demostracion": 32,
+      "fecha": "2026-10-18T00:01:41.000Z",
+      "porcentaje_demostracion": 8,
       "ingles": {
-        "nombre": "First blood",
-        "descripcion": "You have undergone surgery."
+        "nombre": "Citizen of the world",
+        "descripcion": "You have visited ten countries."
       }
     },
     {
-      "clave": "demo-7",
-      "nombre": "Sin conexión",
-      "descripcion": "Has pasado una semana sin Internet.",
-      "icono": "📵",
-      "categoria": "categoria-9",
+      "clave": "vida-coleccionista-de-banderas",
+      "nombre": "Coleccionista de banderas",
+      "descripcion": "Has visitado más de 20 países.",
+      "icono": "🚩",
+      "categoria": "categoria-7",
       "activo": true,
-      "fecha": "2026-01-08T03:00:00.000Z",
-      "porcentaje_demostracion": 12,
+      "fecha": "2026-10-18T00:01:42.000Z",
+      "porcentaje_demostracion": 2,
       "ingles": {
-        "nombre": "Offline",
-        "descripcion": "You have spent a week without Internet."
+        "nombre": "Flag collector",
+        "descripcion": "You have visited more than 20 countries."
       }
     },
     {
-      "clave": "demo-8",
-      "nombre": "El primer capítulo",
-      "descripcion": "Has terminado un libro por tu cuenta.",
-      "icono": "📖",
-      "categoria": "categoria-3",
-      "activo": true,
-      "fecha": "2026-01-09T03:00:00.000Z",
-      "porcentaje_demostracion": 84,
-      "ingles": {
-        "nombre": "The first chapter",
-        "descripcion": "You have finished reading a book on your own."
-      }
-    },
-    {
-      "clave": "demo-9",
-      "nombre": "Día de pago",
-      "descripcion": "Has recibido tu primer sueldo.",
-      "icono": "💼",
-      "categoria": "categoria-4",
-      "activo": true,
-      "fecha": "2026-01-10T03:00:00.000Z",
-      "porcentaje_demostracion": 64,
-      "ingles": {
-        "nombre": "Payday",
-        "descripcion": "You have received your first paycheck."
-      }
-    },
-    {
-      "clave": "demo-10",
-      "nombre": "Tu propia cima",
-      "descripcion": "Has llegado a la cumbre de una montaña.",
-      "icono": "🏔️",
-      "categoria": "categoria-10",
-      "activo": true,
-      "fecha": "2026-01-11T03:00:00.000Z",
-      "porcentaje_demostracion": 9,
-      "ingles": {
-        "nombre": "Your own summit",
-        "descripcion": "You have reached a mountain summit."
-      }
-    },
-    {
-      "clave": "demo-11",
-      "nombre": "En primera fila",
-      "descripcion": "Has cantado en un concierto inolvidable.",
-      "icono": "🎸",
-      "categoria": "categoria-11",
-      "activo": true,
-      "fecha": "2026-01-12T03:00:00.000Z",
-      "porcentaje_demostracion": 46,
-      "ingles": {
-        "nombre": "Front row",
-        "descripcion": "You have sung at an unforgettable concert."
-      }
-    },
-    {
-      "clave": "demo-12",
-      "nombre": "Un nuevo hogar",
-      "descripcion": "Has vivido en otra ciudad.",
+      "clave": "vida-vuelta-a-casa",
+      "nombre": "Vuelta a casa",
+      "descripcion": "Has regresado a tu país después de vivir en el extranjero.",
       "icono": "🏡",
       "categoria": "categoria-7",
       "activo": true,
-      "fecha": "2026-01-13T03:00:00.000Z",
-      "porcentaje_demostracion": 28,
+      "fecha": "2026-10-18T00:01:43.000Z",
+      "porcentaje_demostracion": 17,
       "ingles": {
-        "nombre": "A new home",
-        "descripcion": "You have lived in another city."
+        "nombre": "Back home",
+        "descripcion": "You have returned to your home country after living abroad."
       }
     },
     {
-      "clave": "demo-13",
-      "nombre": "Compañero de aventuras",
-      "descripcion": "Has cuidado de un animal.",
+      "clave": "vida-donde-estoy",
+      "nombre": "¿Dónde estoy?",
+      "descripcion": "Te has perdido sin saber cómo llegar a tu destino.",
+      "icono": "🧭",
+      "categoria": "categoria-7",
+      "activo": true,
+      "fecha": "2026-10-18T00:01:44.000Z",
+      "porcentaje_demostracion": 84,
+      "ingles": {
+        "nombre": "Where am I?",
+        "descripcion": "You have gotten lost without knowing how to reach your destination."
+      }
+    },
+    {
+      "clave": "vida-el-avion-se-fue",
+      "nombre": "El avión se fue",
+      "descripcion": "Has perdido un vuelo.",
+      "icono": "✈️",
+      "categoria": "categoria-7",
+      "activo": true,
+      "fecha": "2026-10-18T00:01:45.000Z",
+      "porcentaje_demostracion": 13,
+      "ingles": {
+        "nombre": "The plane has left",
+        "descripcion": "You have missed a flight."
+      }
+    },
+    {
+      "clave": "vida-una-parada-de-mas",
+      "nombre": "Una parada de más",
+      "descripcion": "Te has quedado dormido en el transporte público.",
+      "icono": "🚌",
+      "categoria": "categoria-7",
+      "activo": true,
+      "fecha": "2026-10-18T00:01:46.000Z",
+      "porcentaje_demostracion": 67,
+      "ingles": {
+        "nombre": "One stop too far",
+        "descripcion": "You have fallen asleep on public transportation."
+      }
+    },
+    {
+      "clave": "vida-companero-de-vida",
+      "nombre": "Compañero de vida",
+      "descripcion": "Has tenido una mascota.",
       "icono": "🐾",
       "categoria": "categoria-8",
       "activo": true,
-      "fecha": "2026-01-14T03:00:00.000Z",
-      "porcentaje_demostracion": 76,
+      "fecha": "2026-10-18T00:01:47.000Z",
+      "porcentaje_demostracion": 81,
       "ingles": {
-        "nombre": "Adventure companion",
-        "descripcion": "You have cared for an animal."
+        "nombre": "A companion for life",
+        "descripcion": "You have had a pet."
       }
     },
     {
-      "clave": "demo-14",
-      "nombre": "Mesa para todos",
-      "descripcion": "Has cocinado para tus amigos o familia.",
-      "icono": "🍜",
-      "categoria": "categoria-6",
+      "clave": "vida-en-su-mundo",
+      "nombre": "En su mundo",
+      "descripcion": "Has visto un animal salvaje en su hábitat natural.",
+      "icono": "🦌",
+      "categoria": "categoria-8",
       "activo": true,
-      "fecha": "2026-01-15T03:00:00.000Z",
-      "porcentaje_demostracion": 65,
+      "fecha": "2026-10-18T00:01:48.000Z",
+      "porcentaje_demostracion": 69,
       "ingles": {
-        "nombre": "A table for everyone",
-        "descripcion": "You have cooked for friends or family."
+        "nombre": "In their world",
+        "descripcion": "You have seen a wild animal in its natural habitat."
       }
     },
     {
-      "clave": "demo-15",
-      "nombre": "Salto de fe",
-      "descripcion": "Has saltado en paracaídas.",
-      "icono": "🪂",
-      "categoria": "categoria-12",
+      "clave": "vida-frente-al-mar",
+      "nombre": "Frente al mar",
+      "descripcion": "Has visto el mar.",
+      "icono": "🌊",
+      "categoria": "categoria-8",
       "activo": true,
-      "fecha": "2026-01-16T03:00:00.000Z",
-      "porcentaje_demostracion": 0.7,
+      "fecha": "2026-10-18T00:01:49.000Z",
+      "porcentaje_demostracion": 86,
       "ingles": {
-        "nombre": "Leap of faith",
-        "descripcion": "You have gone skydiving."
+        "nombre": "Facing the sea",
+        "descripcion": "You have seen the sea."
       }
     },
     {
-      "clave": "demo-16",
-      "nombre": "A contracorriente",
-      "descripcion": "Has aprendido a nadar.",
-      "icono": "🏊",
-      "categoria": "categoria-10",
+      "clave": "vida-no-era-caspa",
+      "nombre": "No era caspa",
+      "descripcion": "Has visto nevar por primera vez.",
+      "icono": "❄️",
+      "categoria": "categoria-8",
       "activo": true,
-      "fecha": "2026-01-17T03:00:00.000Z",
-      "porcentaje_demostracion": 72,
+      "fecha": "2026-10-18T00:01:50.000Z",
+      "porcentaje_demostracion": 53,
       "ingles": {
-        "nombre": "Against the current",
-        "descripcion": "You have learned to swim."
+        "nombre": "It wasn't dandruff",
+        "descripcion": "You have seen snow falling for the first time."
       }
     },
     {
-      "clave": "demo-17",
-      "nombre": "Pequeñas victorias",
-      "descripcion": "Has cuidado una planta durante un año.",
-      "icono": "🌱",
-      "categoria": "categoria-14",
+      "clave": "vida-luz-y-estruendo",
+      "nombre": "Luz y estruendo",
+      "descripcion": "Has presenciado una tormenta eléctrica.",
+      "icono": "⛈️",
+      "categoria": "categoria-8",
       "activo": true,
-      "fecha": "2026-01-18T03:00:00.000Z",
-      "porcentaje_demostracion": 22,
+      "fecha": "2026-10-18T00:01:51.000Z",
+      "porcentaje_demostracion": 92,
       "ingles": {
-        "nombre": "Small victories",
-        "descripcion": "You have kept a plant alive for a year."
+        "nombre": "Light and thunder",
+        "descripcion": "You have witnessed a thunderstorm."
       }
     },
     {
-      "clave": "demo-18",
-      "nombre": "Pantalla azul",
-      "descripcion": "Has perdido un archivo que no guardaste.",
-      "icono": "💾",
-      "categoria": "categoria-13",
+      "clave": "vida-colores-en-el-cielo",
+      "nombre": "Colores en el cielo",
+      "descripcion": "Has visto un arcoíris.",
+      "icono": "🌈",
+      "categoria": "categoria-8",
       "activo": true,
-      "fecha": "2026-01-19T03:00:00.000Z",
+      "fecha": "2026-10-18T00:01:52.000Z",
+      "porcentaje_demostracion": 95,
+      "ingles": {
+        "nombre": "Colors in the sky",
+        "descripcion": "You have seen a rainbow."
+      }
+    },
+    {
+      "clave": "vida-pide-un-deseo",
+      "nombre": "Pide un deseo",
+      "descripcion": "Has visto una estrella fugaz.",
+      "icono": "🌠",
+      "categoria": "categoria-8",
+      "activo": true,
+      "fecha": "2026-10-18T00:01:53.000Z",
+      "porcentaje_demostracion": 44,
+      "ingles": {
+        "nombre": "Make a wish",
+        "descripcion": "You have seen a shooting star."
+      }
+    },
+    {
+      "clave": "vida-un-mapa-entre-estrellas",
+      "nombre": "Un mapa entre estrellas",
+      "descripcion": "Has aprendido a identificar una constelación.",
+      "icono": "✨",
+      "categoria": "categoria-8",
+      "activo": true,
+      "fecha": "2026-10-18T00:01:54.000Z",
+      "porcentaje_demostracion": 38,
+      "ingles": {
+        "nombre": "A map among the stars",
+        "descripcion": "You have learned to identify a constellation."
+      }
+    },
+    {
+      "clave": "vida-una-sombra-en-el-cielo",
+      "nombre": "Una sombra en el cielo",
+      "descripcion": "Has visto un eclipse.",
+      "icono": "🌘",
+      "categoria": "categoria-8",
+      "activo": true,
+      "fecha": "2026-10-18T00:01:55.000Z",
+      "porcentaje_demostracion": 41,
+      "ingles": {
+        "nombre": "A shadow in the sky",
+        "descripcion": "You have seen an eclipse."
+      }
+    },
+    {
+      "clave": "vida-hotel-de-mil-estrellas",
+      "nombre": "Hotel de mil estrellas",
+      "descripcion": "Has acampado al aire libre.",
+      "icono": "⛺",
+      "categoria": "categoria-8",
+      "activo": true,
+      "fecha": "2026-10-18T00:01:56.000Z",
+      "porcentaje_demostracion": 55,
+      "ingles": {
+        "nombre": "A hotel with a thousand stars",
+        "descripcion": "You have camped outdoors."
+      }
+    },
+    {
+      "clave": "vida-hacia-el-interior",
+      "nombre": "Hacia el interior",
+      "descripcion": "Has visitado una cueva.",
+      "icono": "🦇",
+      "categoria": "categoria-8",
+      "activo": true,
+      "fecha": "2026-10-18T00:01:57.000Z",
+      "porcentaje_demostracion": 34,
+      "ingles": {
+        "nombre": "Into the depths",
+        "descripcion": "You have visited a cave."
+      }
+    },
+    {
+      "clave": "vida-la-tierra-se-mueve",
+      "nombre": "La tierra se mueve",
+      "descripcion": "Has presenciado un terremoto.",
+      "icono": "🌋",
+      "categoria": "categoria-8",
+      "activo": true,
+      "fecha": "2026-10-18T00:01:58.000Z",
+      "porcentaje_demostracion": 48,
+      "ingles": {
+        "nombre": "The earth moves",
+        "descripcion": "You have experienced an earthquake."
+      }
+    },
+    {
+      "clave": "vida-el-agua-se-desborda",
+      "nombre": "El agua se desborda",
+      "descripcion": "Has presenciado una inundación.",
+      "icono": "🌧️",
+      "categoria": "categoria-8",
+      "activo": true,
+      "fecha": "2026-10-18T00:01:59.000Z",
+      "porcentaje_demostracion": 19,
+      "ingles": {
+        "nombre": "The water rises",
+        "descripcion": "You have experienced a flood."
+      }
+    },
+    {
+      "clave": "vida-primeras-notas",
+      "nombre": "Primeras notas",
+      "descripcion": "Has aprendido a tocar un instrumento musical.",
+      "icono": "🎸",
+      "categoria": "categoria-11",
+      "activo": true,
+      "fecha": "2026-10-18T00:02:00.000Z",
+      "porcentaje_demostracion": 43,
+      "ingles": {
+        "nombre": "First notes",
+        "descripcion": "You have learned to play a musical instrument."
+      }
+    },
+    {
+      "clave": "vida-entre-lineas",
+      "nombre": "Entre líneas",
+      "descripcion": "Has aprendido a dibujar.",
+      "icono": "✏️",
+      "categoria": "categoria-11",
+      "activo": true,
+      "fecha": "2026-10-18T00:02:01.000Z",
+      "porcentaje_demostracion": 62,
+      "ingles": {
+        "nombre": "Between the lines",
+        "descripcion": "You have learned to draw."
+      }
+    },
+    {
+      "clave": "vida-una-larga-historia",
+      "nombre": "Una larga historia",
+      "descripcion": "Has leído un libro de más de 500 páginas.",
+      "icono": "📚",
+      "categoria": "categoria-11",
+      "activo": true,
+      "fecha": "2026-10-18T00:02:02.000Z",
+      "porcentaje_demostracion": 37,
+      "ingles": {
+        "nombre": "A long story",
+        "descripcion": "You have read a book with more than 500 pages."
+      }
+    },
+    {
+      "clave": "vida-tu-propia-historia",
+      "nombre": "Tu propia historia",
+      "descripcion": "Has escrito un libro.",
+      "icono": "📖",
+      "categoria": "categoria-11",
+      "activo": true,
+      "fecha": "2026-10-18T00:02:03.000Z",
+      "porcentaje_demostracion": 2.4,
+      "ingles": {
+        "nombre": "Your own story",
+        "descripcion": "You have written a book."
+      }
+    },
+    {
+      "clave": "vida-se-abre-el-telon",
+      "nombre": "Se abre el telón",
+      "descripcion": "Has actuado en una obra de teatro.",
+      "icono": "🎭",
+      "categoria": "categoria-11",
+      "activo": true,
+      "fecha": "2026-10-18T00:02:04.000Z",
+      "porcentaje_demostracion": 25,
+      "ingles": {
+        "nombre": "The curtain rises",
+        "descripcion": "You have acted in a play."
+      }
+    },
+    {
+      "clave": "vida-ritmo-desbloqueado",
+      "nombre": "Ritmo desbloqueado",
+      "descripcion": "Has aprendido a bailar.",
+      "icono": "💃",
+      "categoria": "categoria-11",
+      "activo": true,
+      "fecha": "2026-10-18T00:02:05.000Z",
+      "porcentaje_demostracion": 59,
+      "ingles": {
+        "nombre": "Rhythm unlocked",
+        "descripcion": "You have learned to dance."
+      }
+    },
+    {
+      "clave": "vida-mirar-pero-no-tocar",
+      "nombre": "Mirar, pero no tocar",
+      "descripcion": "Has visitado un museo.",
+      "icono": "🏛️",
+      "categoria": "categoria-11",
+      "activo": true,
+      "fecha": "2026-10-18T00:02:06.000Z",
+      "porcentaje_demostracion": 77,
+      "ingles": {
+        "nombre": "Look, but don't touch",
+        "descripcion": "You have visited a museum."
+      }
+    },
+    {
+      "clave": "vida-en-la-gran-pantalla",
+      "nombre": "En la gran pantalla",
+      "descripcion": "Has visto una película en un cine.",
+      "icono": "🎬",
+      "categoria": "categoria-11",
+      "activo": true,
+      "fecha": "2026-10-18T00:02:07.000Z",
+      "porcentaje_demostracion": 94,
+      "ingles": {
+        "nombre": "On the big screen",
+        "descripcion": "You have watched a movie at a movie theater."
+      }
+    },
+    {
+      "clave": "vida-hoy-soy-otro",
+      "nombre": "Hoy soy otro",
+      "descripcion": "Has usado un disfraz.",
+      "icono": "🎭",
+      "categoria": "categoria-11",
+      "activo": true,
+      "fecha": "2026-10-18T00:02:08.000Z",
       "porcentaje_demostracion": 89,
       "ingles": {
-        "nombre": "Blue screen",
-        "descripcion": "You have lost an unsaved file."
+        "nombre": "Someone else today",
+        "descripcion": "You have worn a costume."
+      }
+    },
+    {
+      "clave": "vida-nada-por-aqui",
+      "nombre": "Nada por aquí",
+      "descripcion": "Has aprendido a realizar un truco de magia.",
+      "icono": "🪄",
+      "categoria": "categoria-11",
+      "activo": true,
+      "fecha": "2026-10-18T00:02:09.000Z",
+      "porcentaje_demostracion": 33,
+      "ingles": {
+        "nombre": "Nothing up my sleeve",
+        "descripcion": "You have learned to perform a magic trick."
+      }
+    },
+    {
+      "clave": "vida-las-cartas-sobre-la-mesa",
+      "nombre": "Las cartas sobre la mesa",
+      "descripcion": "Has aprendido a jugar al póker.",
+      "icono": "🃏",
+      "categoria": "categoria-11",
+      "activo": true,
+      "fecha": "2026-10-18T00:02:10.000Z",
+      "porcentaje_demostracion": 39,
+      "ingles": {
+        "nombre": "Cards on the table",
+        "descripcion": "You have learned to play poker."
+      }
+    },
+    {
+      "clave": "vida-jaque",
+      "nombre": "Jaque",
+      "descripcion": "Has aprendido a jugar al ajedrez.",
+      "icono": "♟️",
+      "categoria": "categoria-11",
+      "activo": true,
+      "fecha": "2026-10-18T00:02:11.000Z",
+      "porcentaje_demostracion": 46,
+      "ingles": {
+        "nombre": "Check",
+        "descripcion": "You have learned to play chess."
+      }
+    },
+    {
+      "clave": "vida-manos-rapidas",
+      "nombre": "Manos rápidas",
+      "descripcion": "Has aprendido a hacer malabares.",
+      "icono": "🤹",
+      "categoria": "categoria-11",
+      "activo": true,
+      "fecha": "2026-10-18T00:02:12.000Z",
+      "porcentaje_demostracion": 11,
+      "ingles": {
+        "nombre": "Quick hands",
+        "descripcion": "You have learned to juggle."
+      }
+    },
+    {
+      "clave": "vida-va-y-viene",
+      "nombre": "Va y viene",
+      "descripcion": "Has aprendido a hacer un truco con un yoyó.",
+      "icono": "🪀",
+      "categoria": "categoria-11",
+      "activo": true,
+      "fecha": "2026-10-18T00:02:13.000Z",
+      "porcentaje_demostracion": 29,
+      "ingles": {
+        "nombre": "Back and forth",
+        "descripcion": "You have learned to do a yo-yo trick."
+      }
+    },
+    {
+      "clave": "vida-entre-los-dedos",
+      "nombre": "Entre los dedos",
+      "descripcion": "Has aprendido a hacer un truco de destreza con un lápiz.",
+      "icono": "✏️",
+      "categoria": "categoria-11",
+      "activo": true,
+      "fecha": "2026-10-18T00:02:14.000Z",
+      "porcentaje_demostracion": 24,
+      "ingles": {
+        "nombre": "Between your fingers",
+        "descripcion": "You have learned to do a dexterity trick with a pencil."
+      }
+    },
+    {
+      "clave": "vida-una-melodia-al-viento",
+      "nombre": "Una melodía al viento",
+      "descripcion": "Has aprendido a silbar suavemente.",
+      "icono": "🎶",
+      "categoria": "categoria-11",
+      "activo": true,
+      "fecha": "2026-10-18T00:02:15.000Z",
+      "porcentaje_demostracion": 73,
+      "ingles": {
+        "nombre": "A tune on the breeze",
+        "descripcion": "You have learned to whistle softly."
+      }
+    },
+    {
+      "clave": "vida-que-se-escuche",
+      "nombre": "Que se escuche",
+      "descripcion": "Has aprendido a emitir un silbido fuerte.",
+      "icono": "📣",
+      "categoria": "categoria-11",
+      "activo": true,
+      "fecha": "2026-10-18T00:02:16.000Z",
+      "porcentaje_demostracion": 35,
+      "ingles": {
+        "nombre": "Make it loud",
+        "descripcion": "You have learned to whistle loudly."
+      }
+    },
+    {
+      "clave": "vida-hilo-al-cielo",
+      "nombre": "Hilo al cielo",
+      "descripcion": "Has elevado una cometa o volantín.",
+      "icono": "🪁",
+      "categoria": "categoria-11",
+      "activo": true,
+      "fecha": "2026-10-18T00:02:17.000Z",
+      "porcentaje_demostracion": 71,
+      "ingles": {
+        "nombre": "A string to the sky",
+        "descripcion": "You have flown a kite."
+      }
+    },
+    {
+      "clave": "vida-el-mundo-al-reves",
+      "nombre": "El mundo al revés",
+      "descripcion": "Has aprendido a mantener el equilibrio sobre las manos.",
+      "icono": "🤸",
+      "categoria": "categoria-10",
+      "activo": true,
+      "fecha": "2026-10-18T00:02:18.000Z",
+      "porcentaje_demostracion": 12,
+      "ingles": {
+        "nombre": "The world upside down",
+        "descripcion": "You have learned to balance on your hands."
+      }
+    },
+    {
+      "clave": "vida-por-encima-de-la-barra",
+      "nombre": "Por encima de la barra",
+      "descripcion": "Has realizado una dominada.",
+      "icono": "💪",
+      "categoria": "categoria-10",
+      "activo": true,
+      "fecha": "2026-10-18T00:02:19.000Z",
+      "porcentaje_demostracion": 31,
+      "ingles": {
+        "nombre": "Over the bar",
+        "descripcion": "You have completed a pull-up."
+      }
+    },
+    {
+      "clave": "vida-bandera-humana",
+      "nombre": "Bandera humana",
+      "descripcion": "Has logrado mantener el cuerpo suspendido y horizontal, sujeto a un apoyo vertical.",
+      "icono": "🚩",
+      "categoria": "categoria-10",
+      "activo": true,
+      "fecha": "2026-10-18T00:02:20.000Z",
+      "porcentaje_demostracion": 0.7,
+      "ingles": {
+        "nombre": "Human flag",
+        "descripcion": "You have held your body horizontally off the ground while gripping a vertical support."
+      }
+    },
+    {
+      "clave": "vida-tu-peso-en-sentadilla",
+      "nombre": "Tu peso en sentadilla",
+      "descripcion": "Has realizado una sentadilla con una carga equivalente a tu peso corporal.",
+      "icono": "🏋️",
+      "categoria": "categoria-10",
+      "activo": true,
+      "fecha": "2026-10-18T00:02:21.000Z",
+      "porcentaje_demostracion": 9,
+      "ingles": {
+        "nombre": "Your weight in squats",
+        "descripcion": "You have squatted a load equal to your body weight."
+      }
+    },
+    {
+      "clave": "vida-tu-peso-en-banca",
+      "nombre": "Tu peso en banca",
+      "descripcion": "Has realizado un press de banca con una carga equivalente a tu peso corporal.",
+      "icono": "🏋️",
+      "categoria": "categoria-10",
+      "activo": true,
+      "fecha": "2026-10-18T00:02:22.000Z",
+      "porcentaje_demostracion": 5.5,
+      "ingles": {
+        "nombre": "Your weight on the bench",
+        "descripcion": "You have bench pressed a load equal to your body weight."
+      }
+    },
+    {
+      "clave": "vida-no-hay-mas-placas",
+      "nombre": "¿No hay más placas?",
+      "descripcion": "Has completado una repetición en una máquina de gimnasio con su carga máxima disponible.",
+      "icono": "🏋️",
+      "categoria": "categoria-10",
+      "activo": true,
+      "fecha": "2026-10-18T00:02:23.000Z",
+      "porcentaje_demostracion": 3.2,
+      "ingles": {
+        "nombre": "No more plates?",
+        "descripcion": "You have completed a repetition on a gym machine at its maximum available load."
+      }
+    },
+    {
+      "clave": "vida-flexibilidad-desbloqueada",
+      "nombre": "Flexibilidad desbloqueada",
+      "descripcion": "Has logrado hacer un split.",
+      "icono": "🤸",
+      "categoria": "categoria-10",
+      "activo": true,
+      "fecha": "2026-10-18T00:02:24.000Z",
+      "porcentaje_demostracion": 7,
+      "ingles": {
+        "nombre": "Flexibility unlocked",
+        "descripcion": "You have done the splits."
+      }
+    },
+    {
+      "clave": "vida-disciplina-en-movimiento",
+      "nombre": "Disciplina en movimiento",
+      "descripcion": "Has aprendido un arte marcial.",
+      "icono": "🥋",
+      "categoria": "categoria-10",
+      "activo": true,
+      "fecha": "2026-10-18T00:02:25.000Z",
+      "porcentaje_demostracion": 18,
+      "ingles": {
+        "nombre": "Discipline in motion",
+        "descripcion": "You have learned a martial art."
+      }
+    },
+    {
+      "clave": "vida-recalculando-la-gravedad",
+      "nombre": "Recalculando la gravedad",
+      "descripcion": "Has aprendido a hacer una voltereta.",
+      "icono": "🤸",
+      "categoria": "categoria-10",
+      "activo": true,
+      "fecha": "2026-10-18T00:02:26.000Z",
+      "porcentaje_demostracion": 36,
+      "ingles": {
+        "nombre": "Recalculating gravity",
+        "descripcion": "You have learned to do a somersault."
+      }
+    },
+    {
+      "clave": "vida-deslizarse-sin-caer",
+      "nombre": "Deslizarse sin caer",
+      "descripcion": "Has aprendido a patinar.",
+      "icono": "🛼",
+      "categoria": "categoria-10",
+      "activo": true,
+      "fecha": "2026-10-18T00:02:27.000Z",
+      "porcentaje_demostracion": 42,
+      "ingles": {
+        "nombre": "Gliding without falling",
+        "descripcion": "You have learned to skate."
+      }
+    },
+    {
+      "clave": "vida-truco-sobre-ruedas",
+      "nombre": "Truco sobre ruedas",
+      "descripcion": "Has aprendido a hacer un truco en patineta.",
+      "icono": "🛹",
+      "categoria": "categoria-10",
+      "activo": true,
+      "fecha": "2026-10-18T00:02:28.000Z",
+      "porcentaje_demostracion": 14,
+      "ingles": {
+        "nombre": "A trick on wheels",
+        "descripcion": "You have learned to do a skateboard trick."
       }
     },
     {
       "clave": "demo-19",
-      "nombre": "Sobre dos ruedas",
+      "nombre": "Adiós, rueditas",
       "descripcion": "Has aprendido a andar en bicicleta.",
       "icono": "🚲",
-      "categoria": "categoria-1",
+      "categoria": "categoria-10",
       "activo": true,
       "fecha": "2026-01-20T03:00:00.000Z",
-      "porcentaje_demostracion": 81,
+      "porcentaje_demostracion": 79.5,
       "ingles": {
-        "nombre": "On two wheels",
+        "nombre": "Goodbye, training wheels",
         "descripcion": "You have learned to ride a bicycle."
       }
     },
     {
-      "clave": "demo-20",
-      "nombre": "Otro idioma",
-      "descripcion": "Has conversado en otro idioma.",
-      "icono": "💬",
-      "categoria": "categoria-3",
+      "clave": "vida-a-pedales",
+      "nombre": "A pedales",
+      "descripcion": "Has completado una ruta en bicicleta.",
+      "icono": "🚴",
+      "categoria": "categoria-10",
       "activo": true,
-      "fecha": "2026-01-21T03:00:00.000Z",
-      "porcentaje_demostracion": 14,
+      "fecha": "2026-10-18T00:02:30.000Z",
+      "porcentaje_demostracion": 58,
       "ingles": {
-        "nombre": "Another language",
-        "descripcion": "You have had a conversation in another language."
+        "nombre": "Pedal power",
+        "descripcion": "You have completed a cycling route."
       }
     },
     {
-      "clave": "demo-21",
-      "nombre": "El gran estreno",
-      "descripcion": "Has subido a un escenario.",
-      "icono": "🎭",
-      "categoria": "categoria-11",
+      "clave": "vida-sin-flotador",
+      "nombre": "Sin flotador",
+      "descripcion": "Has aprendido a mantenerte a flote sin ayuda.",
+      "icono": "🛟",
+      "categoria": "categoria-10",
       "activo": true,
-      "fecha": "2026-01-22T03:00:00.000Z",
-      "porcentaje_demostracion": 8,
+      "fecha": "2026-10-18T00:02:31.000Z",
+      "porcentaje_demostracion": 74,
       "ingles": {
-        "nombre": "The big debut",
-        "descripcion": "You have stepped onto a stage."
+        "nombre": "No floaties",
+        "descripcion": "You have learned to stay afloat without help."
       }
     },
     {
-      "clave": "demo-22",
-      "nombre": "Kilómetro cero",
-      "descripcion": "Has hecho un viaje en solitario.",
-      "icono": "🧭",
-      "categoria": "categoria-7",
+      "clave": "demo-16",
+      "nombre": "Como pez en el agua",
+      "descripcion": "Has aprendido a nadar sin asistencia.",
+      "icono": "🏊",
+      "categoria": "categoria-10",
       "activo": true,
-      "fecha": "2026-01-23T03:00:00.000Z",
+      "fecha": "2026-01-17T03:00:00.000Z",
+      "porcentaje_demostracion": 67.8,
+      "ingles": {
+        "nombre": "Like a fish in water",
+        "descripcion": "You have learned to swim without assistance."
+      }
+    },
+    {
+      "clave": "vida-de-cabeza-al-agua",
+      "nombre": "De cabeza al agua",
+      "descripcion": "Has aprendido a realizar un clavado.",
+      "icono": "🤿",
+      "categoria": "categoria-10",
+      "activo": true,
+      "fecha": "2026-10-18T00:02:33.000Z",
+      "porcentaje_demostracion": 31,
+      "ingles": {
+        "nombre": "Headfirst into the water",
+        "descripcion": "You have learned to dive into water."
+      }
+    },
+    {
+      "clave": "vida-primeros-kilometros",
+      "nombre": "Primeros kilómetros",
+      "descripcion": "Has corrido cinco kilómetros.",
+      "icono": "🏃",
+      "categoria": "categoria-10",
+      "activo": true,
+      "fecha": "2026-10-18T00:02:34.000Z",
+      "porcentaje_demostracion": 44,
+      "ingles": {
+        "nombre": "First kilometers",
+        "descripcion": "You have run five kilometers."
+      }
+    },
+    {
+      "clave": "vida-maraton-en-formato-demo",
+      "nombre": "Maratón en formato demo",
+      "descripcion": "Has completado una media maratón.",
+      "icono": "🏃",
+      "categoria": "categoria-10",
+      "activo": true,
+      "fecha": "2026-10-18T00:02:35.000Z",
       "porcentaje_demostracion": 6,
       "ingles": {
-        "nombre": "Mile zero",
-        "descripcion": "You have traveled solo."
+        "nombre": "Marathon: demo edition",
+        "descripcion": "You have completed a half marathon."
       }
     },
     {
-      "clave": "demo-23",
-      "nombre": "Un amanecer distinto",
-      "descripcion": "Has visto amanecer después de una noche en vela.",
-      "icono": "🌅",
+      "clave": "vida-los-creditos-estan-en-la-meta",
+      "nombre": "Los créditos están en la meta",
+      "descripcion": "Has completado una maratón.",
+      "icono": "🏅",
+      "categoria": "categoria-10",
+      "activo": true,
+      "fecha": "2026-10-18T00:02:36.000Z",
+      "porcentaje_demostracion": 2,
+      "ingles": {
+        "nombre": "The credits are at the finish line",
+        "descripcion": "You have completed a marathon."
+      }
+    },
+    {
+      "clave": "vida-salto-tras-salto",
+      "nombre": "Salto tras salto",
+      "descripcion": "Has aprendido a saltar la cuerda.",
+      "icono": "🪢",
+      "categoria": "categoria-10",
+      "activo": true,
+      "fecha": "2026-10-18T00:02:37.000Z",
+      "porcentaje_demostracion": 76,
+      "ingles": {
+        "nombre": "Jump after jump",
+        "descripcion": "You have learned to jump rope."
+      }
+    },
+    {
+      "clave": "vida-a-caballo",
+      "nombre": "A caballo",
+      "descripcion": "Has aprendido a cabalgar.",
+      "icono": "🐎",
+      "categoria": "categoria-10",
+      "activo": true,
+      "fecha": "2026-10-18T00:02:38.000Z",
+      "porcentaje_demostracion": 23,
+      "ingles": {
+        "nombre": "In the saddle",
+        "descripcion": "You have learned to ride a horse."
+      }
+    },
+    {
+      "clave": "vida-en-lo-mas-alto",
+      "nombre": "En lo más alto",
+      "descripcion": "Has ganado una competición.",
+      "icono": "🏆",
+      "categoria": "categoria-10",
+      "activo": true,
+      "fecha": "2026-10-18T00:02:39.000Z",
+      "porcentaje_demostracion": 45,
+      "ingles": {
+        "nombre": "At the top",
+        "descripcion": "You have won a competition."
+      }
+    },
+    {
+      "clave": "vida-al-fondo-de-la-red",
+      "nombre": "Al fondo de la red",
+      "descripcion": "Has marcado un gol.",
+      "icono": "⚽",
+      "categoria": "categoria-10",
+      "activo": true,
+      "fecha": "2026-10-18T00:02:40.000Z",
+      "porcentaje_demostracion": 63,
+      "ingles": {
+        "nombre": "Into the net",
+        "descripcion": "You have scored a goal."
+      }
+    },
+    {
+      "clave": "vida-aqui-no-pasa",
+      "nombre": "Aquí no pasa",
+      "descripcion": "Has atajado un penal.",
+      "icono": "🥅",
+      "categoria": "categoria-10",
+      "activo": true,
+      "fecha": "2026-10-18T00:02:41.000Z",
+      "porcentaje_demostracion": 26,
+      "ingles": {
+        "nombre": "Not getting past me",
+        "descripcion": "You have saved a penalty kick."
+      }
+    },
+    {
+      "clave": "vida-desde-lejos",
+      "nombre": "Desde lejos",
+      "descripcion": "Has encestado un triple.",
+      "icono": "🏀",
+      "categoria": "categoria-10",
+      "activo": true,
+      "fecha": "2026-10-18T00:02:42.000Z",
+      "porcentaje_demostracion": 32,
+      "ingles": {
+        "nombre": "From downtown",
+        "descripcion": "You have scored a three-pointer in basketball."
+      }
+    },
+    {
+      "clave": "vida-todos-abajo",
+      "nombre": "Todos abajo",
+      "descripcion": "Has hecho un strike en los bolos.",
+      "icono": "🎳",
+      "categoria": "categoria-10",
+      "activo": true,
+      "fecha": "2026-10-18T00:02:43.000Z",
+      "porcentaje_demostracion": 48,
+      "ingles": {
+        "nombre": "All down",
+        "descripcion": "You have bowled a strike."
+      }
+    },
+    {
+      "clave": "vida-primer-plato",
+      "nombre": "Primer plato",
+      "descripcion": "Has cocinado un plato por tu cuenta.",
+      "icono": "🍳",
+      "categoria": "cocina-y-habilidades",
+      "activo": true,
+      "fecha": "2026-10-18T00:02:44.000Z",
+      "porcentaje_demostracion": 89,
+      "ingles": {
+        "nombre": "First dish",
+        "descripcion": "You have cooked a dish on your own."
+      }
+    },
+    {
+      "clave": "vida-menu-completo",
+      "nombre": "Menú completo",
+      "descripcion": "Has preparado un menú completo.",
+      "icono": "🍽️",
+      "categoria": "cocina-y-habilidades",
+      "activo": true,
+      "fecha": "2026-10-18T00:02:45.000Z",
+      "porcentaje_demostracion": 52,
+      "ingles": {
+        "nombre": "The full menu",
+        "descripcion": "You have prepared a complete menu."
+      }
+    },
+    {
+      "clave": "vida-sabor-propio",
+      "nombre": "Sabor propio",
+      "descripcion": "Has creado una receta propia.",
+      "icono": "🥘",
+      "categoria": "cocina-y-habilidades",
+      "activo": true,
+      "fecha": "2026-10-18T00:02:46.000Z",
+      "porcentaje_demostracion": 34,
+      "ingles": {
+        "nombre": "Your own flavor",
+        "descripcion": "You have created your own recipe."
+      }
+    },
+    {
+      "clave": "vida-no-todo-es-bistec",
+      "nombre": "No todo es bistec",
+      "descripcion": "Has aprendido a distinguir tipos y cortes de carne.",
+      "icono": "🥩",
+      "categoria": "cocina-y-habilidades",
+      "activo": true,
+      "fecha": "2026-10-18T00:02:47.000Z",
+      "porcentaje_demostracion": 27,
+      "ingles": {
+        "nombre": "Not everything is steak",
+        "descripcion": "You have learned to distinguish types and cuts of meat."
+      }
+    },
+    {
+      "clave": "vida-de-la-tierra-a-la-mesa",
+      "nombre": "De la tierra a la mesa",
+      "descripcion": "Has cultivado un alimento.",
+      "icono": "🌱",
+      "categoria": "cocina-y-habilidades",
+      "activo": true,
+      "fecha": "2026-10-18T00:02:48.000Z",
+      "porcentaje_demostracion": 38,
+      "ingles": {
+        "nombre": "From soil to table",
+        "descripcion": "You have grown food."
+      }
+    },
+    {
+      "clave": "vida-puntada-a-puntada",
+      "nombre": "Puntada a puntada",
+      "descripcion": "Has aprendido a coser.",
+      "icono": "🧵",
+      "categoria": "cocina-y-habilidades",
+      "activo": true,
+      "fecha": "2026-10-18T00:02:49.000Z",
+      "porcentaje_demostracion": 41,
+      "ingles": {
+        "nombre": "Stitch by stitch",
+        "descripcion": "You have learned to sew."
+      }
+    },
+    {
+      "clave": "vida-hecho-a-medida",
+      "nombre": "Hecho a medida",
+      "descripcion": "Has construido un mueble.",
+      "icono": "🪚",
+      "categoria": "cocina-y-habilidades",
+      "activo": true,
+      "fecha": "2026-10-18T00:02:50.000Z",
+      "porcentaje_demostracion": 16,
+      "ingles": {
+        "nombre": "Made to measure",
+        "descripcion": "You have built a piece of furniture."
+      }
+    },
+    {
+      "clave": "vida-una-relacion-de-hierro",
+      "nombre": "Una relación de hierro",
+      "descripcion": "Has aprendido a soldar.",
+      "icono": "🔧",
+      "categoria": "cocina-y-habilidades",
+      "activo": true,
+      "fecha": "2026-10-18T00:02:51.000Z",
+      "porcentaje_demostracion": 8,
+      "ingles": {
+        "nombre": "A bond of iron",
+        "descripcion": "You have learned to weld."
+      }
+    },
+    {
+      "clave": "vida-que-se-haga-la-luz",
+      "nombre": "Que se haga la luz",
+      "descripcion": "Has realizado una instalación de un componente eléctrico.",
+      "icono": "💡",
+      "categoria": "cocina-y-habilidades",
+      "activo": true,
+      "fecha": "2026-10-18T00:02:52.000Z",
+      "porcentaje_demostracion": 29,
+      "ingles": {
+        "nombre": "Let there be light",
+        "descripcion": "You have installed an electrical component."
+      }
+    },
+    {
+      "clave": "vida-y-no-sobro-ningun-tornillo",
+      "nombre": "Y no sobró ningún tornillo",
+      "descripcion": "Has desarmado y vuelto a armar un objeto complejo.",
+      "icono": "⚙️",
+      "categoria": "cocina-y-habilidades",
+      "activo": true,
+      "fecha": "2026-10-18T00:02:53.000Z",
+      "porcentaje_demostracion": 36,
+      "ingles": {
+        "nombre": "And no screws left over",
+        "descripcion": "You have taken a complex object apart and put it back together."
+      }
+    },
+    {
+      "clave": "vida-otra-oportunidad",
+      "nombre": "Otra oportunidad",
+      "descripcion": "Has reparado un objeto que había dejado de funcionar.",
+      "icono": "🛠️",
+      "categoria": "cocina-y-habilidades",
+      "activo": true,
+      "fecha": "2026-10-18T00:02:54.000Z",
+      "porcentaje_demostracion": 64,
+      "ingles": {
+        "nombre": "Another chance",
+        "descripcion": "You have repaired an object that had stopped working."
+      }
+    },
+    {
+      "clave": "vida-hola-mundo",
+      "nombre": "Hola, mundo",
+      "descripcion": "Has programado algo.",
+      "icono": "💻",
+      "categoria": "categoria-9",
+      "activo": true,
+      "fecha": "2026-10-18T00:02:55.000Z",
+      "porcentaje_demostracion": 24,
+      "ingles": {
+        "nombre": "Hello, world",
+        "descripcion": "You have programmed something."
+      }
+    },
+    {
+      "clave": "vida-mi-cuerpo-sigue-aqui",
+      "nombre": "Mi cuerpo sigue aquí",
+      "descripcion": "Has probado un dispositivo de realidad virtual.",
+      "icono": "🥽",
+      "categoria": "categoria-9",
+      "activo": true,
+      "fecha": "2026-10-18T00:02:56.000Z",
+      "porcentaje_demostracion": 32,
+      "ingles": {
+        "nombre": "My body is still here",
+        "descripcion": "You have tried a virtual reality device."
+      }
+    },
+    {
+      "clave": "vida-era-para-otro-chat",
+      "nombre": "Era para otro chat",
+      "descripcion": "Has enviado un mensaje a la persona incorrecta.",
+      "icono": "💬",
+      "categoria": "categoria-9",
+      "activo": true,
+      "fecha": "2026-10-18T00:02:57.000Z",
+      "porcentaje_demostracion": 88,
+      "ingles": {
+        "nombre": "Wrong chat",
+        "descripcion": "You have sent a message to the wrong person."
+      }
+    },
+    {
+      "clave": "vida-arqueologo-del-perfil",
+      "nombre": "Arqueólogo del perfil",
+      "descripcion": "Has dado «me gusta» por accidente a una publicación antigua.",
+      "icono": "🔎",
+      "categoria": "categoria-9",
+      "activo": true,
+      "fecha": "2026-10-18T00:02:58.000Z",
+      "porcentaje_demostracion": 68,
+      "ingles": {
+        "nombre": "Profile archaeologist",
+        "descripcion": "You have accidentally liked an old post."
+      }
+    },
+    {
+      "clave": "vida-la-camara-te-encontro",
+      "nombre": "La cámara te encontró",
+      "descripcion": "Has abierto la cámara frontal sin estar preparado.",
+      "icono": "🤳",
+      "categoria": "categoria-9",
+      "activo": true,
+      "fecha": "2026-10-18T00:02:59.000Z",
+      "porcentaje_demostracion": 91,
+      "ingles": {
+        "nombre": "The camera found you",
+        "descripcion": "You have opened the front-facing camera before you were ready."
+      }
+    },
+    {
+      "clave": "vida-cara-a-cara",
+      "nombre": "Cara a cara",
+      "descripcion": "Has ganado una pelea.",
+      "icono": "🥊",
+      "categoria": "categoria-13",
+      "activo": true,
+      "fecha": "2026-10-18T00:03:00.000Z",
+      "porcentaje_demostracion": 27,
+      "ingles": {
+        "nombre": "Face to face",
+        "descripcion": "You have won a fight."
+      }
+    },
+    {
+      "clave": "vida-esto-no-venia-en-el-presupuesto",
+      "nombre": "Esto no venía en el presupuesto",
+      "descripcion": "Has recibido una multa.",
+      "icono": "🧾",
+      "categoria": "categoria-13",
+      "activo": true,
+      "fecha": "2026-10-18T00:03:01.000Z",
+      "porcentaje_demostracion": 39,
+      "ingles": {
+        "nombre": "That wasn't in the budget",
+        "descripcion": "You have received a fine."
+      }
+    },
+    {
+      "clave": "vida-lo-que-se-llevaron",
+      "nombre": "Lo que se llevaron",
+      "descripcion": "Has sufrido un robo.",
+      "icono": "🎒",
+      "categoria": "categoria-13",
+      "activo": true,
+      "fecha": "2026-10-18T00:03:02.000Z",
+      "porcentaje_demostracion": 47,
+      "ingles": {
+        "nombre": "What they took",
+        "descripcion": "You have been a victim of theft."
+      }
+    },
+    {
+      "clave": "vida-dejar-constancia",
+      "nombre": "Dejar constancia",
+      "descripcion": "Has presentado una denuncia.",
+      "icono": "📋",
+      "categoria": "categoria-13",
+      "activo": true,
+      "fecha": "2026-10-18T00:03:03.000Z",
+      "porcentaje_demostracion": 26,
+      "ingles": {
+        "nombre": "On the official record",
+        "descripcion": "You have filed a formal complaint with the authorities."
+      }
+    },
+    {
+      "clave": "vida-entre-pisos",
+      "nombre": "Entre pisos",
+      "descripcion": "Te has quedado atrapado en un ascensor.",
+      "icono": "🛗",
+      "categoria": "categoria-13",
+      "activo": true,
+      "fecha": "2026-10-18T00:03:04.000Z",
+      "porcentaje_demostracion": 8,
+      "ingles": {
+        "nombre": "Between floors",
+        "descripcion": "You have been trapped in an elevator."
+      }
+    },
+    {
+      "clave": "vida-noche-en-vela",
+      "nombre": "Noche en vela",
+      "descripcion": "Has pasado una noche entera sin dormir.",
+      "icono": "🌙",
       "categoria": "categoria-14",
       "activo": true,
-      "fecha": "2026-01-24T03:00:00.000Z",
-      "porcentaje_demostracion": 56,
+      "fecha": "2026-10-18T00:03:05.000Z",
+      "porcentaje_demostracion": 93,
       "ingles": {
-        "nombre": "A different sunrise",
-        "descripcion": "You have watched the sunrise after staying up all night."
+        "nombre": "A sleepless night",
+        "descripcion": "You have stayed awake for an entire night."
+      }
+    },
+    {
+      "clave": "vida-antes-de-la-alarma",
+      "nombre": "Antes de la alarma",
+      "descripcion": "Te has despertado antes de que sonara la alarma.",
+      "icono": "⏰",
+      "categoria": "categoria-14",
+      "activo": true,
+      "fecha": "2026-10-18T00:03:06.000Z",
+      "porcentaje_demostracion": 97,
+      "ingles": {
+        "nombre": "Before the alarm",
+        "descripcion": "You have woken up before your alarm went off."
+      }
+    },
+    {
+      "clave": "vida-palabras-dormidas",
+      "nombre": "Palabras dormidas",
+      "descripcion": "Has hablado mientras dormías.",
+      "icono": "💤",
+      "categoria": "categoria-14",
+      "activo": true,
+      "fecha": "2026-10-18T00:03:07.000Z",
+      "porcentaje_demostracion": 61,
+      "ingles": {
+        "nombre": "Sleep talk",
+        "descripcion": "You have talked in your sleep."
+      }
+    },
+    {
+      "clave": "vida-hay-algo-para-ti",
+      "nombre": "Hay algo para ti",
+      "descripcion": "Has recibido un paquete a tu nombre.",
+      "icono": "📦",
+      "categoria": "categoria-14",
+      "activo": true,
+      "fecha": "2026-10-18T00:03:08.000Z",
+      "porcentaje_demostracion": 89,
+      "ingles": {
+        "nombre": "There's something for you",
+        "descripcion": "You have received a package addressed to you."
+      }
+    },
+    {
+      "clave": "vida-se-fue-la-luz",
+      "nombre": "Se fue la luz",
+      "descripcion": "Has vivido un corte de electricidad.",
+      "icono": "🕯️",
+      "categoria": "categoria-14",
+      "activo": true,
+      "fecha": "2026-10-18T00:03:09.000Z",
+      "porcentaje_demostracion": 96,
+      "ingles": {
+        "nombre": "The power's out",
+        "descripcion": "You have experienced a power outage."
+      }
+    },
+    {
+      "clave": "vida-puerta-equivocada",
+      "nombre": "Puerta equivocada",
+      "descripcion": "Has entrado al baño equivocado.",
+      "icono": "🚻",
+      "categoria": "categoria-14",
+      "activo": true,
+      "fecha": "2026-10-18T00:03:10.000Z",
+      "porcentaje_demostracion": 51,
+      "ingles": {
+        "nombre": "Wrong door",
+        "descripcion": "You have entered the wrong bathroom."
+      }
+    },
+    {
+      "clave": "vida-ese-saludo-no-era-para-ti",
+      "nombre": "Ese saludo no era para ti",
+      "descripcion": "Has saludado a alguien que no te estaba saludando.",
+      "icono": "👋",
+      "categoria": "categoria-14",
+      "activo": true,
+      "fecha": "2026-10-18T00:03:11.000Z",
+      "porcentaje_demostracion": 83,
+      "ingles": {
+        "nombre": "That wave wasn't for you",
+        "descripcion": "You have waved at someone who was not waving at you."
+      }
+    },
+    {
+      "clave": "vida-tierra-tragame",
+      "nombre": "Tierra, trágame",
+      "descripcion": "Te has caído delante de varias personas.",
+      "icono": "🫣",
+      "categoria": "categoria-14",
+      "activo": true,
+      "fecha": "2026-10-18T00:03:12.000Z",
+      "porcentaje_demostracion": 79,
+      "ingles": {
+        "nombre": "Ground, swallow me up",
+        "descripcion": "You have fallen over in front of several people."
+      }
+    },
+    {
+      "clave": "vida-era-para-el-otro-lado",
+      "nombre": "Era para el otro lado",
+      "descripcion": "Has empujado una puerta que decía «tirar».",
+      "icono": "🚪",
+      "categoria": "categoria-14",
+      "activo": true,
+      "fecha": "2026-10-18T00:03:13.000Z",
+      "porcentaje_demostracion": 92,
+      "ingles": {
+        "nombre": "The other way",
+        "descripcion": "You have pushed a door marked \"pull\"."
+      }
+    },
+    {
+      "clave": "vida-error-de-sistema",
+      "nombre": "Error de sistema",
+      "descripcion": "Has olvidado lo que ibas a decir a mitad de una frase.",
+      "icono": "🧠",
+      "categoria": "categoria-14",
+      "activo": true,
+      "fecha": "2026-10-18T00:03:14.000Z",
+      "porcentaje_demostracion": 95,
+      "ingles": {
+        "nombre": "System error",
+        "descripcion": "You have forgotten what you were about to say mid-sentence."
+      }
+    },
+    {
+      "clave": "vida-desincronizacion",
+      "nombre": "Desincronización",
+      "descripcion": "Has intentado pasar por el mismo lado que otra persona repetidamente.",
+      "icono": "↔️",
+      "categoria": "categoria-14",
+      "activo": true,
+      "fecha": "2026-10-18T00:03:15.000Z",
+      "porcentaje_demostracion": 87,
+      "ingles": {
+        "nombre": "Out of sync",
+        "descripcion": "You have repeatedly tried to pass someone on the same side."
+      }
+    },
+    {
+      "clave": "vida-se-escapo",
+      "nombre": "Se escapó",
+      "descripcion": "Has soltado un gas en público.",
+      "icono": "💨",
+      "categoria": "categoria-14",
+      "activo": true,
+      "fecha": "2026-10-18T00:03:16.000Z",
+      "porcentaje_demostracion": 86,
+      "ingles": {
+        "nombre": "It slipped out",
+        "descripcion": "You have passed gas in public."
+      }
+    },
+    {
+      "clave": "vida-ni-agua-hacia-falta",
+      "nombre": "Ni agua hacía falta",
+      "descripcion": "Te has atragantado con tu propia saliva.",
+      "icono": "💧",
+      "categoria": "categoria-14",
+      "activo": true,
+      "fecha": "2026-10-18T00:03:17.000Z",
+      "porcentaje_demostracion": 91,
+      "ingles": {
+        "nombre": "Didn't even need water",
+        "descripcion": "You have choked on your own saliva."
+      }
+    },
+    {
+      "clave": "vida-la-mesa-tambien-tenia-sed",
+      "nombre": "La mesa también tenía sed",
+      "descripcion": "Has volcado un vaso por accidente.",
+      "icono": "🥛",
+      "categoria": "categoria-14",
+      "activo": true,
+      "fecha": "2026-10-18T00:03:18.000Z",
+      "porcentaje_demostracion": 94,
+      "ingles": {
+        "nombre": "The table was thirsty too",
+        "descripcion": "You have accidentally knocked over a glass."
+      }
+    },
+    {
+      "clave": "vida-tu-tambien",
+      "nombre": "Tú también",
+      "descripcion": "Has respondido «igualmente» cuando no correspondía.",
+      "icono": "💬",
+      "categoria": "categoria-14",
+      "activo": true,
+      "fecha": "2026-10-18T00:03:19.000Z",
+      "porcentaje_demostracion": 88,
+      "ingles": {
+        "nombre": "You too",
+        "descripcion": "You have replied \"you too\" when it did not make sense."
+      }
+    },
+    {
+      "clave": "vida-como-te-llamabas",
+      "nombre": "¿Cómo te llamabas?",
+      "descripcion": "Has olvidado el nombre de alguien mientras hablabas con esa persona.",
+      "icono": "🤔",
+      "categoria": "categoria-14",
+      "activo": true,
+      "fecha": "2026-10-18T00:03:20.000Z",
+      "porcentaje_demostracion": 82,
+      "ingles": {
+        "nombre": "What was your name again?",
+        "descripcion": "You have forgotten someone's name while talking to them."
+      }
+    },
+    {
+      "clave": "vida-risa-inoportuna",
+      "nombre": "Risa inoportuna",
+      "descripcion": "Te has reído en un momento en el que no debías.",
+      "icono": "🤭",
+      "categoria": "categoria-14",
+      "activo": true,
+      "fecha": "2026-10-18T00:03:21.000Z",
+      "porcentaje_demostracion": 90,
+      "ingles": {
+        "nombre": "Bad timing for a laugh",
+        "descripcion": "You have laughed when you should not have."
+      }
+    },
+    {
+      "clave": "vida-contexto-perdido",
+      "nombre": "Contexto perdido",
+      "descripcion": "Te has reído de un chiste sin haberlo entendido.",
+      "icono": "😅",
+      "categoria": "categoria-14",
+      "activo": true,
+      "fecha": "2026-10-18T00:03:22.000Z",
+      "porcentaje_demostracion": 85,
+      "ingles": {
+        "nombre": "Context lost",
+        "descripcion": "You have laughed at a joke you did not understand."
+      }
+    },
+    {
+      "clave": "vida-moda-reversible",
+      "nombre": "Moda reversible",
+      "descripcion": "Has descubierto que llevabas la ropa del revés.",
+      "icono": "👕",
+      "categoria": "categoria-14",
+      "activo": true,
+      "fecha": "2026-10-18T00:03:23.000Z",
+      "porcentaje_demostracion": 83,
+      "ingles": {
+        "nombre": "Reversible fashion",
+        "descripcion": "You have discovered you were wearing your clothes inside out."
+      }
+    },
+    {
+      "clave": "vida-no-soy-quien-crees",
+      "nombre": "No soy quien crees",
+      "descripcion": "Te han confundido con otra persona.",
+      "icono": "🪞",
+      "categoria": "categoria-14",
+      "activo": true,
+      "fecha": "2026-10-18T00:03:24.000Z",
+      "porcentaje_demostracion": 78,
+      "ingles": {
+        "nombre": "I'm not who you think I am",
+        "descripcion": "Someone has mistaken you for another person."
+      }
+    },
+    {
+      "clave": "vida-sono-a-vidrio",
+      "nombre": "Sonó a vidrio",
+      "descripcion": "Has roto un vidrio por accidente.",
+      "icono": "🫗",
+      "categoria": "categoria-14",
+      "activo": true,
+      "fecha": "2026-10-18T00:03:25.000Z",
+      "porcentaje_demostracion": 81,
+      "ingles": {
+        "nombre": "That sounded like glass",
+        "descripcion": "You have accidentally broken glass."
       }
     }
   ]

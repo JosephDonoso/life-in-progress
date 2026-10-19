@@ -144,6 +144,92 @@
   gap: 12px;
   padding: 0 25px 0 30px;
 }
+.catalog-results {
+  position: relative;
+}
+.catalog-grid-loading {
+  visibility: hidden;
+  pointer-events: none;
+}
+.skeleton-overlay {
+  position: absolute;
+  inset: 0;
+}
+.achievement-skeleton {
+  min-width: 0;
+  border: 1px solid #172c3b;
+  border-radius: 6px;
+  background: #101d28;
+  overflow: hidden;
+}
+.achievement-skeleton .achievement-main {
+  height: 100%;
+}
+.skeleton-shimmer {
+  position: relative;
+  overflow: hidden;
+  border-radius: 3px;
+  background: #203344;
+}
+.skeleton-shimmer::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    100deg,
+    transparent 20%,
+    #91bfda14 50%,
+    transparent 80%
+  );
+  transform: translateX(-100%);
+  animation: catalog-shimmer 1.8s ease-in-out infinite;
+}
+.skeleton-icon {
+  width: 90px;
+  height: 112px;
+  flex-shrink: 0;
+  border: 1px solid #2b4355;
+}
+.skeleton-title {
+  width: 78%;
+  height: 14px;
+  margin: 3px 0 10px;
+}
+.skeleton-line {
+  width: 95%;
+  height: 10px;
+  margin-bottom: 10px;
+}
+.skeleton-line-short {
+  width: 65%;
+}
+.skeleton-badge {
+  width: 43px;
+  height: 22px;
+}
+.skeleton-percentage {
+  width: 65px;
+  height: 9px;
+}
+.catalog-loading-label {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+@keyframes catalog-shimmer {
+  to {
+    transform: translateX(100%);
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .skeleton-shimmer::after {
+    animation: none;
+  }
+}
 .achievement {
   position: relative;
   min-width: 0;
@@ -392,6 +478,9 @@
   .achievement-icon {
     width: 85px;
   }
+  .skeleton-icon {
+    width: 85px;
+  }
 }
 @media (max-width: 1000px) {
   .achievement-grid {
@@ -412,6 +501,9 @@
     min-height: 130px;
   }
   .achievement-icon {
+    width: 92px;
+  }
+  .skeleton-icon {
     width: 92px;
   }
   .achievement-meta {

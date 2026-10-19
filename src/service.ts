@@ -1,5 +1,6 @@
 import { createClient } from "@supabase/supabase-js";
 import type { Achievement } from "./data";
+import { demo } from "./data";
 import { captureAuthCallback } from "./auth";
 export const authCallback = captureAuthCallback();
 const url = import.meta.env.VITE_SUPABASE_URL,
@@ -20,9 +21,17 @@ export type PlayerState = Progress & {
 export const empty: Progress = { unlocked: [], featured: [], public: false };
 export function localProgress(): Progress {
   try {
+    const saved = JSON.parse(localStorage.getItem("lip-progress") || "{}");
+    const activeIds = new Set(demo.map((a) => a.id));
+    const unlocked = Array.isArray(saved.unlocked)
+      ? saved.unlocked.filter((id: string) => activeIds.has(id))
+      : [];
     return {
-      ...empty,
-      ...JSON.parse(localStorage.getItem("lip-progress") || "{}"),
+      unlocked,
+      featured: Array.isArray(saved.featured)
+        ? saved.featured.filter((id: string) => unlocked.includes(id))
+        : [],
+      public: saved.public === true,
     };
   } catch {
     return empty;

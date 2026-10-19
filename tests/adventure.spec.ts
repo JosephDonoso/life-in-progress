@@ -22,7 +22,7 @@ test("My adventure: global proportions, descending order, own achievements and r
     nodes.map((n) => Number(n.getAttribute("data-percentage"))),
   );
   expect(percentages).toEqual([...percentages].sort((a, b) => b - a));
-  expect(percentages[0]).toBe(89);
+  expect(percentages[0]).toBe(100);
   const originalIds = await rows.evaluateAll((nodes) =>
     nodes.map((n) => n.getAttribute("aria-label")),
   );
@@ -30,7 +30,7 @@ test("My adventure: global proportions, descending order, own achievements and r
   await expect(rows).toHaveCount(24);
   await expect(
     dialog.getByRole("button", { name: "Ver más", exact: true }),
-  ).toHaveCount(0);
+  ).toBeVisible();
   const expandedIds = await rows.evaluateAll((nodes) =>
     nodes.map((n) => n.getAttribute("aria-label")),
   );
@@ -42,8 +42,19 @@ test("My adventure: global proportions, descending order, own achievements and r
   expect(expandedPercentages).toEqual(
     [...expandedPercentages].sort((a, b) => b - a),
   );
+  const more = dialog.getByRole("button", { name: "Ver más", exact: true });
+  while (await more.isVisible()) {
+    const count = await rows.count();
+    await more.click();
+    await expect(rows).toHaveCount(Math.min(count + 12, 206));
+  }
+  await expect(rows).toHaveCount(206);
+  const allIds = await rows.evaluateAll((nodes) =>
+    nodes.map((n) => n.getAttribute("aria-label")),
+  );
+  expect(new Set(allIds).size).toBe(206);
   const bone = dialog.getByRole("button", {
-    name: "Desbloquear Mi primer vuelo",
+    name: "Desbloquear Día de pago",
     exact: true,
   });
   await expect(bone).toHaveAttribute("aria-pressed", "false");
@@ -54,10 +65,10 @@ test("My adventure: global proportions, descending order, own achievements and r
       100
     );
   });
-  expect(proportion).toBeCloseTo(62.1, 0);
+  expect(proportion).toBeCloseTo(82.4, 0);
   await bone.click();
   const unlocked = dialog.getByRole("button", {
-    name: "Desmarcar Mi primer vuelo",
+    name: "Desmarcar Día de pago",
     exact: true,
   });
   await expect(unlocked).toHaveAttribute("aria-pressed", "true");
@@ -73,9 +84,9 @@ test("My adventure: global proportions, descending order, own achievements and r
     .click();
   await dialog
     .getByLabel("Buscar en mi aventura", { exact: true })
-    .fill("vuelo");
+    .fill("recibido tu primer sueldo");
   await expect(rows).toHaveCount(1);
-  await expect(rows.first()).toContainText("Mi primer vuelo");
+  await expect(rows.first()).toContainText("Día de pago");
   await dialog.getByLabel("Buscar en mi aventura", { exact: true }).fill("");
   await expect(rows).toHaveCount(12);
   await dialog.screenshot({ path: "test-results/adventure-desktop.png" });

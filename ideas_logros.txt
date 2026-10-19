@@ -1,0 +1,237 @@
+[Etapas de la vida]
+    Llegar al juego — Has nacido.
+    Primera década — Has cumplido 10 años.
+    Se desbloquearon las responsabilidades — Has cumplido 18 años.
+    Dos décadas — Has cumplido 20 años.
+    Los veinte: segunda temporada — Has cumplido 30 años.
+    Cuarentena — Has cumplido 40 años.
+    Medio siglo — Has cumplido 50 años.
+    Longevidad I — Has cumplido 70 años.
+    Longevidad II — Has cumplido 80 años.
+    Leyenda viviente — Has superado los 90 años.
+
+[Educación y aprendizaje]
+    Tutorial completado — Has terminado la educación primaria.
+    Suena el último timbre — Has terminado la educación secundaria.
+    El cartón más caro — Has terminado una carrera universitaria de pregrado.
+    Un paso más — Has terminado un posgrado.
+    Ahora con certificado — Has obtenido una certificación profesional.
+    Autodidacta — Has aprendido una habilidad compleja por tu cuenta.
+    ¿De qué me sirve? — Has aprendido a resolver una ecuación de segundo grado.
+    ¡Oferta! — Has aprendido a calcular un descuento.
+    Sin subtítulos — Has aprendido un idioma distinto de tu lengua materna.
+    Las manos hablan — Has aprendido a comunicarte mediante una lengua de señas.
+    Conocimiento compartido — Le has enseñado una habilidad a otra persona.
+    Por la ciencia — Has participado como sujeto de un estudio o investigación.
+
+[Trabajo y profesión]
+    Experiencia temprana — Has tenido tu primer trabajo durante la juventud.
+    De la teoría al café — Has completado una práctica profesional.
+    Cuéntame sobre ti — Has asistido a una entrevista de trabajo.
+    Bienvenido a la nómina — Has tenido tu primer trabajo formal.
+    Día de pago — Has recibido tu primer sueldo.
+    Subiendo de rango — Has conseguido tu primer ascenso laboral.
+    Mismo personaje, mejor sueldo — Has recibido tu primer aumento salarial.
+    Expediente abierto — Has recibido tu primera amonestación laboral.
+    Despedido — Has vivido tu primer despido laboral.
+    Por decisión propia — Has renunciado a un trabajo.
+    Cambio de rumbo — Has cambiado de profesión.
+    Ahora el jefe eres tú — Has iniciado tu propio negocio.
+    Adiós al despertador — Te has retirado de la vida laboral.
+
+[Dinero y compras]
+    Sin patrocinadores — Has cubierto tus propios gastos.
+    Trato hecho — Has negociado el precio de una compra.
+    Nuevo para mí — Has comprado algo que ya había tenido otro dueño.
+    Esto no cabe en la bolsa — Has comprado un vehículo u otro bien de alto valor.
+    Cuentas saldadas — Has terminado de pagar una deuda.
+
+[Hogar y vivienda]
+    Tu vida en cajas — Has cambiado de hogar por primera vez.
+    Bajo el mismo techo — Has compartido vivienda con personas que no son de tu familia.
+    Llaves propias — Has vivido solo por primera vez.
+    Un hogar propio — Has comprado una vivienda.
+    Banda sonora de taladros — Has vivido en una casa mientras se realizaban obras en ella.
+    Acceso denegado — Te has quedado fuera de casa por no tener las llaves.
+
+[Salud y cuerpo]
+    En buenas manos — Has recibido atención médica por primera vez.
+    No lo revientes — Has tenido acné.
+    Reacción inesperada — Has tenido una reacción alérgica.
+    Cambio de skin — Te has teñido el pelo.
+    Otra mirada — Has usado lentes de contacto.
+    El dedo contra el mundo — Te has golpeado un dedo del pie.
+    Paso en falso — Has sufrido un esguince.
+    Fuera de lugar — Has sufrido una luxación.
+    Huesos de cristal — Has sufrido una fractura.
+    Bajo el bisturí — Te has sometido a una operación.
+    A prueba de todo — Has superado una enfermedad.
+    Apagón — Has sufrido un desmayo.
+    Segunda oportunidad — Has sobrevivido a una situación en la que tu vida estuvo en peligro.
+
+[Relaciones, familia y vida social]
+    Modo cooperativo — Has hecho tu primera amistad.
+    Amistad legendaria — Has mantenido una amistad durante más de 20 años.
+    De puño y letra — Has recibido una carta escrita a mano.
+    Del chat al café — Has conocido en persona a alguien con quien habías hablado por Internet.
+    Qué pequeño es el mundo — Te has encontrado por casualidad con alguien conocido durante un viaje.
+    Sin avisar — Has recibido una visita inesperada.
+    Hacer las paces — Te has reconciliado con alguien después de una discusión.
+    Primer amor — Te has enamorado por primera vez.
+    Amor correspondido — Has tenido tu primera relación sentimental.
+    Corazón roto — Has vivido tu primera ruptura amorosa.
+    Hasta que la muerte nos separe — Te has casado.
+    Celebrar el amor — Has asistido a una boda.
+    Nuevo jugador en la familia — Te has convertido en padre o madre.
+    Tío: modo desbloqueado — Te has convertido en tío o tía.
+    Dar y recibir — Has participado en un intercambio de regalos.
+    Hecho para ti — Has regalado algo hecho por ti.
+    La fiesta corre por mi cuenta — Has organizado una fiesta.
+    ¿Y si me los imagino en pijama? — Has dado un discurso en público.
+    Mamá, salí en la tele — Has aparecido en un medio de comunicación.
+    La despedida — Has asistido a un funeral.
+
+[Comunidad y ayuda a otros]
+    Tu voz cuenta — Has votado en una elección.
+    Manos a la obra — Has participado en un voluntariado.
+    Primeros auxilios — Has aprendido técnicas básicas de primeros auxilios.
+    Estar ahí — Has cuidado a una persona enferma.
+    Una parte de ti — Has donado sangre.
+    Esto es un simulacro — Has participado en un simulacro de emergencia.
+
+[Viajes y transporte]
+    Al volante — Has aprendido a conducir un auto.
+    Dos ruedas y un motor — Has aprendido a conducir una moto.
+    Plan B sobre ruedas — Has aprendido a cambiar una rueda de un vehículo.
+    Al timón — Has aprendido a manejar una embarcación.
+    A los mandos — Has aprendido a pilotar una aeronave.
+    Sobre rieles — Has viajado en tren.
+    A bordo — Has viajado en barco.
+    Por los aires — Has subido a un teleférico.
+    Llaves prestadas — Has alquilado un vehículo.
+    Mi casa tiene recepción — Te has alojado en un hotel.
+    Grupo de viaje: tú — Has viajado solo.
+    El mapa se hizo más grande — Has realizado tu primer viaje internacional.
+    Nuevos horizontes — Has viajado a otro continente por primera vez.
+    Viajero continental — Has visitado tres continentes.
+    Vuelta al mundo — Has visitado todos los continentes habitables.
+    Sin fronteras — Has visitado cinco países.
+    Ciudadano del mundo — Has visitado diez países.
+    Coleccionista de banderas — Has visitado más de 20 países.
+    Vuelta a casa — Has regresado a tu país después de vivir en el extranjero.
+    ¿Dónde estoy? — Te has perdido sin saber cómo llegar a tu destino.
+    El avión se fue — Has perdido un vuelo.
+    Una parada de más — Te has quedado dormido en el transporte público.
+
+[Naturaleza y entorno]
+    Compañero de vida — Has tenido una mascota.
+    En su mundo — Has visto un animal salvaje en su hábitat natural.
+    Frente al mar — Has visto el mar.
+    No era caspa — Has visto nevar por primera vez.
+    Luz y estruendo — Has presenciado una tormenta eléctrica.
+    Colores en el cielo — Has visto un arcoíris.
+    Pide un deseo — Has visto una estrella fugaz.
+    Un mapa entre estrellas — Has aprendido a identificar una constelación.
+    Una sombra en el cielo — Has visto un eclipse.
+    Hotel de mil estrellas — Has acampado al aire libre.
+    Hacia el interior — Has visitado una cueva.
+    La tierra se mueve — Has presenciado un terremoto.
+    El agua se desborda — Has presenciado una inundación.
+
+[Arte, cultura y entretenimiento]
+    Primeras notas — Has aprendido a tocar un instrumento musical.
+    Entre líneas — Has aprendido a dibujar.
+    Una larga historia — Has leído un libro de más de 500 páginas.
+    Tu propia historia — Has escrito un libro.
+    Se abre el telón — Has actuado en una obra de teatro.
+    Ritmo desbloqueado — Has aprendido a bailar.
+    Mirar, pero no tocar — Has visitado un museo.
+    En la gran pantalla — Has visto una película en un cine.
+    Hoy soy otro — Has usado un disfraz.
+    Nada por aquí — Has aprendido a realizar un truco de magia.
+    Las cartas sobre la mesa — Has aprendido a jugar al póker.
+    Jaque — Has aprendido a jugar al ajedrez.
+    Manos rápidas — Has aprendido a hacer malabares.
+    Va y viene — Has aprendido a hacer un truco con un yoyó.
+    Entre los dedos — Has aprendido a hacer un truco de destreza con un lápiz.
+    Una melodía al viento — Has aprendido a silbar suavemente.
+    Que se escuche — Has aprendido a emitir un silbido fuerte.
+    Hilo al cielo — Has elevado una cometa o volantín.
+
+[Deporte y movimiento corporal]
+    El mundo al revés — Has aprendido a mantener el equilibrio sobre las manos.
+    Por encima de la barra — Has realizado una dominada.
+    Bandera humana — Has logrado mantener el cuerpo suspendido y horizontal, sujeto a un apoyo vertical.
+    Tu peso en sentadilla — Has realizado una sentadilla con una carga equivalente a tu peso corporal.
+    Tu peso en banca — Has realizado un press de banca con una carga equivalente a tu peso corporal.
+    ¿No hay más placas? — Has completado una repetición en una máquina de gimnasio con su carga máxima disponible.
+    Flexibilidad desbloqueada — Has logrado hacer un split.
+    Disciplina en movimiento — Has aprendido un arte marcial.
+    Recalculando la gravedad — Has aprendido a hacer una voltereta.
+    Deslizarse sin caer — Has aprendido a patinar.
+    Truco sobre ruedas — Has aprendido a hacer un truco en patineta.
+    Adiós, rueditas — Has aprendido a andar en bicicleta.
+    A pedales — Has completado una ruta en bicicleta.
+    Sin flotador — Has aprendido a mantenerte a flote sin ayuda.
+    Como pez en el agua — Has aprendido a nadar sin asistencia.
+    De cabeza al agua — Has aprendido a realizar un clavado.
+    Primeros kilómetros — Has corrido cinco kilómetros.
+    Maratón en formato demo — Has completado una media maratón.
+    Los créditos están en la meta — Has completado una maratón.
+    Salto tras salto — Has aprendido a saltar la cuerda.
+    A caballo — Has aprendido a cabalgar.
+    En lo más alto — Has ganado una competición.
+    Al fondo de la red — Has marcado un gol.
+    Aquí no pasa — Has atajado un penal.
+    Desde lejos — Has encestado un triple.
+    Todos abajo — Has hecho un strike en los bolos.
+
+[Cocina, oficios y habilidades prácticas]
+    Primer plato — Has cocinado un plato por tu cuenta.
+    Menú completo — Has preparado un menú completo.
+    Sabor propio — Has creado una receta propia.
+    No todo es bistec — Has aprendido a distinguir tipos y cortes de carne.
+    De la tierra a la mesa — Has cultivado un alimento.
+    Puntada a puntada — Has aprendido a coser.
+    Hecho a medida — Has construido un mueble.
+    Una relación de hierro — Has aprendido a soldar.
+    Que se haga la luz — Has realizado una instalación de un componente eléctrico.
+    Y no sobró ningún tornillo — Has desarmado y vuelto a armar un objeto complejo.
+    Otra oportunidad — Has reparado un objeto que había dejado de funcionar.
+
+[Tecnología y vida digital]
+    Hola, mundo — Has programado algo.
+    Mi cuerpo sigue aquí — Has probado un dispositivo de realidad virtual.
+    Era para otro chat — Has enviado un mensaje a la persona incorrecta.
+    Arqueólogo del perfil — Has dado «me gusta» por accidente a una publicación antigua.
+    La cámara te encontró — Has abierto la cámara frontal sin estar preparado.
+
+[Conflictos y seguridad]
+    Cara a cara — Has ganado una pelea.
+    Esto no venía en el presupuesto — Has recibido una multa.
+    Lo que se llevaron — Has sufrido un robo.
+    Dejar constancia — Has presentado una denuncia.
+    Entre pisos — Te has quedado atrapado en un ascensor.
+
+[Vida cotidiana y situaciones inesperadas]
+    Noche en vela — Has pasado una noche entera sin dormir.
+    Antes de la alarma — Te has despertado antes de que sonara la alarma.
+    Palabras dormidas — Has hablado mientras dormías.
+    Hay algo para ti — Has recibido un paquete a tu nombre.
+    Se fue la luz — Has vivido un corte de electricidad.
+    Puerta equivocada — Has entrado al baño equivocado.
+    Ese saludo no era para ti — Has saludado a alguien que no te estaba saludando.
+    Tierra, trágame — Te has caído delante de varias personas.
+    Era para el otro lado — Has empujado una puerta que decía «tirar».
+    Error de sistema — Has olvidado lo que ibas a decir a mitad de una frase.
+    Desincronización — Has intentado pasar por el mismo lado que otra persona repetidamente.
+    Se escapó — Has soltado un gas en público.
+    Ni agua hacía falta — Te has atragantado con tu propia saliva.
+    La mesa también tenía sed — Has volcado un vaso por accidente.
+    Tú también — Has respondido «igualmente» cuando no correspondía.
+    ¿Cómo te llamabas? — Has olvidado el nombre de alguien mientras hablabas con esa persona.
+    Risa inoportuna — Te has reído en un momento en el que no debías.
+    Contexto perdido — Te has reído de un chiste sin haberlo entendido.
+    Moda reversible — Has descubierto que llevabas la ropa del revés.
+    No soy quien crees — Te han confundido con otra persona.
+    Sonó a vidrio — Has roto un vidrio por accidente.

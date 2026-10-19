@@ -124,7 +124,9 @@ export async function getPublicProfile(
         ...p,
         unlocked: p.unlocked || 0,
         created_at: "2026-10-01T00:00:00Z",
-        featured: [demo[1], demo[3]].filter((a): a is Achievement => !!a),
+        featured: ["demo-19", "demo-4"].flatMap((key) =>
+          demo.filter((a) => a.id === key),
+        ),
       }
     : null;
 }

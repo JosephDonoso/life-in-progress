@@ -22,7 +22,7 @@ export function useCatalog(
   } | null>(null);
   const [attempt, setAttempt] = useState(0);
   const { t, language } = useLanguage();
-  const [loading, setLoading] = useState(false);
+  const [loading, setLoading] = useState(!!db);
   const [items, setItems] = useState<Achievement[]>([]),
     [categories, setCategories] = useState(defaults),
     [stats, setStats] = useState({

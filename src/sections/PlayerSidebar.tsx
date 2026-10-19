@@ -6,6 +6,7 @@ import { db } from "../service";
 import { Panel } from "../components/Panel";
 import { ProgressBar } from "../components/ProgressBar";
 import { Avatar } from "../components/Avatar";
+import { CategoryIcon } from "../components/CategoryIcon";
 export function PlayerSidebar({ model: m }: { model: LifeProgress }) {
   const { t: tr } = useLanguage();
 
@@ -62,7 +63,7 @@ export function PlayerSidebar({ model: m }: { model: LifeProgress }) {
           <button onClick={() => m.setCategory("")}>{tr("Ver todas")}</button>
         }
       >
-        {m.categories.map((c, i) => (
+        {m.categories.map((c) => (
           <button
             key={tr(c)}
             className={m.category === c ? "chosen" : ""}
@@ -71,25 +72,8 @@ export function PlayerSidebar({ model: m }: { model: LifeProgress }) {
               m.setTab("Logros");
             }}
           >
-            <span className="category-symbol">
-              {
-                [
-                  "✦",
-                  "♥",
-                  "▰",
-                  "◈",
-                  "♡",
-                  "☀",
-                  "✈",
-                  "♧",
-                  "⌘",
-                  "⚑",
-                  "♫",
-                  "✧",
-                  "⚡",
-                  "☕",
-                ][i % 14]
-              }
+            <span className="category-symbol" aria-hidden="true">
+              <CategoryIcon name={c} />
             </span>
             <span>{tr(c)}</span>
             <ChevronRight size={15} />
